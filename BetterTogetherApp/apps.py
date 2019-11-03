@@ -1,5 +1,4 @@
 from django.apps import AppConfig
 
-
-class ShareConfig(AppConfig):
-    name = 'Share'
+class BetterTogetherAppConfig(AppConfig):
+    name = 'BetterTogetherApp'
