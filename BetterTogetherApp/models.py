@@ -20,17 +20,22 @@ class ShareFood(models.Model):
     description = models.TextField('Description', blank=False)
     date_time = models.DateTimeField('Date and Time')
     user = models.ManyToManyField(User)
+    host = models.TextField("Host's Name", blank=False)
 
 class ShareRide(models.Model):
     location = models.TextField('Location', blank=False)
+    destination = models.TextField('Destination', blank=False)
     description = models.TextField('Description', blank=False)
     date_time = models.DateTimeField('Date and Time')
     user = models.ManyToManyField(User)
+    host = models.TextField("Host's Name", blank=False)
 
 class SharePromotion(models.Model):
     location = models.TextField('Location', blank=False)
+    brand = models.TextField('Brand', blank=False)
     description = models.TextField('Description', blank=False)
     date_time = models.DateTimeField('Date and Time')
     user = models.ManyToManyField(User)
+    host = models.TextField("Host's Name", blank=False)
 
 
