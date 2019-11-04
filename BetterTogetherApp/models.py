@@ -16,26 +16,26 @@ class User(models.Model):
         return self.gender
 
 class ShareFood(models.Model):
-    location = models.TextField('Location', blank=False)
-    description = models.TextField('Description', blank=False)
+    location = models.TextField('Location', default="")
+    description = models.TextField('Description', default="")
     date_time = models.DateTimeField('Date and Time')
     user = models.ManyToManyField(User)
-    host = models.TextField("Host's Name", blank=False)
+    host = models.TextField("Host's Name", default="")
 
 class ShareRide(models.Model):
-    location = models.TextField('Location', blank=False)
-    destination = models.TextField('Destination', blank=False)
-    description = models.TextField('Description', blank=False)
+    location = models.TextField('Location', default="")
+    destination = models.TextField('Destination', default="")
+    description = models.TextField('Description', default="")
     date_time = models.DateTimeField('Date and Time')
     user = models.ManyToManyField(User)
-    host = models.TextField("Host's Name", blank=False)
+    host = models.TextField("Host's Name", default="")
 
 class SharePromotion(models.Model):
-    location = models.TextField('Location', blank=False)
-    brand = models.TextField('Brand', blank=False)
-    description = models.TextField('Description', blank=False)
+    location = models.TextField('Location', default="")
+    brand = models.TextField('Brand', default="")
+    description = models.TextField('Description', default="")
     date_time = models.DateTimeField('Date and Time')
     user = models.ManyToManyField(User)
-    host = models.TextField("Host's Name", blank=False)
+    host = models.TextField("Host's Name", default="")
 
 
