@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <h1>Share Ride</h1>
+        <h2>Here is our current share program(s) available: </h2>
+            {% if share_ride %}
+                {% for object in share_ride %}
+                <p> {{ object.get_location }} 
+                    <br> {{ object.get_destination }}
+                    <br> Current Participants are : 
+                    {% for user in object.user.all %} 
+                        {{ user.get_name }},
+                    {% endfor %}
+                    <br> Hosted by : {{ object.host }}
+                </p>
+                {% endfor %}
+            {% endif %}
+    </body>
+</html>
+
