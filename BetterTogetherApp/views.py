@@ -15,3 +15,7 @@ def share_ride_index(request):
 #     context = {'share_food' : share_food}
 #     return render(request, 'BetterTogetherApp/index.html', context)
 
+# def share_promotion_index(request):
+#     share_promotion = SharePromotion.objects.all()
+#     context = {'share_promotion' : share_promotion}
+#     return render(request, 'BetterTogetherApp/index.html', context)
