@@ -1,0 +1,12 @@
+.navbar {
+    margin: 0;
+    padding: 0;
+    display: block ;
+    height: 90px;
+    background-color: #212f2d;
+    /* color: #212F2D; */
+}
+.navbar-band{
+    font-size: medium;
+
+}
