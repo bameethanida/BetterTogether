@@ -1,4 +1,6 @@
 from django.db import models
+from django import forms
+import datetime
 
 class User(models.Model):
     first_name = models.CharField('First Name', max_length=30)
@@ -31,10 +33,13 @@ class ShareRide(models.Model):
     host = models.CharField("Host's Name", default="", max_length=30)
 
     def get_location(self):
-        return f"Location : {self.location}"
+        return f"Meeting Location : {self.location}"
 
     def get_destination(self):
         return f"Destination : {self.destination}"
+
+    def get_time(self):
+        return f"Time to meet up with other participants : {str(self.date_time)}"
 
 class SharePromotion(models.Model):
     location = models.TextField('Location', default="")
@@ -44,4 +49,6 @@ class SharePromotion(models.Model):
     user = models.ManyToManyField(User)
     host = models.CharField("Host's Name", default="", max_length=30)
 
-
+class DateForm(forms.Form):
+    day = forms.DateField(initial=datetime.date.today)
+    time = forms.TimeField(initial=datetime.time)

@@ -2,10 +2,12 @@
     <body>
         <h1>Share Ride</h1>
         <h2>Here is our current share program(s) available: </h2>
+        Today is : {{ dateform }}
             {% if share_ride %}
                 {% for object in share_ride %}
                 <p> {{ object.get_location }} 
                     <br> {{ object.get_destination }}
+                    <br> {{ object.get_time }}
                     <br> Current Participants are : 
                     {% for user in object.user.all %} 
                         {{ user.get_name }},
