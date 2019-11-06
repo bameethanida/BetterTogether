@@ -1,12 +1,36 @@
-.navbar {
-    margin: 0;
-    padding: 0;
-    display: block ;
-    height: 90px;
-    background-color: #212f2d;
-    /* color: #212F2D; */
-}
-.navbar-band{
-    font-size: medium;
+.Top{
 
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: whitesmoke;
 }
+
+/* Navbar container */
+.navbar { 
+    display: block;
+    overflow: hidden;
+    background-color: white;
+    font-family: Arial;
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 0;
+  }
+  
+  /* Links inside the navbar */
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: navy;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  ul {
+    list-style-type: none;
+    margin-top: 25;
+    margin-right: 40;
+    padding: 0;
+    float: right;
+  }

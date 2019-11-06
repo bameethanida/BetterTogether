@@ -1,20 +1,44 @@
 <html>
 <head>
 	<title>Better Together</title>
-    <link href="homepage_style.css" rel="stylesheet">
+    <link href="css/homepage_style.css" rel="stylesheet">
+	<script type="text/javascript" src="js/homepage.js"> </script> 
 </head>
-<body class="p-3">
-	<!-- Header-->
-	<nav class="navbar">
-	<img src =  "Logo_1.png" height = "85"> 
-		<span class="navbar-brand">
-			Better Together
-		</span>
+<body class="Top" >
+	<nav class="navbar navbar-light bg-faded">
+  		<a class="navbar-brand" href="#">
+    		<a href = "homepage.html"><img src="image/long-logo-3.png" height ="65" alt="BetterTogether">
+  		</a>
 		
-
+		<ul>
+			<li><a href="homepage.html">Sign Up</a></li>
 		</ul>
-
+		<ul>
+			<li><a href="homepage.html">Log in</a></li>
+		</ul>
+		<ul>
+			<li><a href="homepage.html">Share</a></li>
+		</ul>
 	</nav>
-</body>
+	<center><img class="mySlides" src="image/1.jpg"  height = "550">
+	<center><img class="mySlides" src="image/2.jpg" height = "550">
+	<center><img class="mySlides" src="image/3.jpg" height = "550">
+	<center><img class="mySlides" src="image/4.jpg" height = "550">			
+	<script>
+	var slideIndex = 0;
+	carousel();
 
+	function carousel() {
+		var i;
+		var x = document.getElementsByClassName("mySlides");
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none"; 
+		}
+		slideIndex++;
+		if (slideIndex > x.length) {slideIndex = 1} 
+		x[slideIndex-1].style.display = "block"; 
+		setTimeout(carousel, 5000); 
+	}		
+	</script>
+</body>
 </html>
