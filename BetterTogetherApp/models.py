@@ -1,15 +1,15 @@
 from django.db import models
 from django import forms
+from django.contrib.auth.models import User
 import datetime
 
-class User(models.Model):
-    first_name = models.CharField('First Name', max_length=30)
-    last_name = models.CharField('Last Name', max_length=30)
+class Info(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     gender = models.CharField('Gender (F or M)', max_length=1)
     age = models.IntegerField('Age', max_length=2)
 
     def get_name(self):
-        return self.first_name + " " + self.last_name
+        return self.user.first_name + " " + self.user.last_name
 
     def get_age(self):
         return self.age
@@ -21,7 +21,7 @@ class ShareFood(models.Model):
     location = models.TextField('Location', default="")
     description = models.TextField('Description', default="")
     date_time = models.DateTimeField('Date and Time')
-    user = models.ManyToManyField(User)
+    participants = models.ManyToManyField(Info)
     host = models.CharField("Host's Name", default="", max_length=30)
 
 class ShareRide(models.Model):
@@ -29,7 +29,7 @@ class ShareRide(models.Model):
     destination = models.TextField('Destination', default="")
     description = models.TextField('Description', default="")
     date_time = models.DateTimeField('Date and Time')
-    user = models.ManyToManyField(User)
+    participants = models.ManyToManyField(Info)
     host = models.CharField("Host's Name", default="", max_length=30)
 
     def get_location(self):
@@ -46,7 +46,7 @@ class SharePromotion(models.Model):
     brand = models.TextField('Brand', default="")
     description = models.TextField('Description', default="")
     date_time = models.DateTimeField('Date and Time')
-    user = models.ManyToManyField(User)
+    participants = models.ManyToManyField(Info)
     host = models.CharField("Host's Name", default="", max_length=30)
 
 class DateForm(forms.Form):
