@@ -12,8 +12,6 @@
     overflow: hidden;
     background-color: white;
     font-family: Arial;
-    position: -webkit-sticky; 
-    position: sticky;
     top: 0;
   }
   
@@ -33,4 +31,31 @@
     margin-right: 40;
     padding: 0;
     float: right;
+  }
+
+  .mySlides{
+    width: 100%;
+    height: 70%;
+  }
+
+  .content{
+    width: 100%;
+    height: 80%;
+    object-fit: cover ;
+  }
+
+  .share1{
+    float: left;
+    width: 33.33%;
+    height: 80%;
+  }
+  .share2{
+    float: left;
+    width: 33.33%;
+    height: 80%;
+  }
+  .share3{
+    float: left;
+    width: 33.33%;
+    height: 80%;
   }
