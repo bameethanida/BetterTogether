@@ -22,7 +22,9 @@ class ShareFood(models.Model):
     description = models.TextField('Description', default="")
     date_time = models.DateTimeField('Date and Time')
     participants = models.ManyToManyField(Info)
+    num_people = models.IntegerField("Number of people", max_length=2)
     host = models.CharField("Host's Name", default="", max_length=30)
+    full = models.BooleanField(default=False)
 
 class ShareRide(models.Model):
     location = models.TextField('Location', default="")
@@ -30,7 +32,9 @@ class ShareRide(models.Model):
     description = models.TextField('Description', default="")
     date_time = models.DateTimeField('Date and Time')
     participants = models.ManyToManyField(Info)
+    num_people = models.IntegerField("Number of people", max_length=2)
     host = models.CharField("Host's Name", default="", max_length=30)
+    full = models.BooleanField(default=False)
 
     def get_location(self):
         return f"Meeting Location : {self.location}"
@@ -47,7 +51,9 @@ class SharePromotion(models.Model):
     description = models.TextField('Description', default="")
     date_time = models.DateTimeField('Date and Time')
     participants = models.ManyToManyField(Info)
+    num_people = models.IntegerField("Number of people", max_length=2)
     host = models.CharField("Host's Name", default="", max_length=30)
+    full = models.BooleanField(default=False)
 
 class DateForm(forms.Form):
     day = forms.DateField(initial=datetime.date.today)
