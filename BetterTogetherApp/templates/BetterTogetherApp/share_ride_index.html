@@ -9,13 +9,15 @@
                     <br> {{ object.get_destination }}
                     <br> {{ object.get_time }}
                     <br> Current Participants are : 
-                    {% for user in object.participants.all %} 
-                        {{ user.get_name }},
+                    {% for user1 in object.participants.all %} 
+                        {{ user1.get_name }},
                     {% endfor %}
                     <br> Hosted by : {{ object.host }}
                 </p>
                 {% endfor %}
             {% endif %}
+
+            <a href="{% url 'BetterTogetherApp:create_share_ride' %}">Create new event<a>
     </body>
 </html>
 
