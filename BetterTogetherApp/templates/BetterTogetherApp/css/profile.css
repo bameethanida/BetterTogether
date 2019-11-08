@@ -1,0 +1,147 @@
+.Top {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: whitesmoke;
+}
+
+body {
+    font-family: Roboto, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #565d6b;
+    background-color: #e6e8f2;
+}
+
+.nav {
+    display: block;
+    overflow: hidden;
+    background-color: white;
+    font-family: Arial;
+    top: 0;
+}
+
+.nav a {
+    float: left;
+    font-size: 16px;
+    color: navy;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 25;
+    margin-right: 40;
+    margin-left: 80rem;
+    padding: 0;
+    float: right;
+}
+
+
+.main-box {
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .15);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-weight: 300;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.row {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.main-box .main-box-sidebar {
+    background: #ffa154;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+    color: #fff;
+    min-height: 550px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.main-box .main-box-sidebar-section:not(:last-child) {
+    border-bottom: 1px solid #898d97;
+}
+
+.main-box .main-box-sidebar-section {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.main-box .main-box-content {
+    padding: 15px;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.btn-outline-warning,
+.btn-outline-warning:hover,
+.btn-outline-warning:active,
+.btn-outline-warning:visited {
+    background-color: #ffa154 !important;
+}
+
+@media (min-width: 992px) {
+    .col-md-2 {
+        width: 16.66667%;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-10 {
+        width: 83.33333%;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .col-md-1,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12 {
+        float: left;
+    }
+}
