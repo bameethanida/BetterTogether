@@ -3,7 +3,7 @@
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 0;
-  background-color:honeydew;
+  background-color: whitesmoke;
 }
 
 .navbar {
@@ -75,12 +75,11 @@ ul {
   justify-content: center;
   padding: 5px;
   background-color: white;
-  color : navy;
+  color: navy;
   margin-bottom: 0;
   border-bottom: 0;
 }
 
-.logo-footer{
-
-  height: 100;
+.logo-footer {
+  height: 75;
 }
