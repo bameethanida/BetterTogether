@@ -1,61 +1,86 @@
-.Top{
-
-    margin-top: 0;
-    margin-left: 0;
-    margin-right: 0;
-    background-color: whitesmoke;
+.body {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  background-color:honeydew;
 }
 
-/* Navbar container */
-.navbar { 
-    display: block;
-    overflow: hidden;
-    background-color: white;
-    font-family: Arial;
-    top: 0;
-  }
-  
-  /* Links inside the navbar */
-  .navbar a {
-    float: left;
-    font-size: 16px;
-    color: navy;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
+.navbar {
+  display: block;
+  overflow: hidden;
+  background-color: white;
+  font-family: Arial;
+  top: 0;
+}
 
-  ul {
-    list-style-type: none;
-    margin-top: 25;
-    margin-right: 40;
-    padding: 0;
-    float: right;
-  }
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: navy;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
 
-  .mySlides{
-    width: 100%;
-    height: 70%;
-  }
+ul {
+  list-style-type: none;
+  margin-top: 25;
+  margin-right: 40;
+  padding: 0;
+  float: right;
+}
 
-  .content{
-    width: 100%;
-    height: 80%;
-    object-fit: cover ;
-  }
+.mySlides {
+  width: 100%;
+  height: 70%;
+}
 
-  .share1{
-    float: left;
-    width: 33.33%;
-    height: 80%;
-  }
-  .share2{
-    float: left;
-    width: 33.33%;
-    height: 80%;
-  }
-  .share3{
-    float: left;
-    width: 33.33%;
-    height: 80%;
-  }
+.content {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  background-color: whitesmoke;
+}
+
+.share1 {
+  float: left;
+  width: 31%;
+  height: 100%;
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  border: 0.01cm;
+  border-style: solid;
+  background-color: gray;
+  border-radius: 30px
+}
+
+.share3 {
+  float: left;
+  width: 31%;
+  height: 100%;
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  margin-right: 0.5%;
+  border: 0.01cm;
+  border-style: solid;
+  background-color: gray;
+  border-radius: 30px
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  background-color: white;
+  color : navy;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.logo-footer{
+
+  height: 100;
+}
