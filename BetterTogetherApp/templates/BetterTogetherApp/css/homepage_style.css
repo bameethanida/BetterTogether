@@ -8,7 +8,6 @@
 
 .navbar {
   display: block;
-  overflow: hidden;
   background-color: white;
   font-family: Arial;
   top: 0;
@@ -17,8 +16,6 @@
 .navbar a {
   float: left;
   font-size: 16px;
-  color: navy;
-  text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
@@ -50,7 +47,7 @@ ul {
   margin-top: 2%;
   margin-left: 2%;
   margin-bottom: 2%;
-  border: 0.01cm;
+  border: 0cm;
   border-style: solid;
   background-color: gray;
   border-radius: 30px
@@ -64,7 +61,7 @@ ul {
   margin-left: 2%;
   margin-bottom: 2%;
   margin-right: 0.5%;
-  border: 0.01cm;
+  border: 0cm;
   border-style: solid;
   background-color: gray;
   border-radius: 30px
