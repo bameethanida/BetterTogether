@@ -1,4 +1,5 @@
 <html>
+
 <head>
 	<title>Better Together</title>
 	<link href="css/homepage_style.css" rel="stylesheet">
@@ -9,7 +10,6 @@
 		<a class="navbar-brand" href="#">
 			<a href="homepage.html"><img src="image/long-logo-3.png" height="65" alt="BetterTogether">
 			</a>
-
 			<ul>
 				<li><a href="homepage.html">Sign Up</a></li>
 			</ul>
@@ -21,24 +21,6 @@
 		<center><img class="mySlides" src="image/2.jpg">
 			<center><img class="mySlides" src="image/3.jpg">
 				<center><img class="mySlides" src="image/4.jpg">
-					<script>
-						var slideIndex = 0;
-						carousel();
-
-						function carousel() {
-							var i;
-							var x = document.getElementsByClassName("mySlides");
-							for (i = 0; i < x.length; i++) {
-								x[i].style.display = "none";
-							}
-							slideIndex++;
-							if (slideIndex > x.length) {
-								slideIndex = 1
-							}
-							x[slideIndex - 1].style.display = "block";
-							setTimeout(carousel, 5000);
-						}
-					</script>
 					<section class="content">
 						<div class="share1">
 							<h1> 15A</h1>
@@ -54,5 +36,6 @@
 						<img class="logo-footer" src="image/logo-1.png" alt="BetterTogether">
 					</div>
 </body>
+<script src="js/homepage_style.js"></script>
 
 </html>
