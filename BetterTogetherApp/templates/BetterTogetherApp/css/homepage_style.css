@@ -18,7 +18,9 @@
   font-size: 16px;
   padding: 14px 16px;
   text-decoration: none;
+
 }
+
 
 ul {
   list-style-type: none;
@@ -50,8 +52,10 @@ ul {
   border: 0cm;
   border-style: solid;
   background-color: gray;
-  border-radius: 30px
+  border-radius: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 
 .share3 {
   float: left;
@@ -64,7 +68,9 @@ ul {
   border: 0cm;
   border-style: solid;
   background-color: gray;
-  border-radius: 30px
+  border-radius: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 .footer {
