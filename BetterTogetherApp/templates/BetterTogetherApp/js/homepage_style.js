@@ -14,3 +14,11 @@ function carousel() {
     x[slideIndex - 1].style.display = "block";
     setTimeout(carousel, 5000);
 }
+
+const slogan = document.querySelectorAll("#slogan path");
+
+console.log(slogan)
+
+for(let i = 0; i<slogan.length; i++){
+    console.log(`Letter ${i} is ${slogan[i].getTotalLength()}`);
+}
