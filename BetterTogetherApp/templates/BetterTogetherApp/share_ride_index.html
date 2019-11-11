@@ -5,7 +5,9 @@
         Today is : {{ dateform }}
             {% if share_ride %}
                 {% for object in share_ride %}
-                <p> {{ object.get_location }} 
+                <p> {{ object.get_location_name }}
+                    <br> {{ object.get_location }} 
+                    <br> {{ object.get_destination_name }}
                     <br> {{ object.get_destination }}
                     <br> {{ object.get_time }}
                     <br> Current Participants are : 

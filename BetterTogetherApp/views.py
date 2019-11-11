@@ -39,12 +39,14 @@ def create_share_ride(request):
     if request.method == 'POST':
 
         if form.is_valid():
+            location_name = form.data.get('location_name')
             location = form.data.get('location')
+            destination_name = form.data.get('destination_name')
             destination = form.data.get('destination')
             description = form.data.get('description')
             date_time = form.data.get('date_time')
             num_people = form.data.get('num_people')
-            sr = ShareRide(location=location, destination=destination,
+            sr = ShareRide(location_name=location_name,location=location, destination_name=destination_name,destination=destination,
              description=description, date_time=date_time, num_people=num_people)   
             sr.save()
             return redirect('BetterTogetherApp:share_ride_index1')
