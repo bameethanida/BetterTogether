@@ -85,8 +85,78 @@ ul {
 .logo-footer {
   height: 75;
 }
+@media only screen and (max-width: 1030px) {
+  .mySlides {
+    height: 60%;
+  }
+}
+@media only screen and (max-width: 930px) {
+  .mySlides {
+    height: 50%;
+  }
+}
+@media only screen and (max-width: 830px) {
+  .mySlides {
+    height: 40%;
+  }
+}
+@media only screen and (max-width: 730px) {
+  .mySlides {
+    height: 30%;
+  }
+}
 
+/* Slogan text animation */
+.text-size {
+  width: 703px;
+  height: 181px;
+  padding-left: 0px;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+@media only screen and (max-width: 1300px) {
+  .text-size {
+    width: 550px;
+    height: 120px;
+    margin-left: -40px;
+    margin-top: 40px;
+  }
+}
+@media only screen and (max-width: 1030px) {
+  .text-size {
+    width: 550px;
+    height: 120px;
+    margin-left: -70px;
+    margin-top: 20px;
+  }
+}
+@media only screen and (max-width: 930px) {
+  .text-size {
+    width: 500px;
+    height: 100px;
+    margin-left: -100px;
+    margin-top: -15px;
+  }
+}
+@media only screen and (max-width: 830px) {
+  .text-size {
+    width: 450px;
+    height: 85px;
+    margin-left: -130px;
+    margin-top: -50px;
+  }
+}
+@media only screen and (max-width: 730px) {
+  .text-size {
+    width: 400px;
+    height: 70px;
+    margin-left: -150px;
+    margin-top: -80px;
+  }
+}
 #slogan {
+  font-size: 0%;
   position: absolute;
   top: 35%;
   transform: translate(-24%, -10%);
