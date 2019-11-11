@@ -107,13 +107,15 @@ ul {
     display: block;
     max-width: 100%;
     height: auto;
+    padding-left: 0;
+    padding-top: 0;
 }
 
 .btn-outline-warning,
 .btn-outline-warning:hover,
 .btn-outline-warning:active,
 .btn-outline-warning:visited {
-    background-color: #ffa154 !important;
+    background-color: #c49670 !important;
 }
 
 @media (min-width: 992px) {
@@ -143,5 +145,24 @@ ul {
     .col-md-11,
     .col-md-12 {
         float: left;
+    }
+}
+
+@media only screen and (max-width: 766px) {
+    .img-responsive {
+        padding-left: 15px;
+    }
+}
+@media only screen and (max-height: 812px) {
+    .main-box {
+        margin-top: 0;
+    }
+    .nav a {
+        padding: 13px 2px;
+    }
+    .img-responsive {
+        max-width: 80%;
+        padding-left: 85px;
+        padding-top: 40px;
     }
 }
