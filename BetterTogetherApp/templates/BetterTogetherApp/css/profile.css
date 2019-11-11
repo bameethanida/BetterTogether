@@ -153,7 +153,7 @@ ul {
         padding-left: 15px;
     }
 }
-@media only screen and (max-height: 812px) {
+@media only screen and (max-height: 759px) {
     .main-box {
         margin-top: 0;
     }
@@ -162,7 +162,8 @@ ul {
     }
     .img-responsive {
         max-width: 80%;
-        padding-left: 85px;
-        padding-top: 40px;
+        padding-left: 70px;
+        padding-top: 15px;
     }
 }
+
