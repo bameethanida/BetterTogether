@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>Get started with BetterTogether</title>
+        <link rel="stylesheet" type="text/css" href="static/css/signup_and_login_style.css">
+    </head>
+    <body>
+            <section class="forms-section">
+                    <div class="forms">
+                      <div class="form-wrapper is-active">
+                        <button type="button" class="switcher switcher-login">
+                          Log in
+                          <span class="underline"></span>
+                        </button>
+                        <form class="form form-login">
+                          <fieldset>
+                            <legend>Please, enter your email and password for login.</legend>
+                            <div class="input-block">
+                              <label for="login-email">E-mail</label>
+                              <input id="login-email" type="email" required>
+                            </div>
+                            <div class="input-block">
+                              <label for="login-password">Password</label>
+                              <input id="login-password" type="password" required>
+                            </div>
+                          </fieldset>
+                          <button type="submit" class="btn-login">Login</button>
+                        </form>
+                      </div>
+                      <div class="form-wrapper">
+                        <button type="button" class="switcher switcher-signup">
+                          Sign Up
+                          <span class="underline"></span>
+                        </button>
+                        <form class="form form-signup">
+                          <fieldset>
+                            <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+
+                            <div class="form-group">
+
+                                <div class="input-block">
+                                    <label for="signup-firstname">Firstname</label>
+                                    <input id="signup-firstname" type="text" required>
+                                </div>
+                                <div class="input-block">
+                                        <label for="signup-lastname">Lastname</label>
+                                        <input id="signup-lastname" type="text" required>
+                                    </div>
+                            
+                              </div>
+
+                            <div class="input-block">
+                              <label for="signup-email">E-mail</label>
+                              <input id="signup-email" type="email" required>
+                            </div>
+                            <div class="input-block">
+                              <label for="signup-password">Password</label>
+                              <input id="signup-password" type="password" required>
+                            </div>
+                            <div class="input-block">
+                              <label for="signup-password-confirm">Confirm password</label>
+                              <input id="signup-password-confirm" type="password" required>
+                            </div>
+                          </fieldset>
+                          <button type="submit" class="btn-signup">Sign Up</button>
+                        </form>
+                      </div>
+                    </div>
+                  </section>
+        <script src="static/js/signup_and_login_script.js"></script>
+    </body>
+</html>
