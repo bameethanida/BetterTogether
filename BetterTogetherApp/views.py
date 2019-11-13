@@ -5,7 +5,7 @@ from .forms import *
 from django import forms
 
 def index(request):
-    return render(request, 'BetterTogetherApp/index.html')
+    return render(request, 'BetterTogetherApp/homepage.html')
 
 def share_ride_index(request):
     share_ride = ShareRide.objects.all()
