@@ -7,10 +7,10 @@
 ## Team Members
 | Name | Student ID | Role | GitHub |
 | --- | --- | --- | --- |
-| Thanida Jongarnon | 6110545538 | Developer | @bameethanida |
-| Pawaris Wongsalung | 6110545562 | Developer | @kabilza |
-| Chananya Photan | 6110545481 | Developer | @forfeen |
-| Nattapol Boonyapornpong | 6110545503 | Developer | @bleachjade |
+| Thanida Jongarnon | 6110545538 | Developer | [bameethanida](https://github.com/bameethanida) |
+| Pawaris Wongsalung | 6110545562 | Developer | [kabilza](https://github.com/kabilza) |
+| Chananya Photan | 6110545481 | Developer | [forfeen](https://github.com/forfeen) |
+| Nattapol Boonyapornpong | 6110545503 | Developer | [bleachjade](https://github.com/bleachjade) |
 
 ## Project documents
 - ***[Iteration Plans](https://docs.google.com/document/d/12p_Q9lJGcFmxHFXDqpTGRPNsecd8QeMzd4vc9adesV8/edit?usp=sharing)***
