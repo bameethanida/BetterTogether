@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    link(rel="stylesheet" href="../static/css/icon_style.css")
+    style
+  body
+    -var sites = [
+    -  'facebook',
+    -  'google',
+    -]
+
+    .social-btns
+      each site in sites
+        a(href='#', class='btn ' + site)
+          i(class='fa fa-' + site)
