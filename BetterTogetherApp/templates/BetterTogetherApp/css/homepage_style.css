@@ -21,6 +21,21 @@
 
 }
 
+.sign-in{
+  text-align: center;
+  font-size: large;
+  border: 1cm;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 30px;
+  background-color: #FF6845;
+  width: 75%;
+  height:2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
 ul {
   list-style-type: none;
   margin-top: 25;
@@ -28,6 +43,16 @@ ul {
   padding: 0;
   float: right;
 }
+
+ul a:visited{
+  color: white;
+}
+
+ul a:hover{
+  color: #FF6845;
+  background-color: white;
+}
+
 
 .mySlides {
   width: 100%;
