@@ -4,6 +4,7 @@
   margin-right: 0;
   margin-bottom: 0;
   background-color: whitesmoke;
+  
 }
 
 .navbar {
@@ -29,7 +30,7 @@
   border-radius: 30px;
   background-color: #FF6845;
   width: 75%;
-  height:2%;
+  height:3%;
   display: flex;
   justify-content: center;
   align-items: center;
