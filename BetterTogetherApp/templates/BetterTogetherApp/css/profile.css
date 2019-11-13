@@ -103,7 +103,7 @@ ul {
     padding: 15px;
 }
 
-.img-responsive {
+.img-fluid {
     display: block;
     max-width: 100%;
     height: auto;
@@ -117,6 +117,28 @@ ul {
 .btn-outline-warning:visited {
     background-color: #c49670 !important;
 }
+
+#imageUpload
+{
+    display: none;
+}
+
+#profileImage
+{
+    cursor: pointer;
+}
+
+/* #profile-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+#profile-container img {
+    width: 150px;
+    height: 150px;
+} */
 
 @media (min-width: 992px) {
     .col-md-2 {
@@ -149,7 +171,7 @@ ul {
 }
 
 @media only screen and (max-width: 766px) {
-    .img-responsive {
+    .img-fluid {
         padding-left: 15px;
     }
 }
@@ -163,7 +185,7 @@ ul {
         padding: 13px 2px;
     }
 
-    .img-responsive {
+    .img-fluid {
         max-width: 80%;
         padding-left: 70px;
         padding-top: 15px;
