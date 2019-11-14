@@ -102,13 +102,9 @@ ul {
 .main-box .main-box-content {
     padding: 15px;
 }
-
-.img-fluid {
-    display: block;
+div img {
     max-width: 100%;
     height: auto;
-    padding-left: 0;
-    padding-top: 0;
 }
 
 .btn-outline-warning,
@@ -127,18 +123,39 @@ ul {
 {
     cursor: pointer;
 }
-
-/* #profile-container {
-    width: 150px;
-    height: 150px;
-    overflow: hidden;
-    border-radius: 50%;
+.profile-pic {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
 }
 
-#profile-container img {
-    width: 150px;
-    height: 150px;
-} */
+.circle {
+    border-radius: 1000px !important;
+    overflow: hidden;
+    width: 170px;
+    height: 170px;
+    border: 8px solid rgba(255, 255, 255, 0.7);
+    position: relative;
+    top: auto;
+    padding: 1.25em;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.circle img {
+    width: 170px;
+    height: 170px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+}
+.circle .main-box-sidebar-section {
+    width: 128px;
+    height: 128px;
+    max-width: 100%;
+}
 
 @media (min-width: 992px) {
     .col-md-2 {
@@ -169,6 +186,34 @@ ul {
         float: left;
     }
 }
+@media (max-width: 1200px) {
+    .circle {
+        width: 150px;
+        height: 150px;
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+}
+@media (max-width: 992px) {
+    .circle {
+        width: 120px;
+        height: 120px;
+        margin-left: 0;
+        margin-top: 0;
+    }
+}
+@media (max-width: 768px) {
+    .circle {
+        width: 400px;
+        height: 400px;
+        margin-left: 60px;
+        margin-top: 20px;
+    }
+    .circle img {
+        width: 400px;
+        height: 400px;
+    }
+}
 
 @media only screen and (max-width: 766px) {
     .img-fluid {
@@ -187,8 +232,9 @@ ul {
 
     .img-fluid {
         max-width: 80%;
-        padding-left: 70px;
+        /* padding-left: 70px; */
         padding-top: 15px;
+        padding-right: 15px;
     }
     body {
         text-align: center;
