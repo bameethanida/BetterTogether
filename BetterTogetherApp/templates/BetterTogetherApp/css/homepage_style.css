@@ -1,4 +1,4 @@
-. body {
+.body {
   margin-top: 0;
   margin-left: 0;
   margin-right: 0;
@@ -23,20 +23,30 @@
 
 }
 
-.sign-in {
+.button{
+  background-color: #FF6845; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
   text-align: center;
-  font-size: large;
-  border: 1cm;
-  box-shadow: 0 6px 9px 0 rgba(0, 0, 0.4, 0.4);
+  text-transform: uppercase;
+  display: inline-block;
+  font-size: 16px;
   border-radius: 30px;
-  background-color: #FF6845;
-  width: 75%;
-  height: 3%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
 }
+
+.button:hover {
+  background-color: white;
+  color: #FF6845;
+  font-weight: 700 !important;
+  letter-spacing: 3px;
+  background: none;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.3s ease 0s;
+  }
 
 ul {
   list-style-type: none;
