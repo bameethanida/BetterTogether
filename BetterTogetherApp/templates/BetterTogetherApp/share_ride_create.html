@@ -2,6 +2,7 @@
 <form action='{% url "BetterTogetherApp:create_share_ride" %}' method="post">
     {% csrf_token %}
     {{ form }}
+    <br><h3>Select the time to meet with the others: </h3>{{ date_time }}
     <button type="submit">Submit</button>
 </form>  
 

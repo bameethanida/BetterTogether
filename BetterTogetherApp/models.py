@@ -1,7 +1,7 @@
 from django.db import models
 from django import forms
 from django.contrib.auth.models import User
-import datetime
+from datetime import datetime
 
 class Info(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -22,7 +22,7 @@ class ShareFood(models.Model):
     location_name = models.TextField('Location Name', default="")
     location = models.TextField('Location', default="")
     description = models.TextField('Description', default="")
-    date_time = models.DateTimeField('Date and Time')
+    date_time = models.DateTimeField('Date and Time',auto_now=True)
     participants = models.ManyToManyField(Info)
     num_people = models.IntegerField("Number of people", default=2)
     host = models.CharField("Host's Name", default="", max_length=30)
@@ -40,13 +40,18 @@ class ShareFood(models.Model):
             self.save()
         return len(self.participants.all()) == self.num_people
 
+    
+
 class ShareRide(models.Model):
+    myDate = datetime.now()
+    formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
+
     location_name = models.TextField('Location Name', default="")
     location = models.TextField('Location', default="")
     destination_name = models.TextField('Destination Name', default="")
     destination = models.TextField('Destination', default="")
     description = models.TextField('Description', default="")
-    date_time = models.DateTimeField('Date and Time')
+    date_time = models.DateTimeField('Date and Time', default=formatedDate)
     participants = models.ManyToManyField(Info)
     num_people = models.IntegerField("Number of people", default=2)
     host = models.CharField("Host's Name", default="", max_length=30)
@@ -73,6 +78,11 @@ class ShareRide(models.Model):
             self.save()
         return len(self.participants.all()) == self.num_people
 
+    def del_self(self):
+        share = self
+        self.delete()
+        self.save()
+
 class SharePromotion(models.Model):
     location_name = models.TextField('Location Name', default="")
     location = models.TextField('Location', default="")
@@ -87,6 +97,12 @@ class SharePromotion(models.Model):
     def get_location(self):
         return f"Meeting Location : {self.location}"
 
+    def get_brand(self):
+        return f"Name of Store or Brand : {self.brand}"
+
+    def get_description(self):
+        return f"Brief description : {self.description}"
+
     def get_time(self):
         return f"Time to meet up with other participants : {str(self.date_time)}"
 
@@ -95,7 +111,3 @@ class SharePromotion(models.Model):
             self.full = True
             self.save()
         return len(self.participants.all()) == self.num_people
-
-class DateForm(forms.Form):
-    day = forms.DateField(initial=datetime.date.today)
-    time = forms.TimeField(initial=datetime.time)
