@@ -1,7 +1,7 @@
 .body {
   margin-top: 0;
-  margin-left: 0;
   margin-right: 0;
+  margin-left: 0;
   margin-bottom: 0;
   background-color: whitesmoke;
 }
@@ -11,7 +11,6 @@
   background-color: white;
   font-family: Arial;
   top: 0;
-
 }
 
 
@@ -20,7 +19,7 @@
   font-size: 16px;
   padding: 14px 16px;
   text-decoration: none;
-
+  
 }
 
 .button {
@@ -46,7 +45,6 @@
   left: -20px;
   bottom: -20px;
   right: -20px;
-  background: inherit;
   border-radius: 50px;
   z-index: -1;
   opacity: 0.4;
@@ -150,7 +148,7 @@ ul a:hover {
   margin-top: 10px;
   margin-left: 0;
   margin-bottom: 5px;
-  width:100%;
+  width: 100%;
   height: 70%;
   object-fit: cover;
   background-color: whitesmoke;
@@ -164,8 +162,8 @@ ul a:hover {
   margin-left: 2%;
   margin-bottom: 5%;
   border: 0cm;
-  --bg-color:  #FFDC91;
-  --bg-color-light: rgb(244, 253, 200);
+  --bg-color: #FFDC91;
+  --bg-color-light:white;
   --text-color-hover: #fff;
   --text-shadow-hover: 2px 1px rgb(112, 110, 110);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -179,7 +177,7 @@ ul a:hover {
   margin-bottom: 5%;
   border: 0cm;
   --bg-color: #FFCDC3;
-  --bg-color-light:  #fae4da ;
+  --bg-color-light: #fae4da;
   --text-color-hover: white;
   --text-shadow-hover: 2px 1.5px rgb(112, 110, 110);
   --box-shadow-color: rgba(184, 249, 211, 0.48);
@@ -192,7 +190,7 @@ ul a:hover {
   margin-left: 2%;
   margin-bottom: 5%;
   border: 0cm;
-  --bg-color:#FFC3D6;
+  --bg-color: #FFC3D6;
   --bg-color-light: #F0E7FF;
   --text-color-hover: #fff;
   --text-shadow-hover: 2px 1.5px rgb(112, 110, 110);
@@ -290,7 +288,7 @@ ul a:hover {
 
 }
 
-.logo-shopping-bag{
+.logo-shopping-bag {
   width: auto;
   height: 117px;
 }
