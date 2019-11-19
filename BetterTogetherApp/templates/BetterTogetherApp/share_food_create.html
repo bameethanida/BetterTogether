@@ -1,0 +1,9 @@
+<h1>Create new ShareRide event</h1>
+<form action='{% url "BetterTogetherApp:create_share_food" %}' method="post">
+    {% csrf_token %}
+    {{ form }}
+    <br><h3>Select the time to meet with the others: </h3>{{ date_time }}
+    <button type="submit">Submit</button>
+</form>  
+
+<a href="{% url 'BetterTogetherApp:share_food_index1' %}"> Go BACK to index</a>

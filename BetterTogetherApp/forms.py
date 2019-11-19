@@ -1,5 +1,5 @@
 from django import forms
-from .models import ShareRide, SharePromotion
+from .models import ShareRide, SharePromotion, ShareFood
 from datetime import datetime
 
 myDate = datetime.now()
@@ -21,3 +21,7 @@ class SharePromotionForm(forms.ModelForm):
         model = SharePromotion
         fields = ['location_name', 'location', 'brand','description', 'num_people']
 
+class ShareFoodForm(forms.ModelForm):
+    class Meta:
+        model = ShareFood
+        fields = ['location_name', 'location', 'description', 'num_people']
