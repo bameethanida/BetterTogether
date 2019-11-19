@@ -326,10 +326,13 @@ input:active {
 /* Sign Up & Log In with OAuth */
 
 .with-OAuth {
-	font-size: 2.5em;
-	background-color: #fff;
-	padding: 25px;
-	text-align: center;
+  font-size: 2.5em;
+  background-color: #fff;
+  padding-top: 15px;
+  text-align: center;
+  height: 80px;
+  display: flex;
+  justify-content: center;
 }
 
 /* Wrapper */
@@ -348,7 +351,9 @@ input:active {
 	   -moz-user-select: none;
 	    -ms-user-select: none;
 	        user-select: none;
-	width: 2.6rem;
+  width: 2.6rem;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 /* Circle */
@@ -356,21 +361,19 @@ input:active {
 	border-radius: 0;
 	display: block;
 	height: 0;
-	left: 50%;
 	margin: 0;
 	position: absolute;
-	top: 50%;
 	-webkit-transition: all 0.3s;
 	   -moz-transition: all 0.3s;
 	     -o-transition: all 0.3s;
 	        transition: all 0.3s;
-	width: 0;
+  width: 0;
 }
 .icon-button:hover span {
 	width: 2.6rem;
 	height: 2.6rem;
-	border-radius: 2.6rem;
-	margin: -1.3rem;
+  border-radius: 2.6rem;
+  margin: 0;
 }
 
 /* Icons */
@@ -426,7 +429,6 @@ input:active {
     width: 1.6rem;
     height: 1.6rem;
     border-radius: 1.6rem;
-    margin: -0.8rem;
   }
 
   /* Icons */
@@ -439,5 +441,6 @@ input:active {
 
 	  padding: 10px;
   }
+
 
 }
