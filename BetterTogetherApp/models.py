@@ -28,8 +28,14 @@ class ShareFood(models.Model):
     host = models.CharField("Host's Name", default="", max_length=30)
     full = models.BooleanField(default=False)
 
+    def get_location_name(self):
+        return f"Meeting Location : {self.location_name}"
+
     def get_location(self):
-        return f"Meeting Location : {self.location}"
+        return f"Address : {self.location}"
+
+    def get_description(self):
+        return f"Brief description : {self.description}"
 
     def get_time(self):
         return f"Time to meet up with other participants : {str(self.date_time)}"

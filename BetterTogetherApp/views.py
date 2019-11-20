@@ -11,6 +11,9 @@ formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
 def index(request):
     return render(request, 'BetterTogetherApp/homepage.html')
 
+def user_profile(request, user_id):
+    pass
+
 def share_ride_index(request):
     share_ride = ShareRide.objects.all()
     context = {'share_ride' : share_ride, 'datetime' : formatedDate }
@@ -21,18 +24,33 @@ def share_promotion_index(request):
     context = {'share_promotion' : share_promotion, 'datetime' : formatedDate }
     return render(request, 'BetterTogetherApp/share_promotion_index.html', context)
 
-# def share_food_index(request):
-#     share_food = ShareFood.objects.all()
-#     context = {'share_food' : share_food}
-#     return render(request, 'BetterTogetherApp/index.html', context)
-
-
-def user_profile(request, user_id):
-    pass
+def share_food_index(request):
+    share_food = ShareFood.objects.all()
+    context = {'share_food' : share_food, 'datetime' : formatedDate}
+    return render(request, 'BetterTogetherApp/share_food_index.html', context)
 
 def create_share_food(request):
-    pass
+    form = ShareFoodForm(request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            location_name = form.data.get('location_name')
+            location = form.data.get('location')
+            description = form.data.get('description')
+            date = form.data.get('day')
+            time = form.data.get('time')
+            num_people = form.data.get('num_people')
+            sr = ShareFood(location_name=location_name,location=location,
+             description=description, date_time=(str(f"{date} {time}")), num_people=num_people)   
+            sr.save()
+            return redirect('BetterTogetherApp:share_food_index1')
 
+    context = {'form': form, 'date_time': DateForm}
+    return render(request, 'BetterTogetherApp/share_food_create.html', context)
+
+def delete_share_food(request, sharefood_id):
+    share = ShareFood.objects.get(pk=sharefood_id)
+    share.delete()
+    return redirect('BetterTogetherApp:share_food_index1')
 
 def create_share_promotion(request):
     form = SharePromotionForm(request.POST or None)
