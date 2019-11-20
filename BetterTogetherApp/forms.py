@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import Textarea
 from .models import ShareRide, SharePromotion, ShareFood
 from datetime import datetime
 
@@ -25,3 +26,9 @@ class ShareFoodForm(forms.ModelForm):
     class Meta:
         model = ShareFood
         fields = ['location_name', 'location', 'description', 'num_people']
+        widgets = {
+            'location_name': Textarea(attrs={'cols': 15, 'rows': 2}),
+            'location': Textarea(attrs={'cols': 30, 'rows': 2}),
+            'description': Textarea(attrs={'cols': 30, 'rows': 2}),
+            'num_people': Textarea(attrs={'cols': 5, 'rows': 2}),
+        }
