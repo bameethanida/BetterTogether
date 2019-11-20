@@ -18,14 +18,16 @@
     <div class="text-1">
         <form action='{% url "BetterTogetherApp:create_share_ride" %}' method="post">
             {% csrf_token %}
-            Location Name: {{ form.location_name }}
-            <br> Location: {{ form.location }}
-            <br> Destination name: {{ form.destination_name }}  
-            <br> Destination : {{ form.destination }}  
-            <br> Description: {{ form.description }}
-            <br> Number of Participants: {{ form.num_people }}
-            <h3>Select the time to meet with the others: </h3>{{ date_time }}
-            <button type="submit">Submit</button>
+            <div class="text-2">
+                Location Name: {{ form.location_name }}
+                <br> Location: {{ form.location }}
+                <br> Destination name: {{ form.destination_name }}
+                <br> Destination : {{ form.destination }}
+                <br> Description: {{ form.description }}
+                <br> Number of Participants: {{ form.num_people }}
+                <h3>Select the time to meet with the others: </h3>{{ date_time }}
+                <button type="submit">Submit</button>
+            </div>
         </form>
 
         <a href="{% url 'BetterTogetherApp:share_ride_index1' %}"> Go BACK to index</a>
