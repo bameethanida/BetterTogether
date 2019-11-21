@@ -3,20 +3,24 @@ from django import forms
 from django.contrib.auth.models import User
 from datetime import datetime
 
+
 class Info(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     gender = models.CharField('Gender (F or M)', max_length=1)
-    age = models.IntegerField('Age', max_length=2)
+    age = models.IntegerField('Age')
     brief_info = models.TextField('Background Infomation', default="")
 
     def get_name(self):
-        return self.user.first_name + " " + self.user.last_name
+        return f"{self.user.first_name} {self.user.last_name}"
 
     def get_age(self):
         return self.age
 
     def get_gender(self):
         return self.gender
+
+    def get_brief_info(self):
+        return self.brief_info
 
 class ShareFood(models.Model):
     location_name = models.TextField('Location Name', default="")
@@ -100,8 +104,8 @@ class SharePromotion(models.Model):
     host = models.CharField("Host's Name", default="", max_length=30)
     full = models.BooleanField(default=False)
 
-    def get_location(self):
-        return f"Meeting Location : {self.location}"
+    def get_location_name(self):
+        return f"Meeting Location : {self.location_name}"
 
     def get_brand(self):
         return f"Name of Store or Brand : {self.brand}"
