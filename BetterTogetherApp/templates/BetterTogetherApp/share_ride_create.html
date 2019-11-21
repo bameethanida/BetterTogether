@@ -15,24 +15,28 @@
         </a>
     </nav>
     <div class="container">
-        <h1>
-            <center>&bull; Create Share Ride Promotion&bull;
-        </h1>
+        <div class="head">
+            <h1>
+                <center>&bull; CREATE SHARE RIDE PROMOTION&bull;
+            </h1>
+        </div>
         <div class="underline"></div>
         <div class="content">
             <form action='{% url "BetterTogetherApp:create_share_ride" %}' method="post">
                 {% csrf_token %}
-                <br> Location Name <br> <br> {{ form.location_name }} <br>
-                <br> Location <br> <br> {{ form.location }} <br>
-                <br> Destination name <br> <br> {{ form.destination_name }}<br>
-                <br> Destination<br> <br>{{ form.destination }}<br>
-                <br> Description <br> <br> {{ form.description }}<br>
-                <br> Number of Participants <br><br> {{ form.num_people }}<br>
-                <h3>Select the time to meet with the others<br> <br> </h3>{{ date_time }}
+                <br> LOCATION NAME <br> <br> {{ form.location_name }} <br>
+                <br> LOCATION <br> <br> {{ form.location }} <br>
+                <br> DESTINATION NAME <br> <br> {{ form.destination_name }}<br>
+                <br> DESTINATION <br> <br>{{ form.destination }}<br>
+                <br> DESCRIPTION <br> <br> {{ form.description }}<br>
+                <br> NUMBER OF PARTICIPANTS <br><br> {{ form.num_people }}<br>
+                <h3>SELECT THE TIME TO MEET WITH THE OTHERS<br> </h3>{{ date_time }}
                 <button type="submit">Submit</button>
             </form>
-        
-        <a href="{% url 'BetterTogetherApp:share_ride_index1' %}"><center> Go BACK to index</a>
+
+            <a href="{% url 'BetterTogetherApp:share_ride_index1' %}">
+                <center> Go BACK to index
+            </a>
         </div>
     </div>
 

@@ -27,49 +27,64 @@
 
 .container{
     border: solid 3px #474544;
-    height: 140%;
+    height: 150%;
     max-width: 800px;
     margin: 60px auto;
     position: relative;
+}
+
+.head{
+    margin-top: 4%;
 }
 
 .underline {
     border-bottom: solid 2px #474544;
     margin: -0.512em auto;
     width: 250px;
+    margin-top: 1%;
     margin-bottom: 2%;
   }
 
 
 .content{
     margin-left: 3%;
+    font-size: 17px;
 }
 
 textarea{
     width: 95%;
     height: 50px;
     padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
+    border: none;
+    border-bottom: solid 2px #474544;
+    background-color:whitesmoke;
     resize: none;
     overflow: auto;
+
 }
 
 .num_people{
     width: 50%;
     height: 50px;
-
+    border: none;
+    border-bottom: solid 2px #474544;
+    background-color:whitesmoke;
 }
 
 #id_num_people{
     width: 5%;
     height: 45px;
+    border: none;
+    border-bottom: solid 2px #474544;
+    background-color:whitesmoke;
+
 }
 
 #id_description{
     width: 95%;
     height: 20%;
+    border: none;
+    border-bottom: solid 2px #474544;
+    background-color:whitesmoke;
 }
 
