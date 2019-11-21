@@ -3,7 +3,7 @@
     margin-right: 0;
     margin-left: 0;
     margin-bottom: 0;
-    background-color: whitesmoke;
+    background-color: snow;
 }
 
 
@@ -25,14 +25,23 @@
 
 }
 
-.text{
-    font-size: 50px;
-    margin-top: 3%;
-    margin-left: 5%;
-    margin-bottom: 5%;
+.container{
+    border: solid 3px #474544;
+    height: 75%;
+    max-width: 800px;
+    margin: 60px auto;
+    position: relative;
 }
 
-.text-1{
+.underline {
+    border-bottom: solid 2px #474544;
+    margin: -0.512em auto;
+    width: 250px;
+    margin-bottom: 2%;
+  }
+
+
+.content{
     margin-left: 3%;
 }
 
