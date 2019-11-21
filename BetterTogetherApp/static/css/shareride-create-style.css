@@ -3,7 +3,7 @@
     margin-right: 0;
     margin-left: 0;
     margin-bottom: 0;
-    background-color: snow;
+    background-color: whitesmoke;
 }
 
 
@@ -27,7 +27,7 @@
 
 .container{
     border: solid 3px #474544;
-    height: 75%;
+    height: 140%;
     max-width: 800px;
     margin: 60px auto;
     position: relative;
@@ -43,5 +43,33 @@
 
 .content{
     margin-left: 3%;
+}
+
+textarea{
+    width: 95%;
+    height: 50px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    overflow: auto;
+}
+
+.num_people{
+    width: 50%;
+    height: 50px;
+
+}
+
+#id_num_people{
+    width: 5%;
+    height: 45px;
+}
+
+#id_description{
+    width: 95%;
+    height: 20%;
 }
 
