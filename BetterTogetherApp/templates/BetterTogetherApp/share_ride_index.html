@@ -1,26 +1,49 @@
+{% load static %}
 <html>
-    <body>
+
+<head>
+    <title> ShareRide Event </title>
+    <link href="{% static "css/shareride-index-style.css" %}" rel="stylesheet">
+    <link rel="icon" href="{% static "image/puzzle.png" %}">
+</head>
+
+<body class="body">
+    <nav class="navbar">
+        <a class="navbar-brand">
+            <a href="{% static "homepage.html" %}"> <img class="logo" src="{% static "image/long-logo-3.png" %}"
+                    height="65" alt="BetterTogether"></a>
+        </a>
+    </nav>
+    <img class="image" src="{% static "image/2.jpg" %}">
+    <div class="head">
         <h1>Share Ride</h1>
-        <h2>Here is our current share program(s) available: </h2>
-        Today is : {{ datetime }}
-            {% if share_ride %}
-                {% for object in share_ride %}
-                <p> {{ object.get_location_name }}
-                    <br> {{ object.get_location }} 
-                    <br> {{ object.get_destination_name }}
-                    <br> {{ object.get_destination }}
-                    <br> {{ object.get_time }}
-                    <br> Current Participants are : 
-                    {% for user1 in object.participants.all %} 
+    </div>
+    <div="text-create">
+        <a href="{% url 'BetterTogetherApp:create_share_ride' %}">Create new event<a>
+                </div>
+
+                <center><h2>Here is our current share program(s) available: </h2>
+                Today is : {{ datetime }} </center>
+                
+                <div class="container">
+                    {% if share_ride %}
+                    {% for object in share_ride %}
+                    <p> {{ object.get_location_name }}
+                        <br> {{ object.get_location }}
+                        <br> {{ object.get_destination_name }}
+                        <br> {{ object.get_destination }}
+                        <br> {{ object.get_time }}
+                        <br> Current Participants are :
+                        {% for user1 in object.participants.all %}
                         {{ user1.get_name }}
+                        {% endfor %}
+                        <br> Hosted by : {{ object.host }}
+                        <br><a href="{% url 'BetterTogetherApp:delete_share_ride' object.id %}">
+                            <h2>Delete this event</h2><a>
+                    </p>
                     {% endfor %}
-                    <br> Hosted by : {{ object.host }}
-                    <br><a href="{% url 'BetterTogetherApp:delete_share_ride' object.id %}"><h2>Delete this event</h2><a>
-                </p>
-                {% endfor %}
-            {% endif %}
+                    {% endif %}
+                </div>
+</body>
 
-            <a href="{% url 'BetterTogetherApp:create_share_ride' %}">Create new event<a>
-    </body>
 </html>
-
