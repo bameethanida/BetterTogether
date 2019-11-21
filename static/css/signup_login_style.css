@@ -320,15 +320,11 @@ input:active {
 
 
 
-
-
-
 /* Sign Up & Log In with OAuth */
 
 .with-OAuth {
   font-size: 2.5em;
-  background-color: #fff;
-  padding-top: 15px;
+  padding-top: 20px;
   text-align: center;
   height: 80px;
   display: flex;
