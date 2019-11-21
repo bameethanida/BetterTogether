@@ -325,7 +325,6 @@ input:active {
 .with-OAuth {
   font-size: 2.5em;
   padding-top: 20px;
-  text-align: center;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -392,6 +391,7 @@ input:active {
 
 .facebook span {
 	background-color: #3B5998;
+
 }
 .google-plus span {
 	background-color: #db5a3c;
