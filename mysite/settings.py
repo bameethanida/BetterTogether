@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SOCIAL_AUTH_URL_NAMESPACE = 'oauth'
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '77406265986-qo6r456d8od6rlnuml5hcvhhi4d3u9p5.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'blgGQGVBfSmXI7wmnJl9L4WD'
+LOGIN_REDIRECT_URL = '/home'
+
 
 # Application definition
 
@@ -38,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -70,7 +77,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-
+AUTHENTICATION_BACKENDS = ( 'social_core.backends.open_id.OpenIdAuth',
+    'social_core.backends.google.GoogleOpenId',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.google.GoogleOAuth',
+    'django.contrib.auth.backends.ModelBackend',)
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -119,3 +130,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = ''
