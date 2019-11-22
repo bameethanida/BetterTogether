@@ -11,6 +11,7 @@ class InfoTest(TestCase):
         self.assertEqual(info1.get_gender(), "M")
         self.assertEqual(info1.get_name(), "Pawaris Wongsalung")
         self.assertEqual(info1.get_brief_info(), "Null")
+        self.assertTrue(isinstance(info1, Info))
 
         user1 = User(first_name="John", last_name="Newman")
         info1 = Info(user=user1, gender="M", age=23, brief_info="Null")
@@ -18,6 +19,7 @@ class InfoTest(TestCase):
         self.assertEqual(info1.get_gender(), "M")
         self.assertEqual(info1.get_name(), "John Newman")
         self.assertEqual(info1.get_brief_info(), "Null")
+        self.assertTrue(isinstance(user1, User))
 
 class ShareFoodTest(TestCase):
 
