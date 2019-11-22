@@ -24,9 +24,12 @@
 
                 <center><h2>Here is our current share program(s) available: </h2>
                 Today is : {{ datetime }} </center>
-                
+                {% if not share_ride %}
+                <center><h2>There's no event right now.</h2></center>
+                {% endif%}
+
+                {% if share_ride %}
                 <div class="container">
-                    {% if share_ride %}
                     {% for object in share_ride %}
                     <p> {{ object.get_location_name }}
                         <br> {{ object.get_location }}
