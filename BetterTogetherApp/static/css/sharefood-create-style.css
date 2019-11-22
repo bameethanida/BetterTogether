@@ -152,12 +152,24 @@ a:-webkit-any-link {
 .footer {
     display: flex;
     justify-content: center;
-    padding: 8px;
+    padding: 5px;
     background-color: white;
     color: navy;
-    margin-top: 10%;
+    margin-top: 60px;
     margin-bottom: 0;
     border-bottom: 0;
-    margin-left: 0%;
-    width: 100px;
+
 }
+
+@media only screen and (max-width: 525px) {
+    .container {
+        height: 125%;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .container {
+        height: 130%;
+    }
+}
+
