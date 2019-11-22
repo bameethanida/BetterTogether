@@ -1,0 +1,125 @@
+<html>
+
+<head>
+  {% load staticfiles %}
+  {% block css %}
+  <title>Get started with BetterTogether</title>
+  <link rel="stylesheet" type="text/css" href="{% static '/css/signup_login_style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  {% endblock %}
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400');
+  </style>
+
+</head>
+
+{% block content %}
+
+<div>
+  <section class="forms-section">
+    <div class="forms">
+      <div class="form-wrapper is-active">
+        <button type="button" class="switcher switcher-login">
+          Log in
+          <span class="underline"></span>
+        </button>
+        <form class="form form-login">
+          <fieldset>
+            <legend>Please, enter your email and password for login.</legend>
+            <div class="input-block">
+              <label for="login-email">E-mail</label>
+              <input id="login-email" type="email" class="form-control" required>
+            </div>
+            <div class="input-block">
+              <label for="login-password">Password</label>
+              <input id="login-password" type="password" class="form-control" required>
+            </div>
+          </fieldset>
+          <button type="submit" class="btn-login">Login</button>
+          <fieldset>
+            <hr class="line">
+          </fieldset>
+          <fieldset style="text-align:center;"> Or Log In With</fieldset>
+          <fieldset>
+            <fieldset>
+              <div class="spacebox">
+              </div>
+            </fieldset>
+            <div class="OAuth-Botton">
+              <ul>
+                <li>
+                  <a href="{% url "oauth:begin" "google-oauth2" %}">
+                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                    <span> Google</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div class="form-wrapper">
+        <button type="button" class="switcher switcher-signup">
+          Sign Up
+          <span class="underline"></span>
+        </button>
+
+        <form class="form form-signup">
+          <fieldset>
+            <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+            <div class="form-group">
+              <div class="input-block">
+                <label for="signup-firstname">Firstname</label>
+                <input id="signup-firstname" type="text" class="form-control" required>
+              </div>
+              <div class="input-block">
+                <label for="signup-lastname">Lastname</label>
+                <input id="signup-lastname" type="text" class="form-control" required>
+              </div>
+            </div>
+            <div class="input-block">
+              <label for="signup-email">E-mail</label>
+              <input id="signup-email" type="email" class="form-control" required>
+            </div>
+            <div class="input-block">
+              <label for="signup-password">Password</label>
+              <input id="signup-password" type="password" class="form-control" required>
+            </div>
+            <div class="input-block">
+              <label for="signup-password-confirm">Confirm password</label>
+              <input id="signup-password-confirm" type="password" class="form-control" required>
+              <button type="submit" class="btn-signup">Sign Up</button>
+            </div>
+            <fieldset>
+              <hr class="line">
+            </fieldset>
+            <fieldset style="text-align:center;"> Or Sign Up With</fieldset>
+            <fieldset>
+              <fieldset>
+                <div class="spacebox">
+                </div>
+              </fieldset>
+              <div class="OAuth-Botton">
+                <ul>
+                  <li>
+                    <a href="{% url "oauth:begin" "google-oauth2" %}">
+                      <i class="fa fa-google-plus" aria-hidden="true"></i>
+                      <span> Google</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </fieldset>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  {% endblock %}
+
+  {% block script %}
+  <script src="{% static '/js/signup_login_script.js' %}"></script>
+</div>
+{% endblock %}
+
+</html>
