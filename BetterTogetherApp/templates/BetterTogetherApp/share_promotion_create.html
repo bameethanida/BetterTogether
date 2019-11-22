@@ -31,12 +31,16 @@
                 <br> NUMBER OF PARTICIPANTS <br><br> {{ form.num_people }}<br>
                 <br>
                 <h3>Select the time to meet with the others: </h3>{{ date_time }}
-                <button type="submit">Submit</button>
+                <button class="button" type="submit">Submit</button>
             </form>
 
-            <a href="{% url 'BetterTogetherApp:share_promotion_index1' %}"> 
-            <center>Go BACK to index</a>
+            <a href="{% url 'BetterTogetherApp:share_promotion_index1' %}">
+                <center>GO BACK TO INDEX
+            </a>
         </div>
+    </div>
+    <div class="footer">
+        <center><img class="logo-footer" src="{% static "image/logo-1.png" %}" alt="BetterTogether">
     </div>
 
 </body>
