@@ -47,17 +47,26 @@
     margin-left: 80%;
 }
 
-.container {
+/* .container {
     margin-top: 3%;
     margin-left: 7%;
     border: solid 3px #474544;
     height: 30%;
     width: 30%;
     position: relative;
-}
+} */
 
 a:-webkit-any-link {
     color: goldenrod;
     cursor: pointer;
     text-decoration: none;
+}
+
+#share_ride_list {
+    margin-top: 3%;
+    margin-left: 7%;
+    border: solid 3px #474544;
+    height: 30%;
+    width: 30%;
+    position: relative;
 }

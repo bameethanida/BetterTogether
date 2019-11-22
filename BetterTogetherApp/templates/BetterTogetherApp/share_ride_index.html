@@ -31,7 +31,7 @@
                 {% if share_ride %}
                 <div class="container">
                     {% for object in share_ride %}
-                    <p> {{ object.get_location_name }}
+                    <p id="share_ride_list"> {{ object.get_location_name }}
                         <br> {{ object.get_location }}
                         <br> {{ object.get_destination_name }}
                         <br> {{ object.get_destination }}
