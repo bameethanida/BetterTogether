@@ -2,19 +2,21 @@ from django.db import models
 from django import forms
 from django.contrib.auth.models import User
 from datetime import datetime
+from django.core.validators import MaxValueValidator, MinValueValidator
+import datetime as dt
 
 
 class Info(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     gender = models.CharField('Gender (F or M)', max_length=1)
-    age = models.IntegerField('Age')
+    birthday = models.DateField(null=True, blank=True)
     brief_info = models.TextField('Background Infomation', default="")
 
     def get_name(self):
         return f"{self.user.first_name} {self.user.last_name}"
 
     def get_age(self):
-        return self.age
+        return (dt.date.today() - (self.birthday).days) / 365.25)
 
     def get_gender(self):
         return self.gender
