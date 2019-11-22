@@ -12,6 +12,7 @@ def index(request):
     return render(request, 'BetterTogetherApp/homepage.html')
 
 def user_profile(request, user_id):
+    info_obj = get_object_or_404(Info, pk=user_id)
     pass
 
 def share_ride_index(request):
