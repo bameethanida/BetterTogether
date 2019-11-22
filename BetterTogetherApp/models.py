@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 class Info(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     gender = models.CharField('Gender (F or M)', max_length=1)
     age = models.IntegerField('Age')
     brief_info = models.TextField('Background Infomation', default="")
