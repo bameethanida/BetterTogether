@@ -5,6 +5,7 @@
     <title> ShareRide Event </title>
     <link href="{% static "css/shareride-index-style.css" %}" rel="stylesheet">
     <link rel="icon" href="{% static "image/puzzle.png" %}">
+    <link href="https://fonts.googleapis.com/css?family=Hind|Lobster|Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body class="body">
@@ -44,14 +45,16 @@
                         {{ object.get_location_name }} to {{ object.get_destination_name }} <br>
                         {{ object.get_location }}<br>
                         {{ object.get_destination }}<br>
-                        {{ object.get_description }} <br>
-                        
+                        Description : {{ object.get_description }} <br>
+
                     </div>
                 </div>
             </div>
-            <br><br><br><br><br><br><br><br><a href="{% url 'BetterTogetherApp:delete_share_ride' object.id %}">
-                <h2 class="text-delete">Delete this event</h2><a>
-        </div>
+        
+            <br><br><br><br><div class="button_cont"><a class="button_b" href="{% url 'BetterTogetherApp:delete_share_ride' object.id %}" target="_blank"
+                    rel="nofollow noopener">DELETE THIS EVENT</a></div>
+            
+        
     </div>
 
     </div>
