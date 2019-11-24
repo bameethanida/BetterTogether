@@ -18,10 +18,6 @@
     <div class="head">
         <center>
             <h1>SHARE RIDE EVENT</h1>
-
-            {% comment %} <a class="button-create" style="vertical-align:middle"
-                href="{% url 'BetterTogetherApp:create_share_ride' %}">
-                Create new event<a><br> {% endcomment %}
     </div>
 
     <center>Today is : {{ datetime }} </center>
@@ -29,37 +25,42 @@
     <center>
         <h2>There's no event right now.</h2>
     </center>
+    <center><a class="button" href="{% url 'BetterTogetherApp:create_share_ride'%}" style="vertical-align:middle">
+            <span>CREATE NEW EVENT</span></a>
+    </center>
+    {% endif%}
+
+    {% if share_ride %}
+    <h2 class="head">Current share program(s) available: </h2>
+    {% for object in share_ride %}
+    <div class="container">
+        <div class="front side">
+            <div class="content">
+                <h1> {{ object.get_location_name }} to {{ object.get_destination_name }} </h1>
+                <h2> {{ object.get_time }} </h2>
+                by {{ object.host }}
+                <div class="overlay">
+                    <div class="text">
+                        {{ object.get_location_name }} to {{ object.get_destination_name }} <br>
+                        {{ object.get_location }}<br>
+                        {{ object.get_destination }}<br>
+                        {{ object.get_description }} <br>
+                        
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br><br><br><br><br><a href="{% url 'BetterTogetherApp:delete_share_ride' object.id %}">
+                <h2 class="text-delete">Delete this event</h2><a>
+        </div>
+    </div>
+
+    </div>
+
+
+    {% endfor %}
+    {% endif %}
     <center><a class="button" href="{% url 'BetterTogetherApp:create_share_ride'%}"
             style="vertical-align:middle"><span>CREATE NEW EVENT</span></a>
-        {% endif%}
-
-        {% if share_ride %}
-        <center>
-            <h2>Here is our current share program(s) available: </h2>
-            <div class="container">
-                {% for object in share_ride %}
-                <p id="share_ride_list"> {{ object.get_location_name }}
-                    <br> {{ object.get_location }}
-                    <br> {{ object.get_destination_name }}
-                    <br> {{ object.get_destination }}
-                    <br> {{ object.get_time }}
-                    <br> Current Participants are :
-                    {% for user1 in object.participants.all %}
-                    {{ user1.get_name }}
-                    {% endfor %}
-                    <br> Hosted by : {{ object.host }}
-                    <br><a href="{% url 'BetterTogetherApp:delete_share_ride' object.id %}">
-                        <h2>Delete this event</h2><a>
-                            <center><a class="button" href="{% url 'BetterTogetherApp:create_share_ride'%}"
-                                    style="vertical-align:middle"><span>CREATE NEW EVENT</span></a>
-                </p>
-                {% endfor %}
-                {% endif %}
-
-            </div>
-            <div class="footer">
-                <center><img class="logo-footer" src="{% static "image/logo-1.png" %}" alt="BetterTogether">
-            </div>
 </body>
 
 </html>

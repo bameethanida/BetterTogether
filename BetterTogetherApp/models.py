@@ -64,19 +64,22 @@ class ShareRide(models.Model):
     full = models.BooleanField(default=False)
 
     def get_destination_name(self):
-        return f"Destination : {self.destination_name}"
+        return f"{self.destination_name}"
 
     def get_destination(self):
-        return f"Destination Address : {self.destination}"
+        return f"{self.destination_name} Address : {self.destination}"
 
     def get_location_name(self):
-        return f"Meeting Location : {self.location_name}"
+        return f"{self.location_name}"
 
     def get_location(self):
-        return f"Address : {self.location}"
+        return f"{self.location_name} address : {self.location}"
+
+    def get_description(self):
+        return f"{self.description}"
 
     def get_time(self):
-        return f"Time to meet up with other participants : {str(self.date_time)}"
+        return f"Time to meet up : {str(self.date_time)}"
 
     def full_or_not(self):
         if len(self.participants.all()) == self.num_people:
