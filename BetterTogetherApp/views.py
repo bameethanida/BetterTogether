@@ -6,3 +6,4 @@ def index(request):
 
 def signup_login(request):
     return render(request, 'BetterTogetherApp/login.html')   
+
