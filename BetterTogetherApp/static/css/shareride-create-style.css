@@ -31,6 +31,7 @@
     max-width: 800px;
     margin: 60px auto;
     position: relative;
+    background-color: white;
 }
 
 .head {
@@ -58,7 +59,7 @@ textarea {
     padding: 12px 20px;
     border: none;
     border-bottom: solid 2px #474544;
-    background-color: whitesmoke;
+    background-color: white;
     resize: none;
     overflow: auto;
 
@@ -79,7 +80,7 @@ textarea {
     height: 20%;
     border: none;
     border-bottom: solid 2px #474544;
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 .button {
