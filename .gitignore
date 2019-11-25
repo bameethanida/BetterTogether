@@ -146,3 +146,5 @@ dmypy.json
 # OS generated files
 .DS_Store
 .env
+
+staticfiles/
