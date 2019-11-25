@@ -35,15 +35,15 @@
     <div class="container">
         <div class="front side">
             <div class="content">
-                <h1> {{ object.get_location_name }} to {{ object.get_destination_name }} </h1>
+                <h1> {{ object.get_location_name }} </h1>
                 <h2> {{ object.get_time }} </h2>
                 by {{ object.host }}
                 <div class="overlay">
                     <div class="text">
-                        {{ object.get_location_name }} to {{ object.get_destination_name }} <br>
+                        {{ object.get_location_name }} <br>
                         {{ object.get_location }}<br>
                         {{ object.get_destination }}<br>
-                        Description : {{ object.get_description }} <br>
+                        {{ object.get_description }} <br>
 
                     </div>
                 </div>
