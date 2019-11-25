@@ -20,7 +20,7 @@
 <body class="Top">
     <nav class="nav navbar-light bg-faded">
         <a class="nav-brand" href="#">
-            <a href="homepage.html"><img src="{% static '/images/long-logo-3.png' %}" height="65" alt="BetterTogether">
+            <a href="homepage.html"><img src="{% static '/image/long-logo-3.png' %}" height="65" alt="BetterTogether">
             </a>
     </nav>
     <div class="container">
@@ -29,7 +29,7 @@
                 <div class="main-box-sidebar-section">
                     <div class="circle">
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                        <img id="profileImage" class="sidebar-profile-thumbnail profile-pic" src="images/avatar.png"
+                        <img id="profileImage" class="sidebar-profile-thumbnail profile-pic" src="{% static '/image/avatar.png' %}"
                             alt="Avatar image">
                         <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required=""
                             capture>
@@ -75,7 +75,6 @@
 {% endblock %}
 
 {% block script %}
-
     <!--Bootstrap jQuery-->
     <script src="{% static '/js/profile_script.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
