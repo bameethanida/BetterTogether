@@ -3,6 +3,7 @@
     margin-right: 0;
     margin-left: 0;
     margin-bottom: 0;
+    font-family: 'Roboto Condensed', sans-serif;
     background-color: whitesmoke;
 }
 
@@ -12,7 +13,6 @@
     height: 12%;
     display: block;
     background-color: white;
-    font-family: Arial;
     top: 0;
 }
 
@@ -39,7 +39,7 @@
     height: 12%;
     display: block;
     background-color: white;
-    font-family: Arial;
+    font-family: inherit;
     top: 0;
 }
 
