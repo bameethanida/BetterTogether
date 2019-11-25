@@ -1,25 +1,69 @@
+{% load static %}
 <html>
-    <body>
-        <h1>Share Food</h1>
-        <h2>Here is our current share program(s) available: </h2>
-        Today is : {{ datetime }}
-            {% if share_food %}
-                {% for object in share_food %}
-                <p> {{ object.get_location_name }}
-                    <br> {{ object.get_location }} 
-                    <br> {{ object.get_description }}
-                    <br> {{ object.get_time }}
-                    <br> Current Participants are : 
-                    {% for user1 in object.participants.all %} 
-                        {{ user1.get_name }}
-                    {% endfor %}
-                    <br> Hosted by : {{ object.host }}
-                    <br><a href="{% url 'BetterTogetherApp:delete_share_food' object.id %}"><h2>Delete this event</h2><a>
-                </p>
-                {% endfor %}
-            {% endif %}
 
-            <a href="{% url 'BetterTogetherApp:create_share_food' %}">Create new event<a>
-    </body>
+<head>
+    <title> ShareFood Event </title>
+    <link href="{% static "css/sharefood-index-style.css" %}" rel="stylesheet">
+    <link rel="icon" href="{% static "image/puzzle.png" %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body class="body">
+    <nav class="navbar">
+        <a class="navbar-brand">
+            <a href="{% url 'BetterTogetherApp:index'%}"> <img class="logo" src="{% static "image/long-logo-3.png" %}"
+                    height="65" alt="BetterTogether"></a>
+        </a>
+    </nav>
+    <img class="image" src="{% static "image/2.jpg" %}">
+    <div class="head">
+        <center>
+            <h1>SHARE FOOD EVENT</h1>
+    </div>
+
+    <center>Today is : {{ datetime }} </center>
+    {% if not share_food %}
+    <center>
+        <h2>There's no event right now.</h2>
+    </center>
+
+    {% endif%}
+
+    {% if share_food %}
+    <h2 class="head">Current share program(s) available: </h2>
+    {% for object in share_food %}
+    <div class="container">
+        <div class="front side">
+            <div class="content">
+                <h1> {{ object.get_location_name }} to {{ object.get_destination_name }} </h1>
+                <h2> {{ object.get_time }} </h2>
+                by {{ object.host }}
+                <div class="overlay">
+                    <div class="text">
+                        {{ object.get_location_name }} to {{ object.get_destination_name }} <br>
+                        {{ object.get_location }}<br>
+                        {{ object.get_destination }}<br>
+                        Description : {{ object.get_description }} <br>
+
+                    </div>
+                </div>
+            </div>
+
+            <br><br><br><br>
+            <div class="button_cont"><a class="button_b"
+                    href="{% url 'BetterTogetherApp:delete_share_food' object.id %}" rel="nofollow noopener">DELETE THIS
+                    EVENT</a></div>
+
+
+        </div>
+
+    </div>
+
+
+    {% endfor %}
+    {% endif %}
+    <center><a class="button" href="{% url 'BetterTogetherApp:create_share_food'%}"
+            style="vertical-align:middle"><span>CREATE NEW EVENT</span></a>
+</body>
+
 </html>
-
