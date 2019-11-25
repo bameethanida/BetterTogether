@@ -53,6 +53,7 @@
 }
 
 .container{
+    background-color: #fff;
     border: solid 3px #474544;
     height: 120%;
     max-width: 800px;
@@ -80,31 +81,27 @@
 }
 
 textarea{
+    font-size: 17px;
     width: 95%;
     height: 50px;
     padding: 12px 20px;
     border: none;
     border-bottom: solid 2px #474544;
-    background-color:whitesmoke;
+    background-color:white;
     resize: none;
     overflow: auto;
 
 }
 
-.num_people{
-    width: 50%;
-    height: 50px;
-    border: none;
-    border-bottom: solid 2px #474544;
-    background-color:whitesmoke;
-}
 
 #id_num_people{
-    width: 5%;
-    height: 45px;
+    text-align: center;
+    overflow: hidden;
+    width: 60px;
+    height: 35px;
     border: none;
     border-bottom: solid 2px #474544;
-    background-color:whitesmoke;
+    background-color:white;
 
 }
 
@@ -113,7 +110,7 @@ textarea{
     height: 20%;
     border: none;
     border-bottom: solid 2px #474544;
-    background-color:whitesmoke;
+    background-color:white;
 }
 
 .button {

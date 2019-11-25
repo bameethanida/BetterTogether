@@ -26,7 +26,7 @@
             <form action='{% url "BetterTogetherApp:create_share_food" %}' method="post">
                 {% csrf_token %}
                 <br> LOCATION NAME <br> <br>{{ form.location_name }} <br>
-                <br> LOCATION <br> <br> {{ form.location }}<br>
+                <br> LOCATION ADDRESS<br> <br> {{ form.location }}<br>
                 <br> DESCRIPTION <br> <br> {{ form.description }}<br>
                 <br> NUMBER OF PARTICIPANTS <br> <br> {{ form.num_people }}<br>
                 <br>
