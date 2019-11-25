@@ -1,26 +1,67 @@
+{% load static %}
 <html>
-    <body>
-        <h1>Share Promotion</h1>
-        <h2>Here is our current share program(s) available: </h2>
-        Today is : {{ datetime }}
-            {% if share_promotion %}
-                {% for object in share_promotion %}
-                <p> {{ object.get_location_name }}
-                    <br> {{ object.get_location }} 
-                    <br> {{ object.get_brand}}
-                    <br> {{ object.get_description }}
-                    <br> {{ object.get_time }}
-                    <br> Current Participants are : 
-                    {% for user1 in object.participants.all %} 
-                        {{ user1.get_name }}
-                    {% endfor %}
-                    <br> Hosted by : {{ object.host }}
-                    <br><a href="{% url 'BetterTogetherApp:delete_share_promotion' object.id %}"><h2>Delete this event</h2><a>
-                </p>
-                {% endfor %}
-            {% endif %}
 
-            <a href="{% url 'BetterTogetherApp:create_share_promotion' %}">Create new event<a>
-    </body>
+<head>
+    <title> SharePromotion Event </title>
+    <link href="{% static "css/sharepromotion-index-style.css" %}" rel="stylesheet">
+    <link rel="icon" href="{% static "image/puzzle.png" %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body class="body">
+    <nav class="navbar">
+        <a class="navbar-brand">
+            <a href="{% url 'BetterTogetherApp:index'%}"> <img class="logo" src="{% static "image/long-logo-3.png" %}"
+                    height="65" alt="BetterTogether"></a>
+        </a>
+    </nav>
+    <img class="image" src="{% static "image/2.jpg" %}">
+    <div class="head">
+        <center>
+            <h1>SHARE PROMOTION EVENT</h1>
+    </div>
+
+    <center>Today is : {{ datetime }} </center>
+    {% if not share_promotion %}
+    <center>
+        <h2>There's no event right now.</h2>
+    </center>
+
+    {% endif%}
+
+    {% if share_promotion %}
+    <h2 class="head">Current share program(s) available: </h2>
+    {% for object in share_promotion %}
+    <div class="container">
+        <div class="front side">
+            <div class="content">
+                <h1> {{ object.get_brand }} </h1>
+                <h2> {{ object.get_location }} </h2>
+                <h3> {{ object.get_time }} </h3>
+                by {{ object.host }}
+                <div class="overlay">
+                    <div class="text">
+                        {{ object.get_description }} <br>
+
+                    </div>
+                </div>
+            </div>
+
+            <br><br><br><br>
+            <div class="button_cont"><a class="button_b"
+                    href="{% url 'BetterTogetherApp:delete_share_promotion' object.id %}" rel="nofollow noopener">DELETE THIS
+                    EVENT</a></div>
+
+
+        </div>
+
+    </div>
+
+
+    {% endfor %}
+    {% endif %}
+    <center><a class="button" href="{% url 'BetterTogetherApp:create_share_promotion'%}"
+            style="vertical-align:middle"><span>CREATE NEW EVENT</span></a>
+</body>
+
 </html>
-
