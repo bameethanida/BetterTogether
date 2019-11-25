@@ -1,5 +1,7 @@
 from django.shortcuts import render, reverse, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
+from django import forms
+from django.contrib.auth.models import User
 from .models import *
 from .forms import *
 from django import forms
@@ -14,6 +16,12 @@ def index(request):
 def user_profile(request, user_id):
     info_obj = get_object_or_404(Info, pk=user_id)
     pass
+
+# def join_share_ride(request, shareride_id):
+#     user = User.objects.get(username=request.user.username)
+#     sr = ShareRide.objects.get(pk=shareride_id)
+#     context = {'user': user}
+#     return render(request, 'BetterTogetherApp/share_ride_index.html', context)
 
 def share_ride_index(request):
     share_ride = ShareRide.objects.all()
