@@ -1,12 +1,13 @@
 from django.test import TestCase
 from .models import Info, User, ShareFood, ShareRide, SharePromotion
+import datetime
 
 class InfoTest(TestCase):
     """Test the Info django models and its get functions"""
 
     def test_user_info(self):
         user1 = User(first_name="Pawaris", last_name="Wongsalung")
-        info1 = Info(user=user1, gender="M", age=21, brief_info="Null")
+        info1 = Info(user=user1, gender="M", birthday=datetime.date(1998, 8, 12), brief_info="Null")
         self.assertEqual(info1.get_age(), 21)
         self.assertEqual(info1.get_gender(), "M")
         self.assertEqual(info1.get_name(), "Pawaris Wongsalung")
@@ -14,7 +15,7 @@ class InfoTest(TestCase):
         self.assertTrue(isinstance(info1, Info))
 
         user1 = User(first_name="John", last_name="Newman")
-        info1 = Info(user=user1, gender="M", age=23, brief_info="Null")
+        info1 = Info(user=user1, gender="M", birthday=datetime.date(1996, 8, 12), brief_info="Null")
         self.assertEqual(info1.get_age(), 23)
         self.assertEqual(info1.get_gender(), "M")
         self.assertEqual(info1.get_name(), "John Newman")
@@ -26,7 +27,7 @@ class ShareFoodTest(TestCase):
     def test_sharefood_attributes(self):
         user1 = User(first_name="John", last_name="Newman")
         user1.save()
-        info1 = Info(user=user1, gender="M", age=23, brief_info="Null")
+        info1 = Info(user=user1, gender="M", birthday=datetime.date(1996, 8, 12), brief_info="Null")
         info1.save()
         sf = ShareFood(location_name="BBQ Plaza Major Ratchayothin",location="1839 Phahonyothin Rd, Lat Yao, Chatuchak, Bangkok 10900",
         description="Null", date_time="2019-11-20 08:51:52", num_people=2)
@@ -40,7 +41,7 @@ class ShareRideTest(TestCase):
     def test_shareride_attributes(self):
         user1 = User(first_name="Mary", last_name="Newman")
         user1.save()
-        info1 = Info(user=user1, gender="M", age=25, brief_info="Null")
+        info1 = Info(user=user1, gender="M", birthday=datetime.date(1994, 8, 12), brief_info="Null")
         info1.save()
         sr = ShareRide(location_name="Kasetsart University",location="50 Ngam Wong Wan Road, Ladyaow, Chatuchak Bangkok 10900 Thailand",
         destination_name="Siam Paragon", destination="991 Rama I Rd, Pathum Wan, Pathum Wan District, Bangkok 10330",
@@ -55,7 +56,7 @@ class SharePromotionTest(TestCase):
     def test_sharepromo_attributes(self):
         user1 = User(first_name="John", last_name="Newman")
         user1.save()
-        info1 = Info(user=user1, gender="M", age=23, brief_info="Null")
+        info1 = Info(user=user1, gender="M", birthday=datetime.date(1996, 8, 12), brief_info="Null")
         info1.save()
         sp = SharePromotion(location_name="Home Pro: Fashion Island",location="589, 10 Thanon Ram Intra, Khan Na Yao, Bangkok 10230",
         description="Buy 3 free 2", date_time="2019-11-20 08:51:52", num_people=2)

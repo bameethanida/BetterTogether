@@ -16,7 +16,7 @@ class Info(models.Model):
         return f"{self.user.first_name} {self.user.last_name}"
 
     def get_age(self):
-        return (dt.date.today() - (self.birthday).days) / 365.25)
+        return int((dt.date.today() - self.birthday).days/365.25)
 
     def get_gender(self):
         return self.gender
