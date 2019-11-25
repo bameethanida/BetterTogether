@@ -6,7 +6,7 @@
   background-color: whitesmoke;
   height: 100vh;
   width: auto;
-  font-family: 'Hind', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 
@@ -41,7 +41,7 @@
 .head {
   margin-top: 3%;
   text-align: center;
-  font-family: 'Hind', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 125%;
 }
 
@@ -107,7 +107,7 @@
 
 
 .container {
-  margin: 30px auto;
+  margin: 20px auto;
   padding: 20px 0px;
   width: 650px;
   min-height: 300px;
@@ -121,7 +121,7 @@
   position: absolute;
   text-align: center;
   width: 100%;
-  height: 100%;
+  height: auto;
   color: black;
   border-radius: 20px;
 }
@@ -138,19 +138,19 @@
 .overlay {
   border-radius: 20px;
   position: absolute;
-  bottom: 80%;
+  top: 0%;
   left: 0;
   right: 0;
   background-color: snow;
   overflow: hidden;
   width: 100%;
   height: 0;
-  transition: .5s ease;
+  transition: 0.7s ease;
 }
 
 .container:hover .overlay {
   top: 0;
-  height: 80%;
+  height: 75%;
 }
 
 .text {
@@ -170,6 +170,13 @@
   right: 16px;
 }
 
+.button_cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
 .button_b {
   height: 50px;
   width: 200px;
@@ -178,9 +185,11 @@
   text-decoration: none;
   background: #60a3bc;
   border-radius: 50px;
-  display: inline-block;
+  display: flex;
   border: none;
   transition: all 0.4s ease 0s;
+  align-items: center;
+  justify-content: center;
 }
 
 .button_b:hover {
