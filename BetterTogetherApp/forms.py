@@ -30,10 +30,10 @@ class SharePromotionForm(forms.ModelForm):
         model = SharePromotion
         fields = ['location_name', 'location', 'brand','description', 'num_people']
         widgets = {
-            'location_name': Textarea(attrs={'cols': 15, 'rows': 2}),
-            'location': Textarea(attrs={'cols': 30, 'rows': 2}),
-            'brand': Textarea(attrs={'cols': 30, 'rows': 2}),
-            'description': Textarea(attrs={'cols': 30, 'rows': 2}),
+            'location_name': Textarea(attrs={'cols': 15, 'rows': 2,'placeholder':'Central Ladprao'}),
+            'location': Textarea(attrs={'cols': 30, 'rows': 2,'placeholder':'1693 Phahonyothin Rd, Chatuchak, Bangkok 10900'}),
+            'brand': Textarea(attrs={'cols': 30, 'rows': 2,'placeholder':'Zara'}),
+            'description': Textarea(attrs={'cols': 30, 'rows': 2,'placeholder':'Description'}),
             'num_people': Textarea(attrs={'cols': 5, 'rows': 2}),
         }
 
