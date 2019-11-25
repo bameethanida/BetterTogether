@@ -3,6 +3,7 @@
     margin-right: 0;
     margin-left: 0;
     margin-bottom: 0;
+    font-family: 'Roboto Condensed', sans-serif;
     background-color: whitesmoke;
 }
 
@@ -12,7 +13,6 @@
     height: 12%;
     display: block;
     background-color: white;
-    font-family: Arial;
     top: 0;
 }
 
@@ -39,7 +39,7 @@
     height: 12%;
     display: block;
     background-color: white;
-    font-family: Arial;
+    font-family: inherit;
     top: 0;
 }
 
@@ -53,10 +53,12 @@
 }
 
 .container{
+    background-color: #fff;
     border: solid 3px #474544;
     height: 120%;
     max-width: 800px;
     margin: 60px auto;
+    margin-bottom: 2%;
     position: relative;
 }
 
@@ -79,31 +81,27 @@
 }
 
 textarea{
+    font-size: 17px;
     width: 95%;
     height: 50px;
     padding: 12px 20px;
     border: none;
     border-bottom: solid 2px #474544;
-    background-color:whitesmoke;
+    background-color:white;
     resize: none;
     overflow: auto;
 
 }
 
-.num_people{
-    width: 50%;
-    height: 50px;
-    border: none;
-    border-bottom: solid 2px #474544;
-    background-color:whitesmoke;
-}
 
 #id_num_people{
-    width: 5%;
-    height: 45px;
+    text-align: center;
+    overflow: hidden;
+    width: 60px;
+    height: 35px;
     border: none;
     border-bottom: solid 2px #474544;
-    background-color:whitesmoke;
+    background-color:white;
 
 }
 
@@ -112,6 +110,63 @@ textarea{
     height: 20%;
     border: none;
     border-bottom: solid 2px #474544;
-    background-color:whitesmoke;
+    background-color:white;
+}
+
+.button {
+    color: #fff ;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #434343;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+}
+
+.button:hover {
+    background:#ed3330;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.4s ease 0s;
+}
+
+
+
+a:-webkit-any-link {    
+    color: #434343;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.logo-footer {
+    height: 75;
+  }
+
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color: white;
+    color: navy;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-bottom: 0;
+
+}
+
+@media only screen and (max-width: 525px) {
+    .container {
+        height: 125%;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .container {
+        height: 130%;
+    }
 }
 
