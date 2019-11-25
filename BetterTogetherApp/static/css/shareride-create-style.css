@@ -4,6 +4,7 @@
     margin-left: 0;
     margin-bottom: 0;
     background-color: whitesmoke;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 
@@ -27,7 +28,7 @@
 
 .container {
     border: solid 3px #474544;
-    height: 150%;
+    height: 140%;
     max-width: 800px;
     margin: 60px auto;
     position: relative;
@@ -127,6 +128,6 @@ a:-webkit-any-link {
 
 @media only screen and (max-width: 507px) {
     .container {
-        height: 155%;
+        height: 135%;
     }
 }
