@@ -64,20 +64,13 @@ textarea {
 
 }
 
-.num_people {
-    width: 50%;
-    height: 50px;
-    border: none;
-    border-bottom: solid 2px #474544;
-    background-color: whitesmoke;
-}
 
 #id_num_people {
-    width: 10%;
-    height: 45px;
+    overflow: hidden;
+    width: 60px;
+    height: 35px;
     border: none;
     border-bottom: solid 2px #474544;
-    background-color: whitesmoke;
 
 }
 

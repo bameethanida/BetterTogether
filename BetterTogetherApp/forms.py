@@ -34,7 +34,7 @@ class SharePromotionForm(forms.ModelForm):
             'location': Textarea(attrs={'cols': 30, 'rows': 2}),
             'brand': Textarea(attrs={'cols': 30, 'rows': 2}),
             'description': Textarea(attrs={'cols': 30, 'rows': 2}),
-            'num_people': Textarea(attrs={'cols': 5, 'rows': 2}),
+            'num_people': Textarea(attrs={'cols': 5, 'rows': 3}),
         }
 
 class ShareFoodForm(forms.ModelForm):
