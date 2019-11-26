@@ -1,7 +1,7 @@
 from django.shortcuts import render, reverse, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
-from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import *
 from django import forms
@@ -17,11 +17,38 @@ def user_profile(request, user_id):
     info_obj = get_object_or_404(Info, pk=user_id)
     pass
 
-# def join_share_ride(request, shareride_id):
-#     user = User.objects.get(username=request.user.username)
-#     sr = ShareRide.objects.get(pk=shareride_id)
-#     context = {'user': user}
-#     return render(request, 'BetterTogetherApp/share_ride_index.html', context)
+def join_share_ride(request, shareride_id):
+    user = request.user.id
+    try:
+        sr = get_object_or_404(ShareRide, pk=shareride_id)
+    except (KeyError, ShareRide.DoesNotExist):
+        return render(request, 'BetterTogetherApp/share_ride_index.html1', {'datetime' : formatedDate})
+    else:
+        sr.participants.add(user)
+    context = {'user': user, 'datetime' : formatedDate}
+    return render(request, 'BetterTogetherApp/share_ride_index1.html', context)
+
+def join_share_promotion(request, sharepromo_id):
+    user = request.user.id
+    try:
+        sr = get_object_or_404(SharePromotion, pk=sharepromo_id)
+    except (KeyError, ShareRide.DoesNotExist):
+        return render(request, 'BetterTogetherApp/share_promotion_index1.html', {'datetime' : formatedDate})
+    else:
+        sr.participants.add(user)
+    context = {'user': user, 'datetime' : formatedDate}
+    return render(request, 'BetterTogetherApp/share_promotion_index1.html', context)
+
+def join_share_food(request, sharefood_id):
+    user = request.user.id
+    try:
+        sr = get_object_or_404(ShareFood, pk=sharepromo_id)
+    except (KeyError, ShareFood.DoesNotExist):
+        return render(request, 'BetterTogetherApp/share_food_index1.html', {'datetime' : formatedDate})
+    else:
+        sr.participants.add(user)
+    context = {'user': user, 'datetime' : formatedDate}
+    return render(request, 'BetterTogetherApp/share_food_index1.html', context)
 
 def share_ride_index(request):
     share_ride = ShareRide.objects.all()

@@ -32,6 +32,7 @@ class ShareFood(models.Model):
     participants = models.ManyToManyField(Info)
     num_people = models.IntegerField("Number of people", default=2)
     host = models.CharField("Host's Name", default="", max_length=30)
+    host_gender = models.CharField('Host Gender (F or M)', max_length=1)
     full = models.BooleanField(default=False)
 
     def get_location_name(self):
@@ -67,6 +68,7 @@ class ShareRide(models.Model):
     participants = models.ManyToManyField(Info)
     num_people = models.IntegerField("Number of people", default=2)
     host = models.CharField("Host's Name", default="", max_length=30)
+    host_gender = models.CharField('Host Gender (F or M)', max_length=1)
     full = models.BooleanField(default=False)
 
     def get_destination_name(self):
@@ -104,6 +106,7 @@ class SharePromotion(models.Model):
     participants = models.ManyToManyField(Info)
     num_people = models.IntegerField("Number of people", default=2)
     host = models.CharField("Host's Name", default="", max_length=30)
+    host_gender = models.CharField('Host Gender (F or M)', max_length=1)
     full = models.BooleanField(default=False)
 
     def get_location_name(self):

@@ -15,6 +15,7 @@
                         {{ user1.get_name }}
                     {% endfor %}
                     <br> Hosted by : {{ object.host }}
+                    <br><a href="{% url 'BetterTogetherApp:join_share_ride' object.id %}"><h2>Join this event</h2><a>
                     <br><a href="{% url 'BetterTogetherApp:delete_share_ride' object.id %}"><h2>Delete this event</h2><a>
                 </p>
                 {% endfor %}
