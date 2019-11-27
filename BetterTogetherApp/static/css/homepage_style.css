@@ -1,4 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 .body {
+  height: 100%;
   margin-top: 0;
   margin-right: 0;
   margin-left: 0;
@@ -302,6 +307,24 @@ ul a:hover {
   margin-bottom: 0;
   border-bottom: 0;
 
+}
+
+.wrapper {
+  height: auto !important;
+  margin: 0 auto -142px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.menu-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .logo-footer {
