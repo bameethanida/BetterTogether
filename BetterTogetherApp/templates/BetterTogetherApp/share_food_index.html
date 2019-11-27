@@ -14,12 +14,21 @@
                         {{ user1.get_name }}
                     {% endfor %}
                     <br> Hosted by : {{ object.host }}
+                    <br> Host Gender : {{ object.host_gender }}
+
+                    {% if user.is_authenticated %}
+                    <br><a href="{% url 'BetterTogetherApp:join_share_food' object.id %}"><h2>Join this event</h2><a>
+                    {% endif %}
+                    {% if user.info.get_name == object.host %}
                     <br><a href="{% url 'BetterTogetherApp:delete_share_food' object.id %}"><h2>Delete this event</h2><a>
+                    {% endif %}
                 </p>
                 {% endfor %}
             {% endif %}
 
+            {% if user.is_authenticated %}
             <a href="{% url 'BetterTogetherApp:create_share_food' %}">Create new event<a>
+            {% endif %}
     </body>
 </html>
 

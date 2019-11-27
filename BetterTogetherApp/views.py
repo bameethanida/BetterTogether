@@ -40,11 +40,10 @@ def join_share_ride(request, shareride_id):
     try:
         sr = get_object_or_404(ShareRide, pk=shareride_id)
     except (KeyError, ShareRide.DoesNotExist):
-        return render(request, 'BetterTogetherApp/share_ride_index.html1', {'datetime' : formatedDate})
+        return render(request, 'BetterTogetherApp/share_ride_index.html', {'datetime' : formatedDate})
     else:
         sr.participants.add(user)
-    context = {'user': user, 'datetime' : formatedDate}
-    return render(request, 'BetterTogetherApp/share_ride_index1.html', context)
+        return redirect('BetterTogetherApp:share_ride_index1')
 
 @login_required
 def join_share_promotion(request, sharepromo_id):
@@ -52,11 +51,10 @@ def join_share_promotion(request, sharepromo_id):
     try:
         sr = get_object_or_404(SharePromotion, pk=sharepromo_id)
     except (KeyError, ShareRide.DoesNotExist):
-        return render(request, 'BetterTogetherApp/share_promotion_index1.html', {'datetime' : formatedDate})
+        return render(request, 'BetterTogetherApp/share_promotion_index.html', {'datetime' : formatedDate})
     else:
         sr.participants.add(user)
-    context = {'user': user, 'datetime' : formatedDate}
-    return render(request, 'BetterTogetherApp/share_promotion_index1.html', context)
+        return redirect('BetterTogetherApp:share_promotion_index1')
 
 @login_required
 def join_share_food(request, sharefood_id):
@@ -64,11 +62,10 @@ def join_share_food(request, sharefood_id):
     try:
         sr = get_object_or_404(ShareFood, pk=sharepromo_id)
     except (KeyError, ShareFood.DoesNotExist):
-        return render(request, 'BetterTogetherApp/share_food_index1.html', {'datetime' : formatedDate})
+        return render(request, 'BetterTogetherApp/share_food_index.html', {'datetime' : formatedDate})
     else:
         sr.participants.add(user)
-    context = {'user': user, 'datetime' : formatedDate}
-    return render(request, 'BetterTogetherApp/share_food_index1.html', context)
+        return redirect('BetterTogetherApp:share_food_index1')
 
 
 def share_ride_index(request):
@@ -98,7 +95,7 @@ def create_share_food(request):
             time = form.data.get('time')
             num_people = form.data.get('num_people')
             sr = ShareFood(location_name=location_name,location=location,
-             description=description, date_time=(str(f"{date} {time}")), num_people=num_people)   
+             description=description, date_time=(str(f"{date} {time}")), num_people=num_people, host=str(user.info.get_name()), host_gender=str(user.info.gender))   
             sr.save()
             return redirect('BetterTogetherApp:share_food_index1')
 
@@ -123,7 +120,7 @@ def create_share_promotion(request):
             time = form.data.get('time')
             num_people = form.data.get('num_people')
             sp = SharePromotion(location_name=location_name,location=location, brand=brand, 
-            description=description, date_time=(str(f"{date} {time}")), num_people=num_people)   
+            description=description, date_time=(str(f"{date} {time}")), num_people=num_people, host=str(user.info.get_name()), host_gender=str(user.info.gender))   
             sp.save()
             return redirect('BetterTogetherApp:share_promotion_index1')
 
@@ -137,6 +134,7 @@ def delete_share_promotion(request, sharepromo_id):
 
 @login_required
 def create_share_ride(request):
+    user = request.user
     form = ShareRideForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
@@ -149,7 +147,7 @@ def create_share_ride(request):
             time = form.data.get('time')
             num_people = form.data.get('num_people')
             sr = ShareRide(location_name=location_name,location=location, destination_name=destination_name,destination=destination,
-             description=description, date_time=(str(f"{date} {time}")), num_people=num_people)   
+             description=description, date_time=(str(f"{date} {time}")), num_people=num_people, host=str(user.info.get_name()), host_gender=str(user.info.gender))   
             sr.save()
             return redirect('BetterTogetherApp:share_ride_index1')
 
