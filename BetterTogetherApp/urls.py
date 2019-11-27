@@ -6,6 +6,7 @@ app_name = 'BetterTogetherApp'
 urlpatterns = [
     path('', views.index, name='index'),
     path('login/', views.signup_login, name='login'),
+    path('logout/', views.logout_user, name='logout'),
     path('profile/',views.profile, name='profile'),
     path('shareride/', views.share_ride_index, name='share_ride_index1'),
     path('shareride/create', views.create_share_ride, name='create_share_ride'),

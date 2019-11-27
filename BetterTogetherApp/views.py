@@ -6,9 +6,11 @@ from .models import *
 from .forms import *
 from django import forms
 from datetime import datetime
+from django.contrib.auth import logout
 
 myDate = datetime.now()
 formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
+
 
 def index(request):
     return render(request, 'BetterTogetherApp/homepage.html')
@@ -16,6 +18,12 @@ def index(request):
 def signup_login(request):
     return render(request, 'BetterTogetherApp/login.html')
 
+@login_required
+def logout_user(request):
+    logout(request)
+    return render(request, 'BetterTogetherApp/homepage.html')
+
+@login_required
 def profile(request):
     user = request.user
     info = request.user.info
@@ -26,6 +34,7 @@ def user_profile(request, user_id):
     info_obj = get_object_or_404(Info, pk=user_id)
     pass
 
+@login_required
 def join_share_ride(request, shareride_id):
     user = request.user.id
     try:
@@ -37,6 +46,7 @@ def join_share_ride(request, shareride_id):
     context = {'user': user, 'datetime' : formatedDate}
     return render(request, 'BetterTogetherApp/share_ride_index1.html', context)
 
+@login_required
 def join_share_promotion(request, sharepromo_id):
     user = request.user.id
     try:
@@ -48,6 +58,7 @@ def join_share_promotion(request, sharepromo_id):
     context = {'user': user, 'datetime' : formatedDate}
     return render(request, 'BetterTogetherApp/share_promotion_index1.html', context)
 
+@login_required
 def join_share_food(request, sharefood_id):
     user = request.user.id
     try:
@@ -58,6 +69,7 @@ def join_share_food(request, sharefood_id):
         sr.participants.add(user)
     context = {'user': user, 'datetime' : formatedDate}
     return render(request, 'BetterTogetherApp/share_food_index1.html', context)
+
 
 def share_ride_index(request):
     share_ride = ShareRide.objects.all()
@@ -74,6 +86,7 @@ def share_food_index(request):
     context = {'share_food' : share_food, 'datetime' : formatedDate}
     return render(request, 'BetterTogetherApp/share_food_index.html', context)
 
+@login_required
 def create_share_food(request):
     form = ShareFoodForm(request.POST or None)
     if request.method == 'POST':
@@ -97,6 +110,7 @@ def delete_share_food(request, sharefood_id):
     share.delete()
     return redirect('BetterTogetherApp:share_food_index1')
 
+@login_required
 def create_share_promotion(request):
     form = SharePromotionForm(request.POST or None)
     if request.method == 'POST':
@@ -121,6 +135,7 @@ def delete_share_promotion(request, sharepromo_id):
     share.delete()
     return redirect('BetterTogetherApp:share_promotion_index1')
 
+@login_required
 def create_share_ride(request):
     form = ShareRideForm(request.POST or None)
     if request.method == 'POST':
@@ -140,6 +155,7 @@ def create_share_ride(request):
 
     context = {'form': form, 'date_time': DateForm}
     return render(request, 'BetterTogetherApp/share_ride_create.html', context)
+
 
 def delete_share_ride(request, shareride_id):
     shareride1 = ShareRide.objects.get(pk=shareride_id)
