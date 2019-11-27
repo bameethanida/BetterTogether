@@ -3,21 +3,27 @@
 
 <head>
 	<title>Better Together</title>
-	<link href="{% static "css/homepage_style.css" %}" rel="stylesheet">
+	<link rel="stylesheet" href="../static/css/homepage_style.css">
+	<link rel="icon" href="../static/image/puzzle.png">
+
 </head>
 
 <body class="body">
+<header>
 	<nav class="navbar">
-		<a class="navbar-brand" href="#">
-			<a href="homepage.html"><img src="{% static "image/long-logo-3.png" %}" height="65" alt="BetterTogether">
+		<a class="navbar-brand">
+
+			<a href="{% url 'BetterTogetherApp:index' %}"><img src="../static/image/long-logo-3.png" height="75" alt="BetterTogether">
 			</a>
 			<ul>
-				<li><a href="homepage.html">Sign Up</a></li>
+				<a class="button" href= "{% url 'BetterTogetherApp:login' %}">
+					SIGN IN
+				</a>
 			</ul>
-			<ul>
-				<li><a href="homepage.html">Log in</a></li>
-			</ul>
+		</a>
+
 	</nav>
+	</header>
 	<svg class="text-size" id="slogan" viewBox="0 0 703 181" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<path
 			d="M2.98401 62V60.488L10.04 57.608L30.848 2.95999H32L51.656 59.408L58.28 60.488V62H37.112V60.488L43.016 59.552L36.896 42.488H17.744L11.912 57.608L18.392 60.488V62H2.98401ZM18.32 40.976H36.392L27.752 15.632L18.32 40.976Z"
@@ -114,24 +120,48 @@
 	</svg>
 
 
-	<center><img class="mySlides" src="{% static "image/1.jpg" %}">
-		<center><img class="mySlides" src="{% static "image/2.jpg" %}">
-			<center><img class="mySlides" src="{% static "image/3.jpg" %}">
-				<section class="content">
-					<div class="share1">
-						<h1> 15A</h1>
+	<center><img class="mySlides" src="../static/image/1.jpg"></center>
+		<center><img class="mySlides" src="../static/image/2.jpg"></center>
+			<center><img class="mySlides" src="../static/image/3.jpg"></center>
+
+				<div class="menu-container">
+				<div class="menu">
+					<a href="#" class="card share-ride">
+						<div class="overlay"></div>
+						<div class="circle">
+
+							<img class="logo" src="../static/image/motorbike.png">
+
+						</div>
+						<p>Share Ride</p>
+					</a>
+					<a href="#" class="card share-food">
+						<div class="overlay"></div>
+						<div class="circle">
+
+							<img class="logo" src="../static/image/pizza-2.png">
+
+						</div>
+						<p>Share Food</p>
+					</a>
+					<a href="#" class="card share-promotion">
+						<div class="overlay"></div>
+						<div class="circle">
+
+							<img class="logo-shopping-bag" src="../static/image/shopping-bag-2.png">
+
+						</div>
+						<p>Share Promotion</p>
+					</a>
 					</div>
-					<div class="share1 ">
-						<h1> 15A</h1>
-					</div>
-					<div class="share3">
-						<h1> 15A</h1>
-					</div>
-				</section>
-				<div class="footer">
-					<img class="logo-footer" src="{% static "image/logo-1.png" %}" alt="BetterTogether">
+				</div>
+				<div class="wrapper">
+						<div class="footer">
+							<img class="logo-footer" src="../static/image/logo-1.png" alt="BetterTogether">
+						</div>
 				</div>
 </body>
-<script src="{% static "js/homepage_style.js" %}"></script>
+<script src="../static/js/homepage_script.js"></script>
+
 
 </html>

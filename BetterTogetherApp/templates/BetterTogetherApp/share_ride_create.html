@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title> Create ShareRide Event </title>
+    <title class="title"> Create ShareRide Event </title>
     <link href="{% static "css/shareride-create-style.css" %}" rel="stylesheet">
     <link rel="icon" href="{% static "image/puzzle.png" %}">
 </head>
@@ -17,7 +17,7 @@
     <div class="container">
         <div class="head">
             <h1>
-                <center>&bull; CREATE SHARE RIDE PROMOTION&bull;
+                <center>&bull; CREATE SHARE RIDE EVENT&bull;
             </h1>
         </div>
         <div class="underline"></div>
@@ -25,19 +25,22 @@
             <form action='{% url "BetterTogetherApp:create_share_ride" %}' method="post">
                 {% csrf_token %}
                 <br> LOCATION NAME <br> <br> {{ form.location_name }} <br>
-                <br> LOCATION <br> <br> {{ form.location }} <br>
+                <br> LOCATION ADDRESS<br> <br> {{ form.location }} <br>
                 <br> DESTINATION NAME <br> <br> {{ form.destination_name }}<br>
-                <br> DESTINATION <br> <br>{{ form.destination }}<br>
+                <br> DESTINATION ADDRESS<br> <br>{{ form.destination }}<br>
                 <br> DESCRIPTION <br> <br> {{ form.description }}<br>
                 <br> NUMBER OF PARTICIPANTS <br><br> {{ form.num_people }}<br>
                 <h3>SELECT THE TIME TO MEET WITH THE OTHERS<br> </h3>{{ date_time }}
-                <button type="submit">Submit</button>
+                <button class="button" type="submit">Submit</button>
             </form>
 
-            <a href="{% url 'BetterTogetherApp:share_ride_index1' %}">
-                <center> Go BACK to index
+            <a class="back-to-index" href="{% url 'BetterTogetherApp:share_ride_index1' %}">
+                <center> GO BACK TO INDEX
             </a>
         </div>
+    </div>
+    <div class="footer">
+        <center><img class="logo-footer" src="{% static "image/logo-1.png" %}" alt="BetterTogether">
     </div>
 
 </body>

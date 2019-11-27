@@ -7,7 +7,7 @@
 }
 
 
-.navbar{
+.navbar {
     width: 100%;
     height: 12%;
     display: block;
@@ -25,15 +25,16 @@
 
 }
 
-.container{
+.container {
     border: solid 3px #474544;
     height: 150%;
     max-width: 800px;
     margin: 60px auto;
     position: relative;
+    background-color: white;
 }
 
-.head{
+.head {
     margin-top: 4%;
 }
 
@@ -43,47 +44,88 @@
     width: 250px;
     margin-top: 1%;
     margin-bottom: 2%;
-  }
+}
 
 
-.content{
+.content {
     margin-left: 3%;
     font-size: 17px;
 }
 
-textarea{
+textarea {
+    font-size: 17px;
     width: 95%;
     height: 50px;
     padding: 12px 20px;
     border: none;
     border-bottom: solid 2px #474544;
-    background-color:whitesmoke;
+    background-color: white;
     resize: none;
     overflow: auto;
 }
 
-.num_people{
-    width: 50%;
-    height: 50px;
-    border: none;
-    border-bottom: solid 2px #474544;
-    background-color:whitesmoke;
-}
 
-#id_num_people{
-    width: 5%;
-    height: 45px;
+#id_num_people {
+    overflow: hidden;
+    width: 60px;
+    height: 35px;
     border: none;
     border-bottom: solid 2px #474544;
-    background-color:whitesmoke;
 
 }
 
-#id_description{
+#id_description {
     width: 95%;
     height: 20%;
     border: none;
     border-bottom: solid 2px #474544;
-    background-color:whitesmoke;
+    background-color: white;
 }
 
+.button {
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #434343;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+}
+
+.button:hover {
+    background:#ed3330;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.4s ease 0s;
+}
+
+
+
+a:-webkit-any-link {    
+    color: #434343;
+    cursor: pointer;
+    text-decoration: none;
+}
+.logo-footer {
+    height: 75;
+  }
+
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color: white;
+    color: navy;
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+
+@media only screen and (max-width: 507px) {
+    .container {
+        height: 155%;
+    }
+}

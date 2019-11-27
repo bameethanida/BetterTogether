@@ -27,6 +27,13 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = []
 
+SOCIAL_AUTH_URL_NAMESPACE = 'oauth'
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '77406265986-qo6r456d8od6rlnuml5hcvhhi4d3u9p5.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'blgGQGVBfSmXI7wmnJl9L4WD'
+LOGIN_REDIRECT_URL = '/profile'
+LOGIN_URL = '/login'
+
 
 # Application definition
 
@@ -75,14 +82,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-AUTHENTICATION_BACKENDS = (
-    'social_core.backends.github.GithubOAuth2',
-    'social_core.backends.twitter.TwitterOAuth',
-    'social_core.backends.facebook.FacebookOAuth2',
-
-    'django.contrib.auth.backends.ModelBackend',
-)
-
+AUTHENTICATION_BACKENDS = ( 'social_core.backends.open_id.OpenIdAuth',
+    'social_core.backends.google.GoogleOpenId',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.google.GoogleOAuth',
+    'django.contrib.auth.backends.ModelBackend',)
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -131,7 +135,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+
 STATIC_URL = '/static/' 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/') 
-STATICFILES_DIR = (
-    BASE_DIR + '/BetterTogetherApp/static/',)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/') 
+STATICFILES_DIR = (BASE_DIR + '/BetterTogetherApp/static/',)
+
