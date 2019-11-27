@@ -19,5 +19,4 @@ urlpatterns = [
     path('sharefood/create', views.create_share_food, name='create_share_food'),
     path('sharefood/remove/<int:sharefood_id>', views.delete_share_food, name='delete_share_food'),
     path('shareride/join/<int:sharefood_id>', views.join_share_food, name='join_share_food')
-
 ]

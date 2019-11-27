@@ -13,7 +13,6 @@ formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
 def index(request):
     return render(request, 'BetterTogetherApp/homepage.html')
 
-
 def signup_login(request):
     return render(request, 'BetterTogetherApp/login.html')
 
