@@ -13,6 +13,13 @@ formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
 def index(request):
     return render(request, 'BetterTogetherApp/homepage.html')
 
+
+def signup_login(request):
+    return render(request, 'BetterTogetherApp/login.html')
+
+def profile(request):
+    return render(request, 'BetterTogetherApp/profile.html')
+
 def user_profile(request, user_id):
     info_obj = get_object_or_404(Info, pk=user_id)
     pass
@@ -136,3 +143,4 @@ def delete_share_ride(request, shareride_id):
     shareride1 = ShareRide.objects.get(pk=shareride_id)
     shareride1.delete()
     return redirect('BetterTogetherApp:share_ride_index1')
+

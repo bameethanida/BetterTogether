@@ -5,6 +5,8 @@ from . import views
 app_name = 'BetterTogetherApp'
 urlpatterns = [
     path('', views.index, name='index'),
+    path('login/', views.signup_login, name='login'),
+    path('profile/',views.profile, name='profile'),
     path('shareride/', views.share_ride_index, name='share_ride_index1'),
     path('shareride/create', views.create_share_ride, name='create_share_ride'),
     path('shareride/remove/<int:shareride_id>', views.delete_share_ride, name='delete_share_ride'),
@@ -17,4 +19,5 @@ urlpatterns = [
     path('sharefood/create', views.create_share_food, name='create_share_food'),
     path('sharefood/remove/<int:sharefood_id>', views.delete_share_food, name='delete_share_food'),
     path('shareride/join/<int:sharefood_id>', views.join_share_food, name='join_share_food')
+
 ]
