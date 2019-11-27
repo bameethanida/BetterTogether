@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from datetime import datetime
 from django.core.validators import MaxValueValidator, MinValueValidator
 import datetime as dt
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 
 
 class Info(models.Model):
@@ -23,6 +25,16 @@ class Info(models.Model):
 
     def get_brief_info(self):
         return self.brief_info
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Info.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.info.save()
+
 
 class ShareFood(models.Model):
     location_name = models.TextField('Location Name', default="")

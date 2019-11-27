@@ -17,7 +17,10 @@ def signup_login(request):
     return render(request, 'BetterTogetherApp/login.html')
 
 def profile(request):
-    return render(request, 'BetterTogetherApp/profile.html')
+    user = request.user
+    info = request.user.info
+    context = {'user':user, 'info':info}
+    return render(request, 'BetterTogetherApp/profile.html', context)
 
 def user_profile(request, user_id):
     info_obj = get_object_or_404(Info, pk=user_id)

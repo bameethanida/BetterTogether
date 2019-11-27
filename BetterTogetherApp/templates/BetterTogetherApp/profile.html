@@ -35,8 +35,8 @@
                             capture>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Your profile</h5>
-                        <p class="card-text">James Brucker, teacher in Kasetsart University</p>
+                        <h5 class="card-title">Your Profile</h5>
+                        <p class="card-text">{{ user.first_name }} {{ user.last_name }},</p>
                         <div style="margin: 24px 0;text-align: center;">
                             <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
                             <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
@@ -50,17 +50,8 @@
             <div class="col-md-10 col-xs-12 main-box-content">
                 <div class="card boxed-page" style="width: 100%;">
                     <div class="card-body">
-                        <h5 class="card-title">History</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt
-                            venenatis dui. Vivamus ut massa porta ex venenatis vestibulum. Praesent sem dolor, ultrices
-                            quis luctus non, feugiat sed elit. Fusce eu pulvinar odio. Sed at euismod nisl, et varius
-                            mauris. Pellentesque diam risus, tincidunt eget aliquam ac, lobortis sed felis. Orci varius
-                            natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras eget
-                            elementum risus. Suspendisse at hendrerit nunc. Cras volutpat orci vitae velit feugiat, non
-                            convallis sem eleifend. Nullam ligula orci, suscipit molestie metus condimentum, volutpat
-                            placerat mauris. Nunc hendrerit est quis arcu porttitor sodales. Sed mauris dolor, iaculis
-                            vitae turpis bibendum, hendrerit ornare urna. Nulla nec nisl lectus. Quisque in ligula vitae
-                            est vulputate facilisis. Donec turpis nisi, tempor at feugiat ac, pellentesque a velit.</p>
+                        <h5 class="card-title">Brief Information</h5>
+                        <p class="card-text">{{ info.brief_info }}.</p>
                         <div style="margin: 24px 0;">
                             <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
                             <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
