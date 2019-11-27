@@ -1,0 +1,27 @@
+<html>
+    <body>
+        <h1>Share Ride</h1>
+        <h2>Here is our current share program(s) available: </h2>
+        Today is : {{ datetime }}
+            {% if share_ride %}
+                {% for object in share_ride %}
+                <p> {{ object.get_location_name }}
+                    <br> {{ object.get_location }} 
+                    <br> {{ object.get_destination_name }}
+                    <br> {{ object.get_destination }}
+                    <br> {{ object.get_time }}
+                    <br> Current Participants are : 
+                    {% for user1 in object.participants.all %} 
+                        {{ user1.get_name }}
+                    {% endfor %}
+                    <br> Hosted by : {{ object.host }}
+                    <br><a href="{% url 'BetterTogetherApp:join_share_ride' object.id %}"><h2>Join this event</h2><a>
+                    <br><a href="{% url 'BetterTogetherApp:delete_share_ride' object.id %}"><h2>Delete this event</h2><a>
+                </p>
+                {% endfor %}
+            {% endif %}
+
+            <a href="{% url 'BetterTogetherApp:create_share_ride' %}">Create new event<a>
+    </body>
+</html>
+

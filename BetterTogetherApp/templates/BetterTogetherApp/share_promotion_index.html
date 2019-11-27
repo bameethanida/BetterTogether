@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <h1>Share Promotion</h1>
+        <h2>Here is our current share program(s) available: </h2>
+        Today is : {{ datetime }}
+            {% if share_promotion %}
+                {% for object in share_promotion %}
+                <p> {{ object.get_location_name }}
+                    <br> {{ object.get_location }} 
+                    <br> {{ object.get_brand}}
+                    <br> {{ object.get_description }}
+                    <br> {{ object.get_time }}
+                    <br> Current Participants are : 
+                    {% for user1 in object.participants.all %} 
+                        {{ user1.get_name }}
+                    {% endfor %}
+                    <br> Hosted by : {{ object.host }}
+                    <br><a href="{% url 'BetterTogetherApp:delete_share_promotion' object.id %}"><h2>Delete this event</h2><a>
+                </p>
+                {% endfor %}
+            {% endif %}
+
+            <a href="{% url 'BetterTogetherApp:create_share_promotion' %}">Create new event<a>
+    </body>
+</html>
+
