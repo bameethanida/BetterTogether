@@ -13,6 +13,7 @@
 	<nav class="navbar">
 		<a class="navbar-brand">
 
+			{% if not user.is_authenticated %}
 			<a href="{% url 'BetterTogetherApp:index' %}"><img src="../static/image/long-logo-3.png" height="75" alt="BetterTogether">
 			</a>
 			<ul>
@@ -20,7 +21,18 @@
 					SIGN IN
 				</a>
 			</ul>
-		</a>
+			</a>
+		{% endif %}
+		{% if user.is_authenticated %}
+		<a href="{% url 'BetterTogetherApp:index' %}"><img src="../static/image/long-logo-3.png" height="75" alt="BetterTogether">
+			</a>
+			<ul>
+				<a class="button" href= "{% url 'BetterTogetherApp:profile' %}">
+					Profile
+				</a>
+			</ul>
+			</a>
+		{% endif %}
 
 	</nav>
 	</header>
