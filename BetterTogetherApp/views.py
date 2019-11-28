@@ -47,6 +47,7 @@ def edit_profile(request):
             birthday = form.data.get('birthday')
             brief_info = form.data.get('brief_info')
             phone_num = form.data.get('phone_num')
+            twitter = form.data.get('twitter')
             info.gender = gender
             info.save()
             info.birthday = birthday
@@ -54,6 +55,8 @@ def edit_profile(request):
             info.brief_info = brief_info
             info.save()
             info.phone_num = phone_num
+            info.save()
+            info.twitter = twitter
             info.save()
             return redirect('BetterTogetherApp:profile')
     
