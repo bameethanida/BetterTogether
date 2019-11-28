@@ -163,5 +163,8 @@
 </body>
 <script src="../static/js/homepage_script.js"></script>
 
+{% if user.is_authenticated %}
+<a href="{% url 'BetterTogetherApp:logout' %}">LOGOUT</a>
+{% endif %}
 
 </html>

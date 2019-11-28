@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, get_object_or_404, redirect
+from django.shortcuts import render, reverse, get_object_or_404, redirect, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
 from django.contrib.auth.decorators import login_required
@@ -16,17 +16,24 @@ def index(request):
     return render(request, 'BetterTogetherApp/homepage.html')
 
 def signup_login(request):
-    return render(request, 'BetterTogetherApp/login.html')
+    if request.user.is_authenticated:
+        return redirect('BetterTogetherApp:index')
+    else:
+        return render(request, 'BetterTogetherApp/login.html')
+
 
 @login_required
 def logout_user(request):
+    print(request.user)
     logout(request)
-    return render(request, 'BetterTogetherApp/homepage.html')
+    print(request.user)
+    return redirect(reverse('BetterTogetherApp:index'))
 
 @login_required
 def profile(request):
     user = request.user
     info = request.user.info
+    print(request.user)
     context = {'user':user, 'info':info}
     return render(request, 'BetterTogetherApp/profile.html', context)
 
