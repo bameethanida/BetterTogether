@@ -1,0 +1,9 @@
+<h1>Edit User Profile</h1>
+<form action='{% url "BetterTogetherApp:edit_profile" %}' method="post">
+    {% csrf_token %}
+    Gender (Capital F or M): {{ form.gender }}
+    <br> Birthday (YYYY-MM-DD) - Year-Month-Date Format: {{ form.birthday }}
+    <br> Background Infomation: {{ form.brief_info }}
+    <br> Phone Number: {{ form.phone_num }}
+    <button type="submit">Submit</button>
+</form>  

@@ -36,13 +36,19 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Your Profile</h5>
-                        <p class="card-text">{{ user.first_name }} {{ user.last_name }},</p>
+                        <p class="card-text">{{ user.first_name }} {{ user.last_name }}
+                        {% if not user.info.birthday == NULL %}
+                        <br> Age : {{ user.info.get_age }}
+                        {% else %}
+                        <br> Age : NOT SET 
+                        {% endif %}
+                        <br> Gender : {{ user.info.get_gender }}</p>
                         <div style="margin: 24px 0;text-align: center;">
                             <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
                             <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
                             <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
                             <p class="pt-3">or</p>
-                            <a href="0981322686" class="fa fa-phone">Tel: 0981322686</a>
+                            <a href="{{ user.info.phone_num }}" class="fa fa-phone"> {{ user.info.phone_num }}</a>
                         </div>
                     </div>
                 </div>
@@ -77,6 +83,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+
+
+<a href="{% url 'BetterTogetherApp:edit_profile' %}">Edit Profile</a>
 
 <a href="{% url 'BetterTogetherApp:logout' %}">LOGOUT</a>
     
