@@ -17,11 +17,11 @@ class ShareRideForm(forms.ModelForm):
         model = ShareRide
         fields = ['location_name','location','destination_name','destination','description', 'num_people']
         widgets = {
-            'location_name': Textarea(attrs={'cols': 15, 'rows': 2}),
-            'location': Textarea(attrs={'cols': 30, 'rows': 2}),
-            'destination_name': Textarea(attrs={'cols': 30, 'rows': 2}),
-            'destination': Textarea(attrs={'cols': 30, 'rows': 2}),
-            'description': Textarea(attrs={'cols': 30, 'rows': 2}),
+            'location_name': Textarea(attrs={'cols': 15, 'rows': 2, 'placeholder': 'Paragon'}),
+            'location': Textarea(attrs={'cols': 30, 'rows': 2, 'placeholder': '991 Rama 1 Road, Pathumwan Subdistrict, Pathumwan District, Bangkok 10330'}),
+            'destination_name': Textarea(attrs={'cols': 30, 'rows': 2,'placeholder': 'Central World' }),
+            'destination': Textarea(attrs={'cols': 30, 'rows': 2,'placeholder': '999/9 Rama I Rd, Pathum Wan, Pathum Wan District, Bangkok 10330'}),
+            'description': Textarea(attrs={'cols': 30, 'rows': 2, 'placeholder': 'Description'}),
             'num_people': Textarea(attrs={'cols': 5, 'rows': 2}),
         }
 
@@ -42,8 +42,8 @@ class ShareFoodForm(forms.ModelForm):
         model = ShareFood
         fields = ['location_name', 'location', 'description', 'num_people']
         widgets = {
-            'location_name': Textarea(attrs={'cols': 15, 'rows': 2}),
-            'location': Textarea(attrs={'cols': 30, 'rows': 2}),
-            'description': Textarea(attrs={'cols': 30, 'rows': 2}),
+            'location_name': Textarea(attrs={'cols': 15, 'rows': 2,'placeholder': 'Kuma Shabu'}),
+            'location': Textarea(attrs={'cols': 30, 'rows': 2,'placeholder': '21 30 Thanon Ngamwongwan, Lat Yao, Chatuchak, Bangkok 10900'}),
+            'description': Textarea(attrs={'cols': 30, 'rows': 2,'placeholder': 'Description'}),
             'num_people': Textarea(attrs={'cols': 5, 'rows': 2}),
         }
