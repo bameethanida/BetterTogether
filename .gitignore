@@ -147,4 +147,8 @@ dmypy.json
 .DS_Store
 .env
 
+
+
+
 staticfiles/
+

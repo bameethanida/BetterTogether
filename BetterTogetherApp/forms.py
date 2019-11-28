@@ -1,6 +1,6 @@
 from django import forms
-from django.forms import Textarea
-from .models import ShareRide, SharePromotion, ShareFood
+from django.forms import Textarea, DateInput
+from .models import ShareRide, SharePromotion, ShareFood, Info
 from datetime import datetime
 
 myDate = datetime.now()
@@ -35,6 +35,7 @@ class SharePromotionForm(forms.ModelForm):
             'brand': Textarea(attrs={'cols': 30, 'rows': 2,'placeholder':'Zara'}),
             'description': Textarea(attrs={'cols': 30, 'rows': 2,'placeholder':'Description'}),
             'num_people': Textarea(attrs={'cols': 5, 'rows': 2}),
+
         }
 
 class ShareFoodForm(forms.ModelForm):
@@ -46,4 +47,16 @@ class ShareFoodForm(forms.ModelForm):
             'location': Textarea(attrs={'cols': 30, 'rows': 2,'placeholder': '21 30 Thanon Ngamwongwan, Lat Yao, Chatuchak, Bangkok 10900'}),
             'description': Textarea(attrs={'cols': 30, 'rows': 2,'placeholder': 'Description'}),
             'num_people': Textarea(attrs={'cols': 5, 'rows': 2}),
+        }
+
+class EditInfo(forms.ModelForm):
+    class Meta:
+        model = Info
+        fields = ['gender', 'birthday', 'brief_info', 'phone_num', 'twitter']
+        widgets = {
+            'gender': Textarea(attrs={'cols': 15, 'rows': 2}),
+            'birthday': DateInput(attrs={'cols': 10, 'rows': 2}),
+            'brief_info': Textarea(attrs={'cols': 30, 'rows': 2}),
+            'phone_num': Textarea(attrs={'cols': 15, 'rows': 2}),
+            'twitter': Textarea(attrs={'cols': 25, 'rows': 2})
         }

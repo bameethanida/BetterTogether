@@ -9,7 +9,6 @@
   font-family: 'Roboto', sans-serif;
 }
 
-
 .navbar {
   width: 100%;
   height: 12%;
@@ -18,7 +17,6 @@
   font-family: Arial;
   top: 0;
   margin-bottom: 0%;
-
 }
 
 
@@ -27,8 +25,6 @@
   font-size: 16px;
   padding: 14px 16px;
   text-decoration: none;
-
-
 }
 
 
@@ -44,8 +40,6 @@
   font-family: 'Roboto', sans-serif;
   font-size: 125%;
 }
-
-
 
 .button {
   display: inline-block;
@@ -88,8 +82,6 @@
   right: 0;
 }
 
-
-
 .logo-footer {
   height: 75;
 }
@@ -104,11 +96,9 @@
   margin-top: 5%;
 }
 
-
-
 .container {
   margin: 20px auto;
-  padding: 40px 0px;
+  padding: 20px 0px;
   width: 650px;
   min-height: 300px;
   border-radius: 20px;
@@ -126,7 +116,6 @@
   border-radius: 20px;
 }
 
-
 .front {
   z-index: 2;
   background-size: 100vh;
@@ -136,7 +125,6 @@
 }
 
 .overlay {
-  letter-spacing: 0cm;
   border-radius: 20px;
   position: absolute;
   top: 0%;
@@ -147,13 +135,11 @@
   width: 100%;
   height: 0;
   transition: 0.7s ease;
-  
 }
 
 .container:hover .overlay {
-  padding: 0;
   top: 0;
-  height: 82%;
+  height: 75%;
 }
 
 .text {
@@ -183,7 +169,7 @@
 .button_b {
   height: 50px;
   width: 200px;
-  color: #fff ;
+  color: #fff;
   text-transform: uppercase;
   text-decoration: none;
   background: #60a3bc;
