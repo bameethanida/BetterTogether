@@ -203,10 +203,9 @@ ul a:hover {
 }
 
 .card {
-  margin-left: 120px;
   float: left;
   width: 320px;
-  height: 421px;
+  height: 410px;
   background: #fff;
   border-radius: 20px;
   overflow: hidden;
@@ -320,9 +319,10 @@ ul a:hover {
   align-items: center;
 }
 .menu {
-  width: auto;
+  width: 100%;
   height: auto;
   display: flex;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
 }
