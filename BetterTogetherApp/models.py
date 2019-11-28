@@ -27,6 +27,9 @@ class Info(models.Model):
     def get_brief_info(self):
         return self.brief_info
 
+    def get_gender(self):
+        return self.gender
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
