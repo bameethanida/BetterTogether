@@ -13,6 +13,7 @@ class Info(models.Model):
     gender = models.CharField('Gender (F or M)', max_length=1)
     birthday = models.DateField(null=True, blank=True)
     brief_info = models.TextField('Background Infomation', default="")
+    phone_num = models.CharField('Phone Number', max_length=10, default=0)
 
     def get_name(self):
         return f"{self.user.first_name} {self.user.last_name}"

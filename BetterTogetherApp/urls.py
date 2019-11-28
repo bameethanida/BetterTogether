@@ -8,6 +8,7 @@ urlpatterns = [
     path('login/', views.signup_login, name='login'),
     path('logout/', views.logout_user, name='logout'),
     path('profile/',views.profile, name='profile'),
+    path('edit_profile/',views.edit_profile, name='edit_profile'),
     path('shareride/', views.share_ride_index, name='share_ride_index1'),
     path('shareride/create', views.create_share_ride, name='create_share_ride'),
     path('shareride/remove/<int:shareride_id>', views.delete_share_ride, name='delete_share_ride'),

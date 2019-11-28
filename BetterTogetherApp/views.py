@@ -37,6 +37,29 @@ def profile(request):
     context = {'user':user, 'info':info}
     return render(request, 'BetterTogetherApp/profile.html', context)
 
+@login_required
+def edit_profile(request):
+    form = EditInfo(request.POST or None)
+    info = request.user.info
+    if request.method == 'POST':
+        if form.is_valid():
+            gender = form.data.get('gender')
+            birthday = form.data.get('birthday')
+            brief_info = form.data.get('brief_info')
+            phone_num = form.data.get('phone_num')
+            info.gender = gender
+            info.save()
+            info.birthday = birthday
+            info.save()
+            info.brief_info = brief_info
+            info.save()
+            info.phone_num = phone_num
+            info.save()
+            return redirect('BetterTogetherApp:profile')
+    
+    context = {'form': form, 'date_time': DateForm, 'info' : info}
+    return render(request, 'BetterTogetherApp/edit_profile.html', context)
+
 def user_profile(request, user_id):
     info_obj = get_object_or_404(Info, pk=user_id)
     pass
