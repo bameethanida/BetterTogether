@@ -1,12 +1,47 @@
-<h1>Create new ShareFood event</h1>
-<form action='{% url "BetterTogetherApp:create_share_food" %}' method="post">
-    {% csrf_token %}
-    Location Name: {{ form.location_name }}
-    <br> Location: {{ form.location }}
-    <br> Description: {{ form.description }}
-    <br> Number of Participants: {{ form.num_people }}
-    <br><h3>Select the time to meet with the others: </h3>{{ date_time }}
-    <button type="submit">Submit</button>
-</form>  
+{% load static %}
+<html>
 
-<a href="{% url 'BetterTogetherApp:share_food_index1' %}"> Go BACK to index</a>
+<head>
+    <title> Create ShareFood Event </title>
+    <link href="{% static "css/sharefood-create-style.css" %}" rel="stylesheet">
+    <link rel="icon" href="{% static "image/puzzle.png" %}">
+</head>
+
+<body class="body">
+    <nav class="navbar">
+        <a class="navbar-brand">
+            <a href="{% url 'BetterTogetherApp:index' %}"> <img class="logo" src="{% static "image/long-logo-3.png" %}"
+                    height="65" alt="BetterTogether"></a>
+        </a>
+    </nav>
+    <div class="container">
+        <div class="head">
+            <h1>
+                <center>&bull; CREATE SHARE FOOD EVENT &bull;
+            </h1>
+            <form action='{% url "BetterTogetherApp:create_share_food" %}' method="post">
+        </div>
+        <div class="underline"></div>
+        <div class="content">
+            <form action='{% url "BetterTogetherApp:create_share_food" %}' method="post">
+                {% csrf_token %}
+                <br> LOCATION NAME <br> <br>{{ form.location_name }} <br>
+                <br> LOCATION ADDRESS<br> <br> {{ form.location }}<br>
+                <br> DESCRIPTION <br> <br> {{ form.description }}<br>
+                <br> NUMBER OF PARTICIPANTS <br> <br> {{ form.num_people }}<br>
+                <br>
+                <h3>SELECT THE TIME TO MEET WITH THE OTHERS <br> <br> </h3>{{ date_time }}
+                <button class="button" type="submit">Submit</button>
+            </form>
+
+            <a class="back-to-index" href="{% url 'BetterTogetherApp:share_food_index1' %}">
+                <center><br>GO BACK TO INDEX
+            </a>
+        </div>
+    </div>
+    <div class="footer">
+        <img class="logo-footer" src="{% static "image/logo-1.png" %}" alt="BetterTogether">
+    </div>
+</body>
+
+</html>
