@@ -1,9 +1,49 @@
-<h1>Create new SharePromotion event</h1>
-<form action='{% url "BetterTogetherApp:create_share_promotion" %}' method="post">
-    {% csrf_token %}
-    {{ form }}
-    <br><h3>Select the time to meet with the others: </h3>{{ date_time }}
-    <button type="submit">Submit</button>
-</form>  
+{% load static %}
+<html>
 
-<a href="{% url 'BetterTogetherApp:share_promotion_index1' %}"> Go BACK to index</a>
+<head>
+    <title> Create SharePromotion Event </title>
+    <link href="{% static "css/sharepromotion-create-style.css" %}" rel="stylesheet">
+    <link rel="icon" href="{% static "image/puzzle.png" %}">
+
+</head>
+
+<body class="body">
+    <nav class="navbar">
+        <a class="navbar-brand">
+            <a href="{% url 'BetterTogetherApp:index' %}"> <img class="logo" src="{% static "image/long-logo-3.png" %}"
+                    height="65" alt="BetterTogether"></a>
+        </a>
+    </nav>
+    <div class="container">
+        <div class="head">
+            <h1>
+                <center>&bull; CREATE SHARE PROMOTION EVENT&bull;
+            </h1>
+        </div>
+        <div class="underline"></div>
+        <div class="content">
+            <form action='{% url "BetterTogetherApp:create_share_promotion" %}' method="post">
+                {% csrf_token %}
+                <br> LOCATION NAME <br> <br> {{ form.location_name }} <br>
+                <br> LOCATION ADDRESS<br> <br> {{ form.location }} <br>
+                <br> BRAND <br> <br> {{ form.brand }}<br>
+                <br> DESCRIPTION <br> <br> {{ form.description }}<br>
+                <br> NUMBER OF PARTICIPANTS <br><br> {{ form.num_people }}<br>
+                <br>
+                <h3>Select the time to meet with the others: </h3>{{ date_time }}
+                <button class="button" type="submit">Submit</button>
+            </form>
+
+            <a href="{% url 'BetterTogetherApp:share_promotion_index1' %}">
+                <center>GO BACK TO INDEX
+            </a>
+        </div>
+    </div>
+    <div class="footer">
+        <center><img class="logo-footer" src="{% static "image/logo-1.png" %}" alt="BetterTogether">
+    </div>
+
+</body>
+
+</html>
