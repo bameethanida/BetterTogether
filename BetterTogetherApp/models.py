@@ -98,7 +98,7 @@ class ShareRide(models.Model):
         return f"{self.location_name} address : {self.location}"
 
     def get_description(self):
-        return f"{self.description}"
+        return f"Description: {self.description}"
 
     def get_time(self):
         return f"Time to meet up : {str(self.date_time)}"
