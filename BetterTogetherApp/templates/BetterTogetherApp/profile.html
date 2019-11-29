@@ -44,10 +44,8 @@
                         {% endif %}
                         <br> Gender : {{ user.info.get_gender }}</p>
                         <div style="margin: 24px 0;text-align: center;">
-                        {% if not user.info.twitter == NULL %}
+                        {% if user.info.twitter %}
                             <a href="{{ user.info.twitter }}"><i class="fa fa-twitter fa-2x"></i></a>
-                        {% else %}
-                            Twitter: -
                         {% endif %}
                             <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
                             <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
