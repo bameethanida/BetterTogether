@@ -14,7 +14,7 @@ class Info(models.Model):
     birthday = models.DateField(null=True, blank=True)
     brief_info = models.TextField('Background Infomation', default="")
     phone_num = models.CharField('Phone Number', max_length=10, default=0)
-    twitter = models.TextField('Twitter', default=None)
+    twitter = models.TextField('Twitter', default="")
 
     def get_name(self):
         return f"{self.user.first_name} {self.user.last_name}"
