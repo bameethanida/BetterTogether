@@ -166,6 +166,7 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+  word-break: break-word;
 }
 
 .text-delete {

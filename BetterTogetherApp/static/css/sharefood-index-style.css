@@ -165,13 +165,9 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
+    word-break: break-word;
   }
 
-  div h4 {
-    padding-left: 60px;
-    padding-right: 60px;
-  }
-  
   .text-delete {
     bottom: 8px;
     right: 16px;
