@@ -14,7 +14,7 @@ class Info(models.Model):
     birthday = models.DateField(null=True, blank=True)
     brief_info = models.TextField('Background Infomation', default="")
     phone_num = models.CharField('Phone Number', max_length=10, default=0)
-    twitter = models.TextField('Twitter', default=None)
+    twitter = models.TextField('Twitter', blank=True)
 
     def get_name(self):
         return f"{self.user.first_name} {self.user.last_name}"
@@ -53,16 +53,16 @@ class ShareFood(models.Model):
     full = models.BooleanField(default=False)
 
     def get_location_name(self):
-        return f"Meeting Location : {self.location_name}"
+        return f"Meeting Location: {self.location_name}"
 
     def get_location(self):
-        return f"Address : {self.location}"
+        return f"Address: {self.location}"
 
     def get_description(self):
-        return f"Brief description : {self.description}"
+        return f"Description: {self.description}"
 
     def get_time(self):
-        return f"Time to meet up with other participants : {str(self.date_time)}"
+        return f"Time to meet up: {str(self.date_time)}"
 
     def full_or_not(self):
         if len(self.participants.all()) == self.num_people:
@@ -92,19 +92,19 @@ class ShareRide(models.Model):
         return f"{self.destination_name}"
 
     def get_destination(self):
-        return f"{self.destination_name} Address : {self.destination}"
+        return f"{self.destination_name} Address: {self.destination}"
 
     def get_location_name(self):
         return f"{self.location_name}"
 
     def get_location(self):
-        return f"{self.location_name} address : {self.location}"
+        return f"{self.location_name} Address: {self.location}"
 
     def get_description(self):
-        return f"{self.description}"
+        return f"Description: {self.description}"
 
     def get_time(self):
-        return f"Time to meet up : {str(self.date_time)}"
+        return f"Time to meet up: {str(self.date_time)}"
 
     def full_or_not(self):
         if len(self.participants.all()) == self.num_people:
@@ -130,16 +130,16 @@ class SharePromotion(models.Model):
     full = models.BooleanField(default=False)
 
     def get_location_name(self):
-        return f"Meeting Location : {self.location_name}"
+        return f"Meeting Location: {self.location_name}"
 
     def get_brand(self):
-        return f"Name of Store or Brand : {self.brand}"
+        return f"Name of Store or Brand: {self.brand}"
 
     def get_description(self):
-        return f"Brief description : {self.description}"
+        return f"Description: {self.description}"
 
     def get_time(self):
-        return f"Time to meet up with other participants : {str(self.date_time)}"
+        return f"Time to meet up: {str(self.date_time)}"
 
     def full_or_not(self):
         if len(self.participants.all()) == self.num_people:

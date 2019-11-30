@@ -107,8 +107,8 @@
   
   
   .container {
-    margin: 20px auto;
-    padding: 20px 0px;
+    margin: 30px auto;
+    padding: 50px 0px;
     width: 650px;
     min-height: 300px;
     border-radius: 20px;
@@ -136,6 +136,7 @@
   }
   
   .overlay {
+    letter-spacing: 0cm;
     border-radius: 20px;
     position: absolute;
     top: 0%;
@@ -149,8 +150,9 @@
   }
   
   .container:hover .overlay {
+    padding: 0;
     top: 0;
-    height: 75%;
+    height: 82%;
   }
   
   .text {
@@ -163,8 +165,9 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
+    word-break: break-word;
   }
-  
+
   .text-delete {
     bottom: 8px;
     right: 16px;

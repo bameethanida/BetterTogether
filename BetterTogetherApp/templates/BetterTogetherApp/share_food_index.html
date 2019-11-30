@@ -36,19 +36,18 @@
         <div class="front side">
             <div class="content">
                 <h1> {{ object.get_location_name }} </h1>
-                <h2> {{ object.get_time }} </h2>
+                <h3> {{ object.get_time }} </h3>
                 <br> Current Participants are : 
                     {% for user1 in object.participants.all %} 
                         {{ user1.get_name }}
                     {% endfor %}
-                Hosted by : {{ object.host }}
+                <br>Hosted by : {{ object.host }}
                 <div class="overlay">
                     <div class="text">
-                        {{ object.get_location_name }} <br>
-                        {{ object.get_location }}<br>
-                        {{ object.get_destination }}<br>
-                        {{ object.get_description }} <br>
-
+                        <h3> {{ object.get_location_name }}</h3>
+                        <h3>​ {{ object.get_location }} </h3> 
+                        <h3>​ {{ object.get_destination }} </h3> 
+                        <h4>{{ object.get_description }} </h4>
                     </div>
                 </div>
             </div>

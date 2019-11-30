@@ -1,3 +1,4 @@
+@import "https://fonts.googleapis.com/css?family=Hind|Lobster|Roboto&display=swap";
 .body {
     margin-top: 0;
     margin-right: 0;
@@ -8,7 +9,7 @@
 }
 
 
-.navbar {
+.navbar{
     width: 100%;
     height: 12%;
     display: block;
@@ -26,17 +27,18 @@
 
 }
 
-.container {
+.container{
+    background-color: #fff;
     border: solid 3px #474544;
-    height: 140%;
+    height: 125%;
     max-width: 800px;
     margin: 60px auto;
     position: relative;
-    background-color: white;
 }
 
-.head {
+.head{
     margin-top: 4%;
+    font-size: 17px;
 }
 
 .underline {
@@ -45,42 +47,45 @@
     width: 250px;
     margin-top: 1%;
     margin-bottom: 2%;
-}
+  }
 
 
-.content {
+.content{
     margin-left: 3%;
     font-size: 17px;
 }
 
-textarea {
+textarea{
     font-size: 17px;
     width: 95%;
     height: 50px;
     padding: 12px 20px;
     border: none;
     border-bottom: solid 2px #474544;
-    background-color: white;
+    background-color:white;
     resize: none;
     overflow: auto;
+
 }
 
 
-#id_num_people {
+#id_num_people{
+    text-align: center;
     overflow: hidden;
     width: 60px;
     height: 35px;
     border: none;
     border-bottom: solid 2px #474544;
+    background-color:white;
 
 }
 
-#id_description {
+#id_description{
     width: 95%;
     height: 20%;
     border: none;
     border-bottom: solid 2px #474544;
-    background-color: white;
+    background-color:white;
 }
 
 .button {
@@ -127,7 +132,6 @@ a:-webkit-any-link {
 
 @media only screen and (max-width: 507px) {
     .container {
-        height: 135%;
-
+        height: 130%;
     }
 }
