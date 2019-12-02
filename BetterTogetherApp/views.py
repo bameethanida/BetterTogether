@@ -79,6 +79,17 @@ def join_share_ride(request, shareride_id):
     return redirect('BetterTogetherApp:share_ride_index1')
 
 @login_required
+def leave_share_ride(request, shareride_id):
+    user = request.user.id
+    try:
+        sr = get_object_or_404(ShareRide, pk=shareride_id)
+    except (KeyError, ShareRide.DoesNotExist):
+        return render(request, 'BetterTogetherApp/share_ride_index.html', {'datetime' : formatedDate})
+    else:
+        sr.participants.remove(user)
+    return redirect('BetterTogetherApp:share_ride_index1')
+
+@login_required
 def join_share_promotion(request, sharepromo_id):
     user = request.user.id
     try:
