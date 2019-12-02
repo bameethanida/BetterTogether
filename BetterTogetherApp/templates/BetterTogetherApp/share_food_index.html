@@ -56,10 +56,11 @@
             <div class="button_cont"><a class="button_b"
                     href="{% url 'BetterTogetherApp:join_share_food' object.id %}" rel="nofollow noopener">JOIN THIS
                     EVENT</a></div>
+            {% if user.info.get_name == object.host %}
             <div class="button_cont"><a class="button_b"
                     href="{% url 'BetterTogetherApp:delete_share_food' object.id %}" rel="nofollow noopener">DELETE THIS
                     EVENT</a></div>
-
+            {% endif %}
 
         </div>
 
