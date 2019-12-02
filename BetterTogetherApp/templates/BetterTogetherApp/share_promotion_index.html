@@ -38,7 +38,11 @@
                 <h1> {{ object.get_brand }} </h1>
                 <h2> {{ object.get_location }} </h2>
                 <h3> {{ object.get_time }} </h3>
-                by {{ object.host }}
+                <br> Current Participants are : 
+                    {% for user1 in object.participants.all %} 
+                        {{ user1.get_name }}
+                    {% endfor %}
+                <br> Hosted by : {{ object.host }}
                 <div class="overlay">
                     <div class="text">
                         {{ object.get_description }} <br>
@@ -48,9 +52,12 @@
             </div>
 
             <br><br><br><br>
+            <br><a href="{% url 'BetterTogetherApp:join_share_promotion' object.id %}"><h2>Join this event</h2><a>
+            {% if user.info.get_name == object.host %}
             <div class="button_cont"><a class="button_b"
                     href="{% url 'BetterTogetherApp:delete_share_promotion' object.id %}" rel="nofollow noopener">DELETE THIS
                     EVENT</a></div>
+            {% endif %}
 
 
         </div>
