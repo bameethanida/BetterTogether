@@ -12,6 +12,7 @@ urlpatterns = [
     path('shareride/', views.share_ride_index, name='share_ride_index1'),
     path('shareride/create', views.create_share_ride, name='create_share_ride'),
     path('shareride/remove/<int:shareride_id>', views.delete_share_ride, name='delete_share_ride'),
+    path('shareride/leave/<int:shareride_id>', views.leave_share_ride, name='leave_share_ride'),
     path('shareride/join/<int:shareride_id>', views.join_share_ride, name='join_share_ride'),
     path('sharepromo/', views.share_promotion_index, name='share_promotion_index1'),
     path('sharepromo/create', views.create_share_promotion, name='create_share_promotion'),
