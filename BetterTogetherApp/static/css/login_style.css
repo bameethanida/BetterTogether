@@ -306,14 +306,17 @@ input:active {
 
 .btn-login {
 	color: #fbfdff;
-	background: #a7e245;
-	transform: translateX(-30%);
+	background: crimson;
+}
+.btn-login:hover {
+	box-shadow: #999;
+	transform: translateX(-60%) rotate(0deg) skew(0deg) translate(0px, 0px);
 }
 
 .btn-signup {
-	color: #a7e245;
-	background: #fbfdff;
-	box-shadow: inset 0 0 0 2px #a7e245;
+	color: #fbfdff;
+	background: crimson;
+	box-shadow: #999;
 	transform: translateX(30%);
 }
 
