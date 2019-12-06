@@ -5,7 +5,7 @@ from . import views
 app_name = 'BetterTogetherApp'
 urlpatterns = [
     path('', views.index, name='index'),
-    path('login/', views.signup_login, name='login'),
+    path('login/', views.login_user, name='login'),
     path('logout/', views.logout_user, name='logout'),
     path('profile/',views.profile, name='profile'),
     path('edit_profile/',views.edit_profile, name='edit_profile'),
@@ -23,5 +23,6 @@ urlpatterns = [
     path('sharefood/create', views.create_share_food, name='create_share_food'),
     path('sharefood/remove/<int:sharefood_id>', views.delete_share_food, name='delete_share_food'),
     path('sharefood/leave/<int:sharefood_id>', views.leave_share_food, name='leave_share_food'),
-    path('sharefood/join/<int:sharefood_id>', views.join_share_food, name='join_share_food')
+    path('sharefood/join/<int:sharefood_id>', views.join_share_food, name='join_share_food'),
+    path('', include('social_django.urls', namespace="oauth"))
 ]

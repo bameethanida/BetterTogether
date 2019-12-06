@@ -32,6 +32,7 @@ SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '77406265986-hncbjm73uev7vuhibpga0p7chsj333mc.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'AvFghW6x4pDf4TUKvpX-l4Kw'
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/login'
 
 # Application definition

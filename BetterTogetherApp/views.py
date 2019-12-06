@@ -6,7 +6,8 @@ from .models import *
 from .forms import *
 from django import forms
 from datetime import datetime
-from django.contrib.auth import logout
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 myDate = datetime.now()
 formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
@@ -15,11 +16,40 @@ formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
 def index(request):
     return render(request, 'BetterTogetherApp/homepage.html')
 
-def signup_login(request):
-    if request.user.is_authenticated:
-        return redirect('BetterTogetherApp:index')
-    else:
-        return render(request, 'BetterTogetherApp/login.html')
+# def signup_login(request):
+#     if request.user.is_authenticated:
+#         return redirect('BetterTogetherApp:index')
+#     else:
+#         return render(request, 'BetterTogetherApp/login.html')
+
+
+
+def login_user(request):
+    """
+    If the user is not authenticated, get user's request and execute login.
+    """
+    if not request.user.is_authenticated:
+        form = EditInfo(request.POST or None)
+        if request.method == "POST":
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    HttpResponseRedirect(reverse('BetterTogetherApp:index'))
+                    # redirect('/login/next=%s' %request.path)
+                    print(request.path)
+                    print(request.user)
+                else:
+                    return render(request, 'BetterTogetherApp/login.html', {'form': form})
+            else:
+                messages.error(request, 'username or password is not correct')
+                return render(request, 'BetterTogetherApp/login.html', {'form': form})
+        else:
+            return render(request, 'BetterTogetherApp/login.html', {'form': form})
+
+    return HttpResponseRedirect(reverse('BetterTogetherApp:index'))
 
 
 @login_required
