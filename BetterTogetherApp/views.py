@@ -26,7 +26,6 @@ def signup_login(request):
 def logout_user(request):
     print(request.user)
     logout(request)
-    print(request.user)
     return redirect(reverse('BetterTogetherApp:index'))
 
 @login_required
@@ -73,7 +72,7 @@ def join_share_ride(request, shareride_id):
     try:
         sr = get_object_or_404(ShareRide, pk=shareride_id)
     except (KeyError, ShareRide.DoesNotExist):
-        return render(request, 'BetterTogetherApp/share_ride_index.html', {'datetime' : formatedDate})
+        return redirect('BetterTogetherApp:share_ride_index1')
     else:
         sr.participants.add(user)
     return redirect('BetterTogetherApp:share_ride_index1')
@@ -84,7 +83,7 @@ def leave_share_ride(request, shareride_id):
     try:
         sr = get_object_or_404(ShareRide, pk=shareride_id)
     except (KeyError, ShareRide.DoesNotExist):
-        return render(request, 'BetterTogetherApp/share_ride_index.html', {'datetime' : formatedDate})
+        return redirect('BetterTogetherApp:share_ride_index1')
     else:
         sr.participants.remove(user)
     return redirect('BetterTogetherApp:share_ride_index1')
@@ -95,9 +94,20 @@ def join_share_promotion(request, sharepromo_id):
     try:
         sr = get_object_or_404(SharePromotion, pk=sharepromo_id)
     except (KeyError, ShareRide.DoesNotExist):
-        return render(request, 'BetterTogetherApp/share_promotion_index.html', {'datetime' : formatedDate})
+        return redirect('BetterTogetherApp:share_promotion_index1')
     else:
         sr.participants.add(user)
+    return redirect('BetterTogetherApp:share_promotion_index1')
+
+@login_required
+def leave_share_promo(request, sharepromo_id):
+    user = request.user.id
+    try:
+        sr = get_object_or_404(SharePromotion, pk=sharepromo_id)
+    except (KeyError, SharePromotion.DoesNotExist):
+        return redirect('BetterTogetherApp:share_promotion_index1')
+    else:
+        sr.participants.remove(user)
     return redirect('BetterTogetherApp:share_promotion_index1')
 
 @login_required
@@ -106,9 +116,20 @@ def join_share_food(request, sharefood_id):
     try:
         sr = get_object_or_404(ShareFood, pk=sharefood_id)
     except (KeyError, ShareFood.DoesNotExist):
-        return render(request, 'BetterTogetherApp/share_food_index.html', {'datetime' : formatedDate})
+        return redirect('BetterTogetherApp:share_food_index1')
     else:
         sr.participants.add(user)
+    return redirect('BetterTogetherApp:share_food_index1')
+
+@login_required
+def leave_share_food(request, sharefood_id):
+    user = request.user.id
+    try:
+        sr = get_object_or_404(ShareFood, pk=sharefood_id)
+    except (KeyError, ShareFood.DoesNotExist):
+        return redirect('BetterTogetherApp:share_food_index1')
+    else:
+        sr.participants.remove(user)
     return redirect('BetterTogetherApp:share_food_index1')
 
 
