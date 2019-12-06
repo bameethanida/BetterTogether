@@ -64,11 +64,8 @@ class ShareFood(models.Model):
     def get_time(self):
         return f"Time to meet up: {str(self.date_time)}"
 
-    def full_or_not(self):
-        if len(self.participants.all()) == self.num_people:
-            self.full = True
-            self.save()
-        return len(self.participants.all()) == self.num_people
+    def vacant(self):
+        return len(self.participants.all()) < self.num_people
 
     
 
@@ -106,11 +103,8 @@ class ShareRide(models.Model):
     def get_time(self):
         return f"Time to meet up: {str(self.date_time)}"
 
-    def full_or_not(self):
-        if len(self.participants.all()) == self.num_people:
-            self.full = True
-            self.save()
-        return len(self.participants.all()) == self.num_people
+    def vacant(self):
+        return len(self.participants.all()) < self.num_people
 
     def del_self(self):
         share = self
@@ -141,8 +135,5 @@ class SharePromotion(models.Model):
     def get_time(self):
         return f"Time to meet up: {str(self.date_time)}"
 
-    def full_or_not(self):
-        if len(self.participants.all()) == self.num_people:
-            self.full = True
-            self.save()
-        return len(self.participants.all()) == self.num_people
+    def vacant(self):
+        return len(self.participants.all()) < self.num_people

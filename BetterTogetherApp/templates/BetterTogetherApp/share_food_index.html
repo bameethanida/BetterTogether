@@ -37,6 +37,8 @@
             <div class="content">
                 <h1> {{ object.get_location_name }} </h1>
                 <h3> {{ object.get_time }} </h3>
+                <br>Vacant? : {{ object.vacant }}
+                <br>Event capacity: {{ object.num_people }}
                 <br> Current Participants are : 
                     {% for user1 in object.participants.all %} 
                         {{ user1.get_name }}
@@ -53,9 +55,11 @@
             </div>
 
             {% if user.info not in object.participants.all %}
+                {% if object.vacant %}
             <div class="button_cont"><a class="button_b"
                     href="{% url 'BetterTogetherApp:join_share_food' object.id %}" rel="nofollow noopener">JOIN THIS
                     EVENT</a></div>
+                {% endif %}
             {% endif %}
 
             {% for user1 in object.participants.all %}
@@ -67,7 +71,7 @@
             {% endfor %}
 
             {% if user.info.get_name == object.host %}
-            <div class="button_cont"><a class="button_b"
+                     <div class="button_cont"><a class="button_b"
                     href="{% url 'BetterTogetherApp:delete_share_food' object.id %}" rel="nofollow noopener">DELETE THIS
                     EVENT</a></div>
             {% endif %}
