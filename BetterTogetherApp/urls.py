@@ -24,5 +24,6 @@ urlpatterns = [
     path('sharefood/remove/<int:sharefood_id>', views.delete_share_food, name='delete_share_food'),
     path('sharefood/leave/<int:sharefood_id>', views.leave_share_food, name='leave_share_food'),
     path('sharefood/join/<int:sharefood_id>', views.join_share_food, name='join_share_food'),
-    path('', include('social_django.urls', namespace="oauth"))
+    path('', include('social_django.urls', namespace="oauth")),
+    path('profile/all_share/', views.all_share, name="all_share")
 ]

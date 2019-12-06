@@ -16,12 +16,19 @@ formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
 def index(request):
     return render(request, 'BetterTogetherApp/homepage.html')
 
+def all_share(request):
+    sr = ShareRide.objects.all()
+    sf = ShareFood.objects.all()
+    sp = SharePromotion.objects.all()
+    user = request.user
+    context = {'user':user, 'sr':sr, 'sf':sf, 'sp':sp}
+    return render(request, 'BetterTogetherApp/all_share.html', context)
+
 # def signup_login(request):
 #     if request.user.is_authenticated:
 #         return redirect('BetterTogetherApp:index')
 #     else:
 #         return render(request, 'BetterTogetherApp/login.html')
-
 
 
 def login_user(request):
