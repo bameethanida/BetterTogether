@@ -174,10 +174,14 @@
   right: 16px;
 }
 
+.button_container {
+  display: flex;
+  justify-content: space-around;
+}
 .button_cont {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   padding-bottom: 10px;
 }
 

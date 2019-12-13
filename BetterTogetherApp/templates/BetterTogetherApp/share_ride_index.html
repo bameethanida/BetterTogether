@@ -53,12 +53,15 @@
                     </div>
                 </div>
             </div>
-
+            <div class="button_container">
             {% if user.info not in object.participants.all %}
                 {% if object.vacant %}
+                
                 <div class="button_cont"><a class="button_b" href="{% url 'BetterTogetherApp:join_share_ride' object.id %}"
                         rel="nofollow noopener">JOIN THIS
-                        EVENT</a></div>
+                        EVENT</a>
+                        </div>
+                
                 {% endif %}
             {% endif %}
 
@@ -75,11 +78,12 @@
             {% if user.info.get_name == object.host %}
             <div class="button_cont"><a class="button_b"
                     href="{% url 'BetterTogetherApp:delete_share_ride' object.id %}" rel="nofollow noopener">DELETE THIS
-                    EVENT</a></div>
+                    EVENT</a>
+                    </div>
             {% endif %}
 
         </div>
-
+        </div>
     </div>
 
 
