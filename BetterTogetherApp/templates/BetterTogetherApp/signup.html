@@ -20,52 +20,55 @@
 <div>
     <section class="forms-section">
         <div class="forms">
-            <form class="form form-signup" action='{% url "BetterTogetherApp:signup" %}' method="POST">
-                {% csrf_token %}
-                <fieldset>
-                    <legend>Please, enter your email, password and password confirmation for sign up.</legend>
-                    <div class="form-group">
-                        <div class="input-block">
+            <div class="form-wrapper is-active">
+                <form class="form form-signup" action='{% url "BetterTogetherApp:signup" %}' method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+                        <div class="form-group">
                             <div class="input-block">
-                                <p>Already have a BetterTogether account? </p>
-                                <label for="signup-email">Username</label>
-                                <br> {{form.username}}
-                            </div>
-                            <div class="input-block">
-                                <label for="signup-password">Password</label>
-                                <br> {{form.password1}}
-                            </div>
-                            <div class="input-block">
-                                <label for="signup-password-confirm">Confirm password</label>
-                                <br> {{form.password2}}
-                                <button type="submit" class="btn-signup">Sign Up</button>
-                            </div>
-                            <fieldset>
-                                <hr class="line">
-                            </fieldset>
-                            <fieldset style="text-align:center;"> Or Sign Up With</fieldset>
-                            <fieldset>
+                                <div class="input-block">
+                                    <p>Already have a BetterTogether account?</p><a href="../BetterTogetherApp/login.html">Log In</a>
+                                    
+                                    <label for="signup-email">Username</label>
+                                    <br> {{form.username}}
+                                </div>
+                                <div class="input-block">
+                                    <label for="signup-password">Password</label>
+                                    <br> {{form.password1}}
+                                </div>
+                                <div class="input-block">
+                                    <label for="signup-password-confirm">Confirm password</label>
+                                    <br> {{form.password2}}
+                                    <button type="submit" class="btn-signup">Sign Up</button>
+                                </div>
                                 <fieldset>
-                                    <div class="spacebox">
+                                    <hr class="line">
+                                </fieldset>
+                                <fieldset style="text-align:center;"> Or Sign Up With</fieldset>
+                                <fieldset>
+                                    <fieldset>
+                                        <div class="spacebox">
+                                        </div>
+                                    </fieldset>
+                                    <div class="OAuth-Botton">
+                                        <ul>
+                                            <li>
+                                                <a
+                                                    href="{% url "oauth:begin" "google-oauth2" %}?next={{ request.path }}">
+                                                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                                    <span> Google</span>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </fieldset>
-                                <div class="OAuth-Botton">
-                                    <ul>
-                                        <li>
-                                            <a href="{% url "oauth:begin" "google-oauth2" %}?next={{ request.path }}">
-                                                <i class="fa fa-google-plus" aria-hidden="true"></i>
-                                                <span> Google</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </fieldset>
-            </form>
+                </form>
+            </div>
         </div>
-</div>
-</section>
+    </section>
 
-{% endblock %}
+    {% endblock %}
 
 
 </div>

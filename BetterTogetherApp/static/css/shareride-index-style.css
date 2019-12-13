@@ -59,8 +59,8 @@
   width: 250px;
   transition: all 0.5s;
   cursor: pointer;
-  margin-top: 2%;
-  margin-bottom: 5%;
+  margin-top: 7%;
+  margin-bottom: 3%;
 }
 
 .button span {
@@ -124,6 +124,8 @@
   height: auto;
   color: black;
   border-radius: 20px;
+  font-size: 17px;
+  line-height: 30px;
 }
 
 
