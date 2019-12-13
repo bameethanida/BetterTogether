@@ -60,3 +60,4 @@ class EditInfo(forms.ModelForm):
             'phone_num': Textarea(attrs={'cols': 15, 'rows': 2}),
             'twitter': Textarea(attrs={'cols': 25, 'rows': 2})
         }
+
