@@ -30,7 +30,7 @@
 .container{
     background-color: #fff;
     border: solid 3px #474544;
-    height: 130%;
+    height: 115%;
     max-width: 800px;
     margin: 60px auto;
     position: relative;
@@ -82,7 +82,7 @@ textarea{
 
 #id_description{
     width: 95%;
-    height: 20%;
+    height: 7%;
     border: none;
     border-bottom: solid 2px #474544;
     background-color:white;

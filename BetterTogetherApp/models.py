@@ -42,9 +42,9 @@ def save_user_profile(sender, instance, **kwargs):
 
 
 class ShareFood(models.Model):
-    location_name = models.TextField('Location Name', default="")
-    location = models.TextField('Location', default="")
-    description = models.TextField('Description', default="")
+    location_name = models.TextField('Location Name', default="",max_length=80)
+    location = models.TextField('Location', default="",max_length=80)
+    description = models.TextField('Description', default="",max_length=100)
     date_time = models.DateTimeField('Date and Time',auto_now=True)
     participants = models.ManyToManyField(Info)
     num_people = models.IntegerField("Number of people", default=2)
@@ -53,7 +53,7 @@ class ShareFood(models.Model):
     full = models.BooleanField(default=False)
 
     def get_location_name(self):
-        return f"Meeting Location: {self.location_name}"
+        return f"{self.location_name}"
 
     def get_location(self):
         return f"Address: {self.location}"
@@ -73,10 +73,10 @@ class ShareRide(models.Model):
     myDate = datetime.now()
     formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
 
-    location_name = models.TextField('Location Name', default="")
+    location_name = models.TextField('Location Name', default="",max_length=80)
     location = models.TextField('Location', default="", max_length=80)
-    destination_name = models.TextField('Destination Name', default="")
-    destination = models.TextField('Destination', default="")
+    destination_name = models.TextField('Destination Name', default="",max_length=80)
+    destination = models.TextField('Destination', default="",max_length=80)
     description = models.TextField('Description', default="", max_length=100)
     date_time = models.DateTimeField('Date and Time', default=formatedDate)
     participants = models.ManyToManyField(Info)
@@ -112,10 +112,10 @@ class ShareRide(models.Model):
         self.save()
 
 class SharePromotion(models.Model):
-    location_name = models.TextField('Location Name', default="")
-    location = models.TextField('Location', default="")
-    brand = models.TextField('Brand', default="")
-    description = models.TextField('Description', default="")
+    location_name = models.TextField('Location Name', default="",max_length=80)
+    location = models.TextField('Location', default="",max_length=80)
+    brand = models.TextField('Brand', default="",max_length=80)
+    description = models.TextField('Description', default="",max_length=100)
     date_time = models.DateTimeField('Date and Time')
     participants = models.ManyToManyField(Info)
     num_people = models.IntegerField("Number of people", default=2)
