@@ -3,6 +3,7 @@
   margin: 0;
 }
 .body {
+  width: auto;
   height: 100%;
   margin-top: 0;
   margin-right: 0;
@@ -16,6 +17,7 @@
   background-color: white;
   font-family: Arial;
   top: 0;
+  margin-bottom: 0%;
 }
 
 
