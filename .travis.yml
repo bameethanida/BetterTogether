@@ -1,15 +1,19 @@
 language: python
-    python:
-      - "3.6"
-      - "3.7"
-    services:
-      - mysql
-    env:
-      - DJANGO=2.2.5 
-      - DB=mysql
-    install:
-      - pip install django==$DJANGO --quiet
-    before_script:
-      - mysql -e 'create database test;' -u root
-    script:
-      - python manage.py test
+  
+python: "3.6"
+
+git:
+  depth: 1
+  
+install:
+  - pip install -r requirements.txt
+  - pip install codecov
+  
+script:
+  - python -m discover -p "test_*.py"
+
+script:
+  - coverage run manage.py test BetterTogether/tests
+
+after_success:
+  - codecov  
