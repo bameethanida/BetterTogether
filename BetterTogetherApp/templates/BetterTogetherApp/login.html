@@ -3,7 +3,8 @@
 <head>
   {% load static %}
   {% block css %}
-  <title>Get started with BetterTogether</title>
+  <title>Login with BetterTogether</title>
+  <link rel="icon" href="{% static "image/puzzle.png" %}">
   <link rel="stylesheet" type="text/css" href="{% static '/css/login_style.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   {% endblock %}
@@ -28,6 +29,7 @@
           {% csrf_token %}
           <fieldset>
             <legend>Please, enter your username and password for login.</legend>
+            <p>Get started with BetterTogether? </p>
             <div class="input-block">
               <label for="login-username">Username</label>
               <br> {{form2.username}}
@@ -60,61 +62,16 @@
           </fieldset>
         </form>
       </div>
-      <div class="form-wrapper">
-        <button type="button" class="switcher switcher-signup">
-          Sign Up
-          <span class="underline"></span>
-        </button>
 
-        <form class="form form-signup" action='{% url "BetterTogetherApp:signup" %}' method="POST">
-          {% csrf_token %}
-          <fieldset>
-            <legend>Please, enter your email, password and password confirmation for sign up.</legend>
-            <div class="form-group">
-              <div class="input-block">
-                <div class="input-block">
-              <label for="signup-email">Username</label>
-              <br> {{form.username}}
-            </div>
-            <div class="input-block">
-              <label for="signup-password">Password</label>
-              <br> {{form.password1}}
-            </div>
-            <div class="input-block">
-              <label for="signup-password-confirm">Confirm password</label>
-               <br> {{form.password2}}
-              <button type="submit" class="btn-signup">Sign Up</button>
-            </div>
-            <fieldset>
-              <hr class="line">
-            </fieldset>
-            <fieldset style="text-align:center;"> Or Sign Up With</fieldset>
-            <fieldset>
-              <fieldset>
-                <div class="spacebox">
-                </div>
-              </fieldset>
-              <div class="OAuth-Botton">
-                <ul>
-                  <li>
-                    <a href="{% url "oauth:begin" "google-oauth2" %}?next={{ request.path }}">
-                      <i class="fa fa-google-plus" aria-hidden="true"></i>
-                      <span> Google</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </fieldset>
-        </form>
-      </div>
     </div>
-  </section>
-
-  {% endblock %}
-
-  {% block script %}
-  <script src="{% static '/js/login_script.js' %}"></script>
 </div>
+</section>
+
 {% endblock %}
+
+
+
+</div>
+
 
 </html>
