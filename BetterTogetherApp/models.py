@@ -73,10 +73,10 @@ class ShareRide(models.Model):
     myDate = datetime.now()
     formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
 
-    location_name = models.TextField('Location Name', default="")
+    location_name = models.TextField('Location Name', default="",max_length=80)
     location = models.TextField('Location', default="", max_length=80)
-    destination_name = models.TextField('Destination Name', default="")
-    destination = models.TextField('Destination', default="")
+    destination_name = models.TextField('Destination Name', default="",max_length=80)
+    destination = models.TextField('Destination', default="",max_length=80)
     description = models.TextField('Description', default="", max_length=100)
     date_time = models.DateTimeField('Date and Time', default=formatedDate)
     participants = models.ManyToManyField(Info)
