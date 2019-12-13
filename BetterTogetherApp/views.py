@@ -8,6 +8,7 @@ from django import forms
 from datetime import datetime
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
 
 myDate = datetime.now()
 formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
@@ -31,32 +32,39 @@ def all_share(request):
 #         return render(request, 'BetterTogetherApp/login.html')
 
 
-def login_user(request):
+def login_user(request, backend='django.contrib.auth.backends.ModelBackend'):
     """
     If the user is not authenticated, get user's request and execute login.
     """
     if not request.user.is_authenticated:
-        form = EditInfo(request.POST or None)
+        form = UserCreationForm(request.POST)
+        form2 = SignIn(request.POST)
         if request.method == "POST":
-            username = request.POST.get('username')
-            password = request.POST.get('password')
-            user = authenticate(username=username, password=password)
+            username = form2.data.get('username')
+            password = form2.data.get('password')
+            user = User.objects.get(username=username, password=password)
             if user is not None:
-                if user.is_active:
-                    login(request, user)
-                    HttpResponseRedirect(reverse('BetterTogetherApp:index'))
-                    # redirect('/login/next=%s' %request.path)
-                    print(request.path)
-                    print(request.user)
-                else:
-                    return render(request, 'BetterTogetherApp/login.html', {'form': form})
-            else:
-                messages.error(request, 'username or password is not correct')
-                return render(request, 'BetterTogetherApp/login.html', {'form': form})
+                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+                return HttpResponseRedirect(reverse('BetterTogetherApp:index'))
+                # redirect('/login/next=%s' %request.path)
         else:
-            return render(request, 'BetterTogetherApp/login.html', {'form': form})
+            return render(request, 'BetterTogetherApp/login.html', {'form': form, 'form2': form2})
 
     return HttpResponseRedirect(reverse('BetterTogetherApp:index'))
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return HttpResponseRedirect(reverse('BetterTogetherApp:index'))
+    else:
+        print("Can't sign up")
+    return HttpResponseRedirect(reverse('BetterTogetherApp:login'))
 
 
 @login_required
@@ -69,7 +77,6 @@ def logout_user(request):
 def profile(request):
     user = request.user
     info = request.user.info
-    print(request.user)
     context = {'user':user, 'info':info}
     return render(request, 'BetterTogetherApp/profile.html', context)
 

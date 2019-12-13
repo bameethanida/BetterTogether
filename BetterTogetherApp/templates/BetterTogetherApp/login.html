@@ -15,6 +15,7 @@
 
 {% block content %}
 
+
 <div>
   <section class="forms-section">
     <div class="forms">
@@ -23,16 +24,17 @@
           Log in
           <span class="underline"></span>
         </button>
-        <form class="form form-login">
+        <form class="form form-login" action='{% url "BetterTogetherApp:login" %}' method="POST">
+          {% csrf_token %}
           <fieldset>
-            <legend>Please, enter your email and password for login.</legend>
+            <legend>Please, enter your username and password for login.</legend>
             <div class="input-block">
-              <label for="login-email">E-mail</label>
-              <input id="login-email" type="email" class="form-control" required>
+              <label for="login-username">Username</label>
+              <br> {{form2.username}}
             </div>
             <div class="input-block">
               <label for="login-password">Password</label>
-              <input id="login-password" type="password" class="form-control" required>
+              <br> {{form2.password}}
             </div>
           </fieldset>
           <button type="submit" class="btn-login">Login</button>
@@ -64,30 +66,23 @@
           <span class="underline"></span>
         </button>
 
-        <form class="form form-signup">
+        <form class="form form-signup" action='{% url "BetterTogetherApp:signup" %}' method="POST">
+          {% csrf_token %}
           <fieldset>
             <legend>Please, enter your email, password and password confirmation for sign up.</legend>
             <div class="form-group">
               <div class="input-block">
-                <label for="signup-firstname">Firstname</label>
-                <input id="signup-firstname" type="text" class="form-control" required>
-              </div>
-              <div class="input-block">
-                <label for="signup-lastname">Lastname</label>
-                <input id="signup-lastname" type="text" class="form-control" required>
-              </div>
-            </div>
-            <div class="input-block">
-              <label for="signup-email">E-mail</label>
-              <input id="signup-email" type="email" class="form-control" required>
+                <div class="input-block">
+              <label for="signup-email">Username</label>
+              <br> {{form.username}}
             </div>
             <div class="input-block">
               <label for="signup-password">Password</label>
-              <input id="signup-password" type="password" class="form-control" required>
+              <br> {{form.password1}}
             </div>
             <div class="input-block">
               <label for="signup-password-confirm">Confirm password</label>
-              <input id="signup-password-confirm" type="password" class="form-control" required>
+               <br> {{form.password2}}
               <button type="submit" class="btn-signup">Sign Up</button>
             </div>
             <fieldset>
