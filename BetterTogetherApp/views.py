@@ -41,7 +41,11 @@ def login_user(request, backend='django.contrib.auth.backends.ModelBackend'):
         if request.method == "POST":
             username = form2.data.get('username')
             password = form2.data.get('password')
-            user = User.objects.get(username=username, password=password)
+            try:
+                user = User.objects.get(username=username, password=password)
+            except (KeyError, User.DoesNotExist):
+                message = "Attention: Wrong Username or Password"
+                return render(request, 'BetterTogetherApp/login.html', {'form2': form2, 'message': message})
             if user is not None:
                 login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                 return HttpResponseRedirect(reverse('BetterTogetherApp:index'))
