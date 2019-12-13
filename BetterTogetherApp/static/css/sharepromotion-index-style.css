@@ -160,6 +160,13 @@
   right: 16px;
 }
 
+.button_container {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  padding-top: 15%;
+}
+
 .button_cont {
   display: flex;
   align-items: center;
@@ -168,6 +175,7 @@
 }
 
 .button_b {
+  margin-right: 5%;
   height: 50px;
   width: 200px;
   color: #fff;

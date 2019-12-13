@@ -127,7 +127,7 @@ a:-webkit-any-link {
 
 @media only screen and (max-width: 507px) {
     .container {
-        height: 135%;
+        height: 125%;
 
     }
 }
