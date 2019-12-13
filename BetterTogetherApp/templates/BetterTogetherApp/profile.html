@@ -19,8 +19,9 @@
 
 <body class="Top">
     <nav class="nav navbar-light bg-faded">
-            <a class="nav-brand" href="#">
-            <a href="{% url 'BetterTogetherApp:index' %}"><img src="{% static '/image/long-logo-3.png' %}" height="65" alt="BetterTogether">
+        <a class="nav-brand" href="#">
+            <a href="{% url 'BetterTogetherApp:index' %}"><img src="{% static '/image/long-logo-3.png' %}" height="65"
+                    alt="BetterTogether">
             </a>
     </nav>
     <div class="container">
@@ -29,27 +30,29 @@
                 <div class="main-box-sidebar-section">
                     <div class="circle">
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                        <img id="profileImage" class="sidebar-profile-thumbnail profile-pic" src="{% static '/image/avatar.png' %}"
-                            alt="Avatar image">
+                        <img id="profileImage" class="sidebar-profile-thumbnail profile-pic"
+                            src="{% static '/image/avatar.png' %}" alt="Avatar image">
                         <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required=""
                             capture>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Your Profile</h5>
-                        <p class="card-text">{{ user.first_name }} {{ user.last_name }}
-                        {% if not user.info.birthday == NULL %}
-                        <br> Age : {{ user.info.get_age }}
-                        {% else %}
-                        <br> Age : NOT SET 
-                        {% endif %}
-                        <br> Gender : {{ user.info.get_gender }}</p>
+                        <h5 class="card-title">
+                            <center>Your Profile</center>
+                        </h5>
+                        <p class="card-text">
+                            {{ user.first_name }} {{ user.last_name }}
+                            {% if not user.info.birthday == NULL %}
+                            <br> Age : {{ user.info.get_age }}
+                            {% else %}
+                            <br> Age : NOT SET
+                            {% endif %}
+                            <br> Gender : {{ user.info.get_gender }}
+                        </p>
                         <div style="margin: 24px 0;text-align: center;">
-                        {% if user.info.twitter %}
+                            {% if user.info.twitter %}
                             <a href="{{ user.info.twitter }}"><i class="fa fa-twitter fa-2x"></i></a>
-                        {% endif %}
-                            <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
-                            <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
-                            <p class="pt-3">or</p>
+                            {% endif %}
+                            <p class="pt-3">OR</p>
                             <a href="{{ user.info.phone_num }}" class="fa fa-phone"> {{ user.info.phone_num }}</a>
                         </div>
                     </div>
@@ -60,20 +63,16 @@
                     <div class="card-body">
                         <h5 class="card-title">Brief Information</h5>
                         <p class="card-text">{{ info.brief_info }}.</p>
-                        <div style="margin: 24px 0;">
-                            <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
-                            <a href="#"><i class="fa fa-linkedin fa-2x"></i></a>
-                            <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-{% endblock %}
+    {% endblock %}
 
-{% block script %}
+    {% block script %}
     <!--Bootstrap jQuery-->
     <script src="{% static '/js/profile_script.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -86,13 +85,15 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 
+    <div>
+        <a class="button button1" href="{% url 'BetterTogetherApp:edit_profile' %}">Edit Profile</a>
+        <a class="button button1" href="{% url 'BetterTogetherApp:all_share' %}">All Shares</a>
+        {% if user.is_authenticated %}
+        <a class="button button1" href="{% url 'BetterTogetherApp:logout' %}">LOG OUT</a>
+        {% endif %}
+    </div>
 
-<a href="{% url 'BetterTogetherApp:edit_profile' %}">Edit Profile</a>
-<a href="{% url 'BetterTogetherApp:all_share' %}">All Share</a>
 
-{% if user.is_authenticated %}
-<a href="{% url 'BetterTogetherApp:logout' %}">LOGOUT</a>
-{% endif %}
 
 </body>
 {% endblock %}

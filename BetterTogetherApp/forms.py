@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import Textarea, DateInput
 from .models import ShareRide, SharePromotion, ShareFood, Info
+from django.contrib.auth.models import User
 from datetime import datetime
 
 myDate = datetime.now()
@@ -59,4 +60,13 @@ class EditInfo(forms.ModelForm):
             'brief_info': Textarea(attrs={'cols': 30, 'rows': 2}),
             'phone_num': Textarea(attrs={'cols': 15, 'rows': 2}),
             'twitter': Textarea(attrs={'cols': 25, 'rows': 2})
+        }
+
+class SignIn(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password']
+        widgets = {
+            'username': Textarea(attrs={'cols': 15, 'rows': 2}),
+            'password': Textarea(attrs={'cols': 15, 'rows': 2})
         }
