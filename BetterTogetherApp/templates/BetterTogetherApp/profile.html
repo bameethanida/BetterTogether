@@ -85,9 +85,9 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 
-    <div>
-        <a class="button button1" href="{% url 'BetterTogetherApp:edit_profile' %}">Edit Profile</a>
-        <a class="button button1" href="{% url 'BetterTogetherApp:all_share' %}">All Shares</a>
+    <div class="container1">
+        <a class="button button1" href="{% url 'BetterTogetherApp:edit_profile' %}">EDIT PROFILE</a>
+        <a class="button button1" href="{% url 'BetterTogetherApp:all_share' %}">ALL SHARES</a>
         {% if user.is_authenticated %}
         <a class="button button1" href="{% url 'BetterTogetherApp:logout' %}">LOG OUT</a>
         {% endif %}
