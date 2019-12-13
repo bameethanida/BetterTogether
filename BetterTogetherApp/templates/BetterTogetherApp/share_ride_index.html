@@ -11,7 +11,9 @@
 <body class="body">
     <nav class="navbar">
         <a class="navbar-brand">
-            
+            <a href="{% url 'BetterTogetherApp:index'%}"> <img class="logo" src="{% static "image/long-logo-3.png" %}"
+                    height="65" alt="BetterTogether"></a>
+
         </a>
     </nav>
     <img class="image" src="{% static "image/2.jpg" %}">
@@ -53,35 +55,37 @@
                 </div>
             </div>
             <div class="button_container">
-            {% if user.info not in object.participants.all %}
-            {% if object.vacant %}
-            <br>
-            <div class="button_cont"><a class="button_b" href="{% url 'BetterTogetherApp:join_share_ride' object.id %}"
-                    rel="nofollow noopener">JOIN THIS
-                    EVENT</a></div>
-            {% endif %}
-            {% endif %}
+                {% if user.info not in object.participants.all %}
+                {% if object.vacant %}
+                <br>
+                <div class="button_cont"><a class="button_b"
+                        href="{% url 'BetterTogetherApp:join_share_ride' object.id %}" rel="nofollow noopener">JOIN THIS
+                        EVENT</a></div>
+                {% endif %}
+                {% endif %}
 
 
-            {% for user1 in object.participants.all %}
-            {% if user.info == user1 %}
-            <br>
-            <div class="button_cont"><a class="button_b" href="{% url 'BetterTogetherApp:leave_share_ride' object.id %}"
-                    rel="nofollow noopener">LEAVE THIS
-                    EVENT</a></div>
-            {% endif %}
-            {% endfor %}
+                {% for user1 in object.participants.all %}
+                {% if user.info == user1 %}
+                <br>
+                <div class="button_cont"><a class="button_b"
+                        href="{% url 'BetterTogetherApp:leave_share_ride' object.id %}" rel="nofollow noopener">LEAVE
+                        THIS
+                        EVENT</a></div>
+                {% endif %}
+                {% endfor %}
 
 
-            {% if user.info.get_name == object.host %}
-            <br>
-            <div class="button_cont"><a class="button_b"
-                    href="{% url 'BetterTogetherApp:delete_share_ride' object.id %}" rel="nofollow noopener">DELETE THIS
-                    EVENT</a>
-                    </div>
-            {% endif %}
+                {% if user.info.get_name == object.host %}
+                <br>
+                <div class="button_cont"><a class="button_b"
+                        href="{% url 'BetterTogetherApp:delete_share_ride' object.id %}" rel="nofollow noopener">DELETE
+                        THIS
+                        EVENT</a>
+                </div>
+                {% endif %}
 
-        </div>
+            </div>
         </div>
     </div>
 

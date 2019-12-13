@@ -38,53 +38,57 @@
                 <h1> {{ object.get_brand }} </h1>
                 <h2> {{ object.get_location }} </h2>
                 <h3> {{ object.get_time }} </h3>
-                <br>Vacant? : {{ object.vacant }}
-                <br>Event capacity: {{ object.num_people }}
-                <br> Current Participants are : 
-                    {% for user1 in object.participants.all %} 
-                        {{ user1.get_name }}
-                    {% endfor %}
+                <br>Status: {{ object.vacant }}
+                <br>Event Capacity: {{ object.num_people }}
+                <br> Current Participants are :
+                {% for user1 in object.participants.all %}
+                {{ user1.get_name }}
+                {% endfor %}
                 <br> Hosted by : {{ object.host }}
                 <div class="overlay">
                     <div class="text">
                         {{ object.get_description }} <br>
-
                     </div>
                 </div>
             </div>
-
-            {% if user.info not in object.participants.all %}
+            <div class="button_container">
+                {% if user.info not in object.participants.all %}
                 {% if object.vacant %}
-            <div class="button_cont"><a class="button_b" href="{% url 'BetterTogetherApp:join_share_promotion' object.id %}"
-                        rel="nofollow noopener">JOIN THIS
+                <br>
+                <div class="button_cont"><a class="button_b"
+                        href="{% url 'BetterTogetherApp:join_share_promotion' object.id %}" rel="nofollow noopener">JOIN
+                        THIS
                         EVENT</a></div>
                 {% endif %}
-            {% endif %}
+                {% endif %}
 
-            {% for user1 in object.participants.all %}
+                {% for user1 in object.participants.all %}
                 {% if user.info == user1 %}
-                <div class="button_cont"><a class="button_b" href="{% url 'BetterTogetherApp:leave_share_promotion' object.id %}"
+                <br>
+                <div class="button_cont"><a class="button_b"
+                        href="{% url 'BetterTogetherApp:leave_share_promotion' object.id %}"
                         rel="nofollow noopener">LEAVE THIS
                         EVENT</a></div>
                 {% endif %}
-            {% endfor %}
+                {% endfor %}
 
-            {% if user.info.get_name == object.host %}
-            <div class="button_cont"><a class="button_b"
-                    href="{% url 'BetterTogetherApp:delete_share_promotion' object.id %}" rel="nofollow noopener">DELETE THIS
-                    EVENT</a></div>
-            {% endif %}
-
+                {% if user.info.get_name == object.host %}
+                <div class="button_cont"><a class="button_b"
+                        href="{% url 'BetterTogetherApp:delete_share_promotion' object.id %}"
+                        rel="nofollow noopener">DELETE THIS
+                        EVENT</a>
+                </div>
+                {% endif %}
+            </div>
 
         </div>
 
     </div>
-
-
-    {% endfor %}
-    {% endif %}
-    <center><a class="button" href="{% url 'BetterTogetherApp:create_share_promotion'%}"
-            style="vertical-align:middle"><span>CREATE NEW EVENT</span></a>
+        {% endfor %}
+        {% endif %}
+        <br>
+        <center><a class="button" href="{% url 'BetterTogetherApp:create_share_promotion'%}"
+                style="vertical-align:middle"><span>CREATE NEW EVENT</span></a>
 </body>
 
 </html>

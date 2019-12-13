@@ -1,94 +1,127 @@
 {% load static %}
 <html>
 
-<h1>All Share Events</h1>
+<head>
+    <title> Edit User Profile </title>
+    <link href="{% static "css/allshare_style.css" %}" rel="stylesheet">
+    <link rel="icon" href="{% static "image/puzzle.png" %}">
+</head>
 
-<h2>Current user: {{user.info.get_name }}</h2>
+<body class="body">
+    <nav class="navbar">
+        <a class="navbar-brand">
+            <a href="{% url 'BetterTogetherApp:index' %}"> <img class="logo" src="{% static "image/long-logo-3.png" %}"
+                    height="65" alt="BetterTogether"></a>
+        </a>
+    </nav>
+    <div class="container">
+        <div class="head">
+            <h1>
+                <center>&bull; All Share Events &bull;
+            </h1>
+        </div>
+        <div class="underline"></div>
+        <div class="content">
 
-{% if sr %}
-<h2 class="head">Joined ShareRide: </h2>
+            <h2>Current user: {{user.info.get_name }}</h2>
 
-<p> =========================================== </p>
+            {% if sr %}
+            <h2 class="head">Joined ShareRide: </h2>
 
-{% for object in sr %}
-    {% for user1 in object.participants.all %}
+            <p> =========================================== </p>
+
+            {% for object in sr %}
+            {% for user1 in object.participants.all %}
             {% if user1.get_name == user.info.get_name %}
-                <div class="container">
-                    <div class="front side">
-                        <div class="content">
-                            <h1> {{ object.get_location_name }} to {{object.get_destination_name}} </h1>
-                            <h3> {{ object.get_time }} </h3>
-                            <br>Hosted by : {{ object.host }}
-                            <div class="overlay">
-                                <div class="text">
-                                    <h3> {{ object.get_location_name }} to {{object.get_destination_name}} </h3>
-                                    <h3>​ {{ object.get_location }} </h3> 
-                                    <h3>​ {{ object.get_destination }} </h3> 
-                                    {{ object.get_description }} <br>
-                                </div>
+            <div class="container">
+                <div class="front side">
+                    <div class="content">
+                        <h1> {{ object.get_location_name }} to {{object.get_destination_name}} </h1>
+                        <h3> {{ object.get_time }} </h3>
+                        <br>Hosted by : {{ object.host }}
+                        <div class="overlay">
+                            <div class="text">
+                                <h3> {{ object.get_location_name }} to {{object.get_destination_name}} </h3>
+                                <h3>​ {{ object.get_location }} </h3>
+                                <h3>​ {{ object.get_destination }} </h3>
+                                {{ object.get_description }} <br>
                             </div>
                         </div>
-                {% endif %}
-        {% endfor %}
-    {% endfor %}
-{% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+            {% endif %}
+            <p> =========================================== </p>
+            {% if sf %}
+            <h2 class="head">Joined ShareFood: </h2>
 
-<p> =========================================== </p>
-{% if sf %}
-<h2 class="head">Joined ShareFood: </h2>
+            <p> =========================================== </p>
 
-<p> =========================================== </p>
-
-{% for object in sf %}
-    {% for user1 in object.participants.all %}
+            {% for object in sf %}
+            {% for user1 in object.participants.all %}
             {% if user1.get_name == user.info.get_name %}
-                <div class="container">
-                    <div class="front side">
-                        <div class="content">
-                            <h1> {{ object.get_location_name }} </h1>
+            <div class="container">
+                <div class="front side">
+                    <div class="content">
+                        <h1> {{ object.get_location_name }} </h1>
                         <h3> {{ object.get_time }} </h3>
                         <br>Hosted by : {{ object.host }}
                         <div class="overlay">
                             <div class="text">
                                 <h3> {{ object.get_location_name }}</h3>
-                                <h3>​ {{ object.get_location }} </h3> 
-                                <h3>​ {{ object.get_destination }} </h3> 
+                                <h3>​ {{ object.get_location }} </h3>
+                                <h3>​ {{ object.get_destination }} </h3>
                                 <h4>{{ object.get_description }} </h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             {% endif %}
-        {% endfor %}
-    {% endfor %}
-{% endif %}
+            {% endfor %}
+            {% endfor %}
+            {% endif %}
 
-<p> =========================================== </p>
+            <p> =========================================== </p>
 
-{% if sp %}
-<h2 class="head">Joined SharePromotion: </h2>
+            {% if sp %}
+            <h2 class="head">Joined SharePromotion: </h2>
 
-<p> =========================================== </p>
+            <p> =========================================== </p>
 
-{% for object in sp %}
-    {% for user1 in object.participants.all %}
+            {% for object in sp %}
+            {% for user1 in object.participants.all %}
             {% if user1.get_name == user.info.get_name %}
-                <div class="container">
-                    <div class="front side">
-                        <div class="content">
-                            <h1> {{ object.get_brand }} </h1>
-                <h2> {{ object.get_location }} </h2>
-                <h3> {{ object.get_time }} </h3>
-                <br> Hosted by : {{ object.host }}
-                <div class="overlay">
-                    <div class="text">
-                        {{ object.get_description }} <br>
+            <div class="container">
+                <div class="front side">
+                    <div class="content">
+                        <h1> {{ object.get_brand }} </h1>
+                        <h2> {{ object.get_location }} </h2>
+                        <h3> {{ object.get_time }} </h3>
+                        <br> Hosted by : {{ object.host }}
+                        <div class="overlay">
+                            <div class="text">
+                                {{ object.get_description }} <br>
 
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             {% endif %}
-        {% endfor %}
-    {% endfor %}
-{% endif %}
+            {% endfor %}
+            {% endfor %}
+            {% endif %}
+            <p> =========================================== </p>
 
-<p> =========================================== </p>
+            <div class="footer">
+                <img class="logo-footer" src="{% static "image/logo-1.png" %}" alt="BetterTogether">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
