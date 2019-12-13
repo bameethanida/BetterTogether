@@ -53,18 +53,19 @@ def login_user(request, backend='django.contrib.auth.backends.ModelBackend'):
     return HttpResponseRedirect(reverse('BetterTogetherApp:index'))
 
 def signup(request):
+    form = SignUp(request.POST or None)
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
+            raw_password = form.cleaned_data.get('password')
+            first_name = form.cleaned_data.get('first_name')
+            last_name = form.cleaned_data.get('last_name')
+            user = authenticate(username=username, password=raw_password, first_name=first_name, last_name=last_name)
             login(request, user)
             return HttpResponseRedirect(reverse('BetterTogetherApp:index'))
-    else:
-        print("Can't sign up")
-    return HttpResponseRedirect(reverse('BetterTogetherApp:login'))
+
+    return render(request, 'BetterTogetherApp/signup.html', {'form': form})
 
 
 @login_required

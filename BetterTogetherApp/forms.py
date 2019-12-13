@@ -70,3 +70,14 @@ class SignIn(forms.ModelForm):
             'username': Textarea(attrs={'cols': 15, 'rows': 2}),
             'password': Textarea(attrs={'cols': 15, 'rows': 2})
         }
+
+class SignUp(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'first_name', 'last_name']
+        widgets = {
+            'username': Textarea(attrs={'cols': 15, 'rows': 2}),
+            'password': Textarea(attrs={'cols': 15, 'rows': 2}),
+            'first_name': Textarea(attrs={'cols': 15, 'rows': 2}),
+            'last_name': Textarea(attrs={'cols': 15, 'rows': 2})
+        }
