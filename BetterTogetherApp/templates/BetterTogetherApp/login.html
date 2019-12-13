@@ -29,7 +29,7 @@
           {% csrf_token %}
           <fieldset>
             <legend>Please, enter your username and password for login.</legend>
-            <p>Get started with BetterTogether? </p>
+            <p>Get started with BetterTogether? </p><a href="{% url "BetterTogetherApp:signup" %}">Sign Up</a>
             <div class="input-block">
               <label for="login-username">Username</label>
               <br> {{form2.username}}
