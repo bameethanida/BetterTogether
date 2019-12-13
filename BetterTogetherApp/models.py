@@ -9,7 +9,7 @@ from django.db.models.signals import post_save
 
 
 class Info(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     gender = models.CharField('Gender (F or M)', max_length=1)
     birthday = models.DateField(null=True, blank=True)
     brief_info = models.TextField('Background Infomation', default="")
@@ -74,10 +74,10 @@ class ShareRide(models.Model):
     formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
 
     location_name = models.TextField('Location Name', default="")
-    location = models.TextField('Location', default="")
+    location = models.TextField('Location', default="", max_length=80)
     destination_name = models.TextField('Destination Name', default="")
     destination = models.TextField('Destination', default="")
-    description = models.TextField('Description', default="", max_length=80)
+    description = models.TextField('Description', default="", max_length=100)
     date_time = models.DateTimeField('Date and Time', default=formatedDate)
     participants = models.ManyToManyField(Info)
     num_people = models.IntegerField("Number of people", default=2)
