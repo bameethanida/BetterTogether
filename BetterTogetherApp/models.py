@@ -77,7 +77,7 @@ class ShareRide(models.Model):
     location = models.TextField('Location', default="")
     destination_name = models.TextField('Destination Name', default="")
     destination = models.TextField('Destination', default="")
-    description = models.TextField('Description', default="")
+    description = models.TextField('Description', default="", max_length=80)
     date_time = models.DateTimeField('Date and Time', default=formatedDate)
     participants = models.ManyToManyField(Info)
     num_people = models.IntegerField("Number of people", default=2)
