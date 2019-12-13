@@ -25,12 +25,13 @@
         <div class="content">
             <form action='{% url "BetterTogetherApp:edit_profile" %}' method="post">
                 {% csrf_token %}
-                Gender (Capital F or M): {{ form.gender }}
+                Gender (Capital F or M): 
+                {{ form.gender }}
                 <br><br> Birthday (YYYY-MM-DD) - Year-Month-Date Format: {{ form.birthday }}
                 <br><br> Background Infomation: {{ form.brief_info }}
                 <br><br> Phone Number: {{ form.phone_num }}
                 <br><br> Twitter: {{form.twitter}}
-                <br><br><button type="submit">Submit</button>
+                <br><br><center><button class="button" type="submit">Submit</button>
             </form>
 
             <a class="back-to-index" href="{% url 'BetterTogetherApp:profile' %}">
