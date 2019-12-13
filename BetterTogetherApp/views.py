@@ -37,7 +37,6 @@ def login_user(request, backend='django.contrib.auth.backends.ModelBackend'):
     If the user is not authenticated, get user's request and execute login.
     """
     if not request.user.is_authenticated:
-        form = UserCreationForm(request.POST)
         form2 = SignIn(request.POST)
         if request.method == "POST":
             username = form2.data.get('username')
@@ -48,23 +47,34 @@ def login_user(request, backend='django.contrib.auth.backends.ModelBackend'):
                 return HttpResponseRedirect(reverse('BetterTogetherApp:index'))
                 # redirect('/login/next=%s' %request.path)
         else:
-            return render(request, 'BetterTogetherApp/login.html', {'form': form, 'form2': form2})
+            return render(request, 'BetterTogetherApp/login.html', {'form2': form2})
 
     return HttpResponseRedirect(reverse('BetterTogetherApp:index'))
 
 def signup(request):
-    form = SignUp(request.POST or None)
     if request.method == 'POST':
+        form = SignUp(request.POST)
         if form.is_valid():
+            print("valid")
             form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password')
-            first_name = form.cleaned_data.get('first_name')
-            last_name = form.cleaned_data.get('last_name')
+            username = form.data.get('username')
+            raw_password = form.data.get('password1')
+            first_name = form.data.get('first_name')
+            last_name = form.data.get('last_name')
             user = authenticate(username=username, password=raw_password, first_name=first_name, last_name=last_name)
             login(request, user)
             return HttpResponseRedirect(reverse('BetterTogetherApp:index'))
-
+        else:
+            print("POST but not valid")
+            print(f"{form.data.get('username')}")
+            print(f"{form.data.get('password1')}")
+            print(f"{form.data.get('first_name')}")
+            print(f"{form.data.get('last_name')}")
+            print(f"Valid? : {form.errors.as_data()}")
+            form = SignUp() 
+            return render(request, 'BetterTogetherApp/signup.html', {'form': form})
+    else:
+        form = SignUp() 
     return render(request, 'BetterTogetherApp/signup.html', {'form': form})
 
 

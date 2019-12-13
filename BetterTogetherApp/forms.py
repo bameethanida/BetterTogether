@@ -3,6 +3,7 @@ from django.forms import Textarea, DateInput
 from .models import ShareRide, SharePromotion, ShareFood, Info
 from django.contrib.auth.models import User
 from datetime import datetime
+from django.contrib.auth.forms import UserCreationForm
 
 myDate = datetime.now()
 time = myDate.strftime("%H:%M:%S")
@@ -67,17 +68,18 @@ class SignIn(forms.ModelForm):
         model = User
         fields = ['username', 'password']
         widgets = {
-            'username': Textarea(attrs={'cols': 15, 'rows': 2}),
-            'password': Textarea(attrs={'cols': 15, 'rows': 2})
         }
 
-class SignUp(forms.ModelForm):
+class SignUp(UserCreationForm):
+    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
+    last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
+
     class Meta:
         model = User
-        fields = ['username', 'password', 'first_name', 'last_name']
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
         widgets = {
-            'username': Textarea(attrs={'cols': 15, 'rows': 2}),
-            'password': Textarea(attrs={'cols': 15, 'rows': 2}),
+            'password1': Textarea(attrs={'cols': 15, 'rows': 2}),
+            'password2': Textarea(attrs={'cols': 15, 'rows': 2}),
             'first_name': Textarea(attrs={'cols': 15, 'rows': 2}),
             'last_name': Textarea(attrs={'cols': 15, 'rows': 2})
         }

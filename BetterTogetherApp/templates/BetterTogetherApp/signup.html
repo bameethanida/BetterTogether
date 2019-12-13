@@ -28,9 +28,10 @@
                         <div class="form-group">
                             <div class="input-block">
                                 <div class="input-block">
-                                    <p>Already have a BetterTogether account?</p><a href="../BetterTogetherApp/login.html">Log In</a>
-                                    
-                                    <label for="signup-email">Username</label>
+                                    <p>Already have a BetterTogether account?</p><a href='{% url "BetterTogetherApp:login" %}'>Log In</a>
+                                <p> </p>
+                                <br> <div class="input-block">
+                                    <label for="username">Username</label>
                                     <br> {{form.username}}
                                 </div>
                                 <div class="input-block">
@@ -40,8 +41,17 @@
                                 <div class="input-block">
                                     <label for="signup-password-confirm">Confirm password</label>
                                     <br> {{form.password2}}
+                                <div class="input-block">
+                                    <label for="first_name">First Name</label>
+                                    <br> {{form.first_name}}
+                                </div>
+                                <div class="input-block">
+                                    <label for="last_name">Last Name</label>
+                                    <br> {{form.last_name}}
+                                </div>
                                     <button type="submit" class="btn-signup">Sign Up</button>
                                 </div>
+                                
                                 <fieldset>
                                     <hr class="line">
                                 </fieldset>
