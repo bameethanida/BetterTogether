@@ -1,3 +1,9 @@
+<html>
+
+<head>
+    <title> Edit Profile </title>
+
+</head>
 <h1>Edit User Profile</h1>
 <form action='{% url "BetterTogetherApp:edit_profile" %}' method="post">
     {% csrf_token %}
@@ -7,4 +13,6 @@
     <br> Phone Number: {{ form.phone_num }}
     <br> Twitter: {{form.twitter}}
     <button type="submit">Submit</button>
-</form>  
+</form>
+
+</html>
