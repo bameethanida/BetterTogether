@@ -9,7 +9,7 @@ from django.db.models.signals import post_save
 
 
 class Info(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     gender = models.CharField('Gender (F or M)', max_length=1)
     birthday = models.DateField(null=True, blank=True)
     brief_info = models.TextField('Background Infomation', default="")
