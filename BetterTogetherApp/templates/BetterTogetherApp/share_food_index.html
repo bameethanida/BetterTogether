@@ -56,8 +56,8 @@
     <div class="container">
         <div class="front side">
             <div class="content">
-                <h1> {{ object.get_location_name }} </h1>
-                <h3> {{ object.get_time }} </h3>
+                <h1 class="head-text"> {{ object.get_location_name }} </h1>
+                <h3 class="head-text"> {{ object.get_time }} </h3>
                 {{ object.get_hostnum }}
                 <br> {{ object.get_hostgen }}
                 {% if object.vacant %}
@@ -65,9 +65,6 @@
                 {% else %}
                 <br>Status: Full
                 {% endif %}
-                <h1 class="head-text"> {{ object.get_location_name }} </h1>
-                <h3 class="head-text"> {{ object.get_time }} </h3>
-                <br> Status: {{ object.vacant }}
                 <br>Event Capacity: {{ object.num_people }}
                 <br> Current Participants are :
                 {% for user1 in object.participants.all %}

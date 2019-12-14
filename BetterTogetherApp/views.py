@@ -96,7 +96,7 @@ def edit_profile(request):
     if request.method == 'POST':
         if form.is_valid():
             gender = form.data.get('gender')
-            birthday = form.cleaned_gdata.get('birthday')
+            birthday = form.cleaned_data.get('birthday')
             brief_info = form.data.get('brief_info')
             phone_num = form.data.get('phone_num')
             twitter = form.data.get('twitter')
