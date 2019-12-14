@@ -16,4 +16,5 @@ script:
   - coverage run manage.py test BetterTogether/tests
 
 after_success:
-  - codecov  
+  - codecov
+  
