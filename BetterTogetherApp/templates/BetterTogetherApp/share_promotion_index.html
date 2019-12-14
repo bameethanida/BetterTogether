@@ -1,0 +1,117 @@
+{% load static %}
+<html>
+
+<head>
+    <title> SharePromotion Event </title>
+    <link href="{% static "css/sharepromotion-index-style.css" %}" rel="stylesheet">
+    <link rel="icon" href="{% static "image/puzzle.png" %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body class="body">
+    <nav class="navbar">
+        <a class="navbar-brand">
+
+            {% if not user.is_authenticated %}
+            <a href="{% url 'BetterTogetherApp:index' %}"><img src="../static/image/long-logo-3.png" height="75"
+                    alt="BetterTogether">
+            </a>
+            <ul>
+                <a class="button-n" href="{% url 'BetterTogetherApp:login' %}">
+                    SIGN IN
+                </a>
+            </ul>
+        </a>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <a href="{% url 'BetterTogetherApp:index' %}"><img src="../static/image/long-logo-3.png" height="75"
+                alt="BetterTogether">
+        </a>
+        <ul>
+            <a class="button-n" href="{% url 'BetterTogetherApp:profile' %}">
+                Profile
+            </a>
+        </ul>
+        </a>
+        {% endif %}
+
+    </nav>
+    <img class="image" src="{% static "image/3.jpg" %}">
+    <div class="head">
+        <center>
+            <h1>SHARE PROMOTION EVENT</h1>
+    </div>
+
+    <center>Today is : {{ datetime }} </center>
+    {% if not share_promotion %}
+    <center>
+        <h2>There's no event right now.</h2>
+    </center>
+
+    {% endif%}
+
+    {% if share_promotion %}
+    <h2 class="head">Current share program(s) available: </h2>
+    {% for object in share_promotion %}
+    <div class="container">
+        <div class="front side">
+            <div class="content">
+
+                <h1 class="head-text"> {{ object.get_brand }} </h1>
+                <h2 class="head-text"> {{ object.get_location_name }} </h2>
+                <h3 class="head-text"> {{ object.get_time }} </h3>
+
+                <br>Status: {{ object.vacant }}
+                <br>Event Capacity: {{ object.num_people }}
+                <br> Current Participants are :
+                {% for user1 in object.participants.all %}
+                {{ user1.get_name }}
+                {% endfor %}
+                <br> Hosted by : {{ object.host }}
+                <div class="overlay">
+                    <div class="text">
+                        {{ object.get_description }} <br>
+                    </div>
+                </div>
+            </div>
+            <div class="button_container">
+                {% if user.info not in object.participants.all %}
+                {% if object.vacant %}
+                <br>
+                <div class="button_cont"><a class="button_b"
+                        href="{% url 'BetterTogetherApp:join_share_promotion' object.id %}" rel="nofollow noopener">JOIN
+                        THIS
+                        EVENT</a></div>
+                {% endif %}
+                {% endif %}
+
+                {% for user1 in object.participants.all %}
+                {% if user.info == user1 %}
+                <br>
+                <div class="button_cont"><a class="button_b"
+                        href="{% url 'BetterTogetherApp:leave_share_promotion' object.id %}"
+                        rel="nofollow noopener">LEAVE THIS
+                        EVENT</a></div>
+                {% endif %}
+                {% endfor %}
+
+                {% if user.info.get_name == object.host %}
+                <div class="button_cont"><a class="button_b"
+                        href="{% url 'BetterTogetherApp:delete_share_promotion' object.id %}"
+                        rel="nofollow noopener">DELETE THIS
+                        EVENT</a>
+                </div>
+                {% endif %}
+            </div>
+
+        </div>
+
+    </div>
+    {% endfor %}
+    {% endif %}
+    <br>
+    <center><a class="button" href="{% url 'BetterTogetherApp:create_share_promotion'%}"
+            style="vertical-align:middle"><span>CREATE NEW EVENT</span></a>
+</body>
+
+</html>

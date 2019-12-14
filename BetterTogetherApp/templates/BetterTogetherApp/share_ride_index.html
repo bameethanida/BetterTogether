@@ -1,0 +1,123 @@
+{% load static %}
+<html>
+
+<head>
+    <title> ShareRide Event </title>
+    <link href="{% static "css/shareride-index-style.css" %}" rel="stylesheet">
+    <link rel="icon" href="{% static "image/puzzle.png" %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body class="body">
+    <nav class="navbar">
+        <a class="navbar-brand">
+
+            {% if not user.is_authenticated %}
+            <a href="{% url 'BetterTogetherApp:index' %}"><img src="../static/image/long-logo-3.png" height="75"
+                    alt="BetterTogether">
+            </a>
+            <ul>
+                <a class="button-n" href="{% url 'BetterTogetherApp:login' %}">
+                    SIGN IN
+                </a>
+            </ul>
+        </a>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <a href="{% url 'BetterTogetherApp:index' %}"><img src="../static/image/long-logo-3.png" height="75"
+                alt="BetterTogether">
+        </a>
+        <ul>
+            <a class="button-n" href="{% url 'BetterTogetherApp:profile' %}">
+                Profile
+            </a>
+        </ul>
+        </a>
+        {% endif %}
+
+    </nav>
+    <img class="image" src="{% static "image/2.jpg" %}">
+    <div class="head">
+        <center>
+            <h1>SHARE RIDE EVENT</h1>
+    </div>
+
+    <center>Today is : {{ datetime }} </center>
+    {% if not share_ride %}
+    <center>
+        <h2>There's no event right now.</h2>
+    </center>
+
+    {% endif%}
+
+    {% if share_ride %}
+    <h2 class="head">Current share program(s) available: </h2>
+    {% for object in share_ride %}
+    <div class="container">
+        <div class="front side">
+            <div class="content">
+                <h1 class="head-text"> {{ object.get_location_name }} to {{object.get_destination_name}} </h1>
+                <h3 class="head-text"> {{ object.get_time }} </h3>
+                <br> Status: {{ object.vacant }}
+                <br>Event Capacity: {{ object.num_people }}
+                <br> Current Participants:
+                {% for user1 in object.participants.all %}
+                {{ user1.get_name }}
+                {% endfor %}
+                <br>Hosted by {{ object.host }}
+                <div class="overlay">
+                    <div class="text">
+                        <h3> {{ object.get_location_name }} to {{object.get_destination_name}} </h3>
+                        <h3>​ {{ object.get_location }} </h3>
+                        <h3>​ {{ object.get_destination }} </h3>
+                        {{ object.get_description }} <br>
+                    </div>
+                </div>
+            </div>
+            <div class="button_container">
+                {% if user.info not in object.participants.all %}
+                {% if object.vacant %}
+
+                <div class="button_cont"><a class="button_b"
+                        href="{% url 'BetterTogetherApp:join_share_ride' object.id %}" rel="nofollow noopener">JOIN THIS
+                        EVENT</a></div>
+                {% endif %}
+                {% endif %}
+
+
+                {% for user1 in object.participants.all %}
+                {% if user.info == user1 %}
+                <br>
+                <div class="button_cont"><a class="button_b"
+                        href="{% url 'BetterTogetherApp:leave_share_ride' object.id %}" rel="nofollow noopener">LEAVE
+                        THIS
+                        EVENT</a></div>
+                {% endif %}
+                {% endfor %}
+
+
+                {% if user.info.get_name == object.host %}
+                <br>
+                <div class="button_cont"><a class="button_b"
+                        href="{% url 'BetterTogetherApp:delete_share_ride' object.id %}" rel="nofollow noopener">DELETE
+                        THIS
+                        EVENT</a>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+
+    {% endfor %}
+    {% endif %}
+
+    <center><a class="button" href="{% url 'BetterTogetherApp:create_share_ride'%}"
+            style="vertical-align:middle"><span>CREATE NEW EVENT</span></a>
+
+
+
+</body>
+
+</html>

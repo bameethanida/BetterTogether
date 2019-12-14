@@ -1,0 +1,13 @@
+language: python
+  
+python: "3.6"
+
+git:
+  depth: 1
+  
+install:
+  - pip install -r requirements.txt
+  - pip install codecov
+
+script:
+  - python manage.py test BetterTogetherApp/tests
