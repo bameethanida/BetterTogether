@@ -9,7 +9,7 @@ gmane==0.1.dev25
 idna==2.8
 isort==4.3.21
 oauthlib==3.1.0
-Pillow==6.0.0
+Pillow==6.2.0
 psycopg2-binary==2.8.4
 pyglet==1.4.0b1
 pyglet-ffmpeg2==0.1.12
