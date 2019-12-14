@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Info, ShareFood, ShareRide, SharePromotion
+from BetterTogetherApp.models import Info, ShareFood, ShareRide, SharePromotion
 from django.contrib.auth.models import User
 import datetime
 
@@ -34,7 +34,7 @@ class ShareFoodTest(TestCase):
         sf.save()
         sf.participants.add(info2)
         self.assertEqual(sf.participants.get(pk=1).get_name(), "John Newman")
-        self.assertEqual(sf.get_location_name(), "Meeting Location: BBQ Plaza Major Ratchayothin")
+        self.assertEqual(sf.get_location_name(), "BBQ Plaza Major Ratchayothin")
 
 class ShareRideTest(TestCase):
 
