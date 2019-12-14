@@ -4,6 +4,7 @@
   <img width="800px" src="BetterTogetherApp/static/image/plain_logo2.jpg">
 </p>
 [![Build Status](https://travis-ci.com/bameethanida/BetterTogether.svg?branch=master)](https://travis-ci.com/bameethanida/BetterTogether)    
+
 **BetterTogether**, our web application that can be implemented and used for optimizing efficiency in money expenditure by finding other people nearby your area, who could share costs on your food, rides or promotions that you found throughout your daily life. It’s a great way to get to know other people and save money at the same time. A great benefits for everybody. The user can create their account on our web application and start using our 3 services (features)
 
 ## Team Members
