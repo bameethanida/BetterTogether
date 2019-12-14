@@ -11,9 +11,30 @@
 <body class="body">
     <nav class="navbar">
         <a class="navbar-brand">
-            <a href="{% url 'BetterTogetherApp:index'%}"> <img class="logo" src="{% static "image/long-logo-3.png" %}"
-                    height="65" alt="BetterTogether"></a>
+
+            {% if not user.is_authenticated %}
+            <a href="{% url 'BetterTogetherApp:index' %}"><img src="../static/image/long-logo-3.png" height="75"
+                    alt="BetterTogether">
+            </a>
+            <ul>
+                <a class="button-n" href="{% url 'BetterTogetherApp:login' %}">
+                    SIGN IN
+                </a>
+            </ul>
         </a>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <a href="{% url 'BetterTogetherApp:index' %}"><img src="../static/image/long-logo-3.png" height="75"
+                alt="BetterTogether">
+        </a>
+        <ul>
+            <a class="button-n" href="{% url 'BetterTogetherApp:profile' %}">
+                Profile
+            </a>
+        </ul>
+        </a>
+        {% endif %}
+
     </nav>
     <img class="image" src="{% static "image/1.jpg" %}">
     <div class="head">
@@ -44,6 +65,9 @@
                 {% else %}
                 <br>Status: Full
                 {% endif %}
+                <h1 class="head-text"> {{ object.get_location_name }} </h1>
+                <h3 class="head-text"> {{ object.get_time }} </h3>
+                <br> Status: {{ object.vacant }}
                 <br>Event Capacity: {{ object.num_people }}
                 <br> Current Participants are :
                 {% for user1 in object.participants.all %}
@@ -91,11 +115,11 @@
         </div>
     </div>
 
-        {% endfor %}
-        {% endif %}
-        <br>
-        <center><a class="button" href="{% url 'BetterTogetherApp:create_share_food'%}"
-                style="vertical-align:middle"><span>CREATE NEW EVENT</span></a>
+    {% endfor %}
+    {% endif %}
+    <br>
+    <center><a class="button" href="{% url 'BetterTogetherApp:create_share_food'%}"
+            style="vertical-align:middle"><span>CREATE NEW EVENT</span></a>
 </body>
 
 </html>

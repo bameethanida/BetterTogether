@@ -145,7 +145,7 @@ class SharePromotion(models.Model):
         return f"Meeting Location: {self.location_name}"
 
     def get_brand(self):
-        return f"Name of Store or Brand: {self.brand}"
+        return f"Name of Store: {self.brand}"
 
     def get_description(self):
         return f"Description: {self.description}"
