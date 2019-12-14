@@ -8,13 +8,6 @@ git:
 install:
   - pip install -r requirements.txt
   - pip install codecov
-  
-script:
-  - python -m discover -p "test_*.py"
 
 script:
-  - coverage run manage.py test BetterTogether/tests
-
-after_success:
-  - codecov
-  
+  - run manage.py test BetterTogether/tests
