@@ -10,4 +10,4 @@ install:
   - pip install codecov
 
 script:
-  - python3 manage.py test BetterTogether/tests
+  - python manage.py test BetterTogether/tests
