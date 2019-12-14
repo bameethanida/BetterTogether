@@ -69,12 +69,6 @@ def signup(request):
             login(request, user)
             return HttpResponseRedirect(reverse('BetterTogetherApp:index'))
         else:
-            print("POST but not valid")
-            print(f"{form.data.get('username')}")
-            print(f"{form.data.get('password1')}")
-            print(f"{form.data.get('first_name')}")
-            print(f"{form.data.get('last_name')}")
-            print(f"Valid? : {form.errors.as_data()}")
             form = SignUp() 
             return render(request, 'BetterTogetherApp/signup.html', {'form': form})
     else:
@@ -102,10 +96,11 @@ def edit_profile(request):
     if request.method == 'POST':
         if form.is_valid():
             gender = form.data.get('gender')
-            birthday = form.data.get('birthday')
+            birthday = form.cleaned_gdata.get('birthday')
             brief_info = form.data.get('brief_info')
             phone_num = form.data.get('phone_num')
             twitter = form.data.get('twitter')
+            print(f"Birthday: {form.data.get('birthday')}")
             info.gender = gender
             info.save()
             info.birthday = birthday
@@ -220,7 +215,7 @@ def create_share_food(request):
             num_people = form.data.get('num_people')
             sr = ShareFood(location_name=location_name,location=location,
              description=description, date_time=(str(f"{date} {time}")), num_people=num_people, host=request.user.info.get_name(), 
-             host_gender=request.user.info.get_gender())
+             host_gender=request.user.info.get_gender(), host_number=request.user.info.get_number())
             sr.save()
             return redirect('BetterTogetherApp:share_food_index1')
 
@@ -246,7 +241,7 @@ def create_share_promotion(request):
             num_people = form.data.get('num_people')
             sp = SharePromotion(location_name=location_name,location=location, brand=brand, 
             description=description, date_time=(str(f"{date} {time}")), num_people=num_people, host=request.user.info.get_name(), 
-             host_gender=request.user.info.get_gender())   
+             host_gender=request.user.info.get_gender(), host_number=request.user.info.get_number())   
             sp.save()
             return redirect('BetterTogetherApp:share_promotion_index1')
 
@@ -273,7 +268,7 @@ def create_share_ride(request):
             num_people = form.data.get('num_people')
             sr = ShareRide(location_name=location_name,location=location, destination_name=destination_name,destination=destination,
              description=description, date_time=(str(f"{date} {time}")), num_people=num_people, host=request.user.info.get_name(), 
-             host_gender=request.user.info.get_gender())   
+             host_gender=request.user.info.get_gender(), host_number=request.user.info.get_number())   
             sr.save()
             return redirect('BetterTogetherApp:share_ride_index1')
 

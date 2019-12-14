@@ -31,6 +31,9 @@ class Info(models.Model):
     def get_gender(self):
         return self.gender
 
+    def get_number(self):
+        return self.phone_num
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
@@ -50,6 +53,7 @@ class ShareFood(models.Model):
     num_people = models.IntegerField("Number of people", default=2)
     host = models.CharField("Host's Name", default="", max_length=30)
     host_gender = models.CharField('Host Gender (F or M)', max_length=1)
+    host_number = models.CharField("Host's Phone Number", max_length=10, default="")
     full = models.BooleanField(default=False)
 
     def get_location_name(self):
@@ -67,6 +71,12 @@ class ShareFood(models.Model):
     def vacant(self):
         return len(self.participants.all()) < self.num_people
 
+    def get_hostnum(self):
+        return f"Host Contact (LINE ID or Phone Number) : {self.host_number}"
+
+    def get_hostgen(self):
+        return f"Host Gender: {self.host_gender}"
+
     
 
 class ShareRide(models.Model):
@@ -83,6 +93,7 @@ class ShareRide(models.Model):
     num_people = models.IntegerField("Number of people", default=2)
     host = models.CharField("Host's Name", default="", max_length=30)
     host_gender = models.CharField('Host Gender (F or M)', max_length=1)
+    host_number = models.CharField("Host's Phone Number", max_length=10, default="")
     full = models.BooleanField(default=False)
 
     def get_destination_name(self):
@@ -111,6 +122,12 @@ class ShareRide(models.Model):
         self.delete()
         self.save()
 
+    def get_hostnum(self):
+        return f"Host Contact (LINE ID or Phone Number) : {self.host_number}"
+
+    def get_hostgen(self):
+        return f"Host Gender: {self.host_gender}"
+
 class SharePromotion(models.Model):
     location_name = models.TextField('Location Name', default="",max_length=80)
     location = models.TextField('Location', default="",max_length=80)
@@ -121,6 +138,7 @@ class SharePromotion(models.Model):
     num_people = models.IntegerField("Number of people", default=2)
     host = models.CharField("Host's Name", default="", max_length=30)
     host_gender = models.CharField('Host Gender (F or M)', max_length=1)
+    host_number = models.CharField("Host's Phone Number", max_length=10, default="")
     full = models.BooleanField(default=False)
 
     def get_location_name(self):
@@ -137,3 +155,9 @@ class SharePromotion(models.Model):
 
     def vacant(self):
         return len(self.participants.all()) < self.num_people
+
+    def get_hostnum(self):
+        return f"Host Contact (LINE ID or Phone Number) : {self.host_number}"
+
+    def get_hostgen(self):
+        return f"Host Gender: {self.host_gender}"

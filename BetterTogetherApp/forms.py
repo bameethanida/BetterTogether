@@ -52,12 +52,13 @@ class ShareFoodForm(forms.ModelForm):
         }
 
 class EditInfo(forms.ModelForm):
+    birthday = forms.DateField(widget=forms.SelectDateWidget(
+        years=range(1940, 2020)))
     class Meta:
         model = Info
         fields = ['gender', 'birthday', 'brief_info', 'phone_num', 'twitter']
         widgets = {
             'gender': Textarea(attrs={'cols': 15, 'rows': 2}),
-            'birthday': DateInput(attrs={'cols': 10, 'rows': 2}),
             'brief_info': Textarea(attrs={'cols': 30, 'rows': 2}),
             'phone_num': Textarea(attrs={'cols': 15, 'rows': 2}),
             'twitter': Textarea(attrs={'cols': 25, 'rows': 2})

@@ -38,7 +38,13 @@
                 <h1> {{ object.get_brand }} </h1>
                 <h2> {{ object.get_location }} </h2>
                 <h3> {{ object.get_time }} </h3>
-                <br>Status: {{ object.vacant }}
+                {{ object.get_hostnum }}
+                <br> {{ object.get_hostgen }}
+                {% if object.vacant %}
+                <br>Status: Vacant
+                {% else %}
+                <br>Status: Full
+                {% endif %}
                 <br>Event Capacity: {{ object.num_people }}
                 <br> Current Participants are :
                 {% for user1 in object.participants.all %}
