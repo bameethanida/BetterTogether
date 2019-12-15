@@ -10,8 +10,8 @@ time = myDate.strftime("%H:%M:%S")
 date = myDate.strftime("%Y-%m-%d")
 
 class DateForm(forms.Form):
-    day = forms.DateField(initial=date)
-    time = forms.TimeField(initial=time)
+    day = forms.CharField(initial=date)
+    time = forms.CharField(initial=time)
     fields = ['day','time']
 
 class ShareRideForm(forms.ModelForm):

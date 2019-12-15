@@ -4,9 +4,12 @@ from django.contrib.auth.models import User
 from datetime import datetime
 from django.core.validators import MaxValueValidator, MinValueValidator
 import datetime as dt
+from datetime import datetime
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 
+myDate = datetime.now()
+formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
 
 class Info(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
@@ -48,7 +51,7 @@ class ShareFood(models.Model):
     location_name = models.TextField('Location Name', default="",max_length=80)
     location = models.TextField('Location', default="",max_length=80)
     description = models.TextField('Description', default="",max_length=100)
-    date_time = models.DateTimeField('Date and Time',auto_now=True)
+    date_time = models.TextField('Date and Time',default=str(formatedDate))
     participants = models.ManyToManyField(Info)
     num_people = models.IntegerField("Number of people", default=2)
     host = models.CharField("Host's Name", default="", max_length=30)
@@ -88,7 +91,7 @@ class ShareRide(models.Model):
     destination_name = models.TextField('Destination Name', default="",max_length=80)
     destination = models.TextField('Destination', default="",max_length=80)
     description = models.TextField('Description', default="", max_length=100)
-    date_time = models.DateTimeField('Date and Time', default=formatedDate)
+    date_time = models.TextField('Date and Time',default=str(formatedDate))
     participants = models.ManyToManyField(Info)
     num_people = models.IntegerField("Number of people", default=2)
     host = models.CharField("Host's Name", default="", max_length=30)
@@ -133,7 +136,7 @@ class SharePromotion(models.Model):
     location = models.TextField('Location', default="",max_length=80)
     brand = models.TextField('Brand', default="",max_length=80)
     description = models.TextField('Description', default="",max_length=100)
-    date_time = models.DateTimeField('Date and Time')
+    date_time = models.TextField('Date and Time', default=str(formatedDate))
     participants = models.ManyToManyField(Info)
     num_people = models.IntegerField("Number of people", default=2)
     host = models.CharField("Host's Name", default="", max_length=30)
