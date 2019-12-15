@@ -5,8 +5,8 @@ import datetime
 
 class InfoTest(TestCase):
     """Test the Info django models and its get functions"""
-
     def test_user_info(self):
+        """Test user information attributes"""
         user1 = User(first_name="Pawaris", last_name="Wongsalung")
         info1 = Info(user=user1, gender="M", birthday=datetime.date(1998, 8, 12), brief_info="Null")
         self.assertEqual(info1.get_age(), 21)
@@ -28,6 +28,7 @@ class InfoTest(TestCase):
 class ShareFoodTest(TestCase):
 
     def test_sharefood_attributes(self):
+        """Test share food attributes"""
         user1 = User(first_name="John", last_name="Newman")
         user1.save()
         info2 = user1.info
@@ -46,6 +47,7 @@ class ShareFoodTest(TestCase):
 class ShareRideTest(TestCase):
 
     def test_shareride_attributes(self):
+        """Test share ride attributes"""
         user1 = User(first_name="Mary", last_name="Newman")
         user1.save()
         info1 = user1.info
@@ -67,6 +69,7 @@ class ShareRideTest(TestCase):
 class SharePromotionTest(TestCase):
 
     def test_sharepromo_attributes(self):
+        """Test share promotion attributes"""
         user1 = User(first_name="John", last_name="Newman")
         user1.save()
         info1 = user1.info
