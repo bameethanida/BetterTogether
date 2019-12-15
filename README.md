@@ -17,11 +17,13 @@
 <b>Project documents</b>
 <font size = "3">
 ---
-- ***[Iteration Plans](https://docs.google.com/document/d/12p_Q9lJGcFmxHFXDqpTGRPNsecd8QeMzd4vc9adesV8/edit?usp=sharing)***
-- ***[Iteration script and Review checklist](https://docs.google.com/document/d/1gTIWK_j4zq2iye9BwMY-_iJL65G4-hXLypDWlyjXnyU/edit?usp=sharing)***
-- ***[Trello Board](https://trello.com/b/LlTAdYnN/bettertogether)***
 - ***[Project Proposal](https://docs.google.com/document/d/1llsbVdOLaALymVtk0Ri6rGM3YudRvHal9JsArOEHnYU/edit#)***
 - ***[Mockups Design](https://drive.google.com/drive/u/1/folders/1sMbkb3lHPt1bKVLKOyiRq-pkF06_ePIt)***
+- ***[Trello Board](https://trello.com/b/LlTAdYnN/bettertogether)***
+- ***[Iteration Plans](https://docs.google.com/document/d/12p_Q9lJGcFmxHFXDqpTGRPNsecd8QeMzd4vc9adesV8/edit?usp=sharing)***
+- ***[Iteration script and Review checklist](https://docs.google.com/document/d/1gTIWK_j4zq2iye9BwMY-_iJL65G4-hXLypDWlyjXnyU/edit?usp=sharing)***
+
+
 
 <b>Prerequisite </b>
 <font size = "3">
