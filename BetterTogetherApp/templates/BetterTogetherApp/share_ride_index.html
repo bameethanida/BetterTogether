@@ -58,7 +58,13 @@
             <div class="content">
                 <h1 class="head-text"> {{ object.get_location_name }} to {{object.get_destination_name}} </h1>
                 <h3 class="head-text"> {{ object.get_time }} </h3>
-                <br> Status: {{ object.vacant }}
+                {{ object.get_hostnum }}
+                <br> {{ object.get_hostgen }}
+                {% if object.vacant %}
+                <br>Status: Vacant
+                {% else %}
+                <br>Status: Full
+                {% endif %}
                 <br>Event Capacity: {{ object.num_people }}
                 <br> Current Participants:
                 {% for user1 in object.participants.all %}
@@ -104,6 +110,7 @@
                         EVENT</a>
                 </div>
                 {% endif %}
+                <br> <p></p>
 
             </div>
         </div>
