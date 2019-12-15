@@ -25,13 +25,6 @@ def all_share(request):
     context = {'user':user, 'sr':sr, 'sf':sf, 'sp':sp}
     return render(request, 'BetterTogetherApp/all_share.html', context)
 
-# def signup_login(request):
-#     if request.user.is_authenticated:
-#         return redirect('BetterTogetherApp:index')
-#     else:
-#         return render(request, 'BetterTogetherApp/login.html')
-
-
 def login_user(request, backend='django.contrib.auth.backends.ModelBackend'):
     """
     If the user is not authenticated, get user's request and execute login.
@@ -273,7 +266,6 @@ def create_share_ride(request):
 
     context = {'form': form, 'date_time': DateForm}
     return render(request, 'BetterTogetherApp/share_ride_create.html', context)
-
 
 def delete_share_ride(request, shareride_id):
     shareride1 = ShareRide.objects.get(pk=shareride_id)

@@ -48,7 +48,7 @@ Create virtualenv in the directory and activate virtualenv.
 ```
   $ virtualenv venv
 ```
-#### On MacOS and Linux:
+On MacOS and Linux:
 ```
   $ source venv/bin/activate
 ```
