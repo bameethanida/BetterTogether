@@ -134,44 +134,44 @@ def leave_share_ride(request, shareride_id):
 def join_share_promotion(request, sharepromo_id):
     user = request.user.id
     try:
-        sr = get_object_or_404(SharePromotion, pk=sharepromo_id)
+        sp = get_object_or_404(SharePromotion, pk=sharepromo_id)
     except (KeyError, ShareRide.DoesNotExist):
         return redirect('BetterTogetherApp:share_promotion_index1')
     else:
-        sr.participants.add(user)
+        sp.participants.add(user)
     return redirect('BetterTogetherApp:share_promotion_index1')
 
 @login_required
 def leave_share_promo(request, sharepromo_id):
     user = request.user.id
     try:
-        sr = get_object_or_404(SharePromotion, pk=sharepromo_id)
+        sp = get_object_or_404(SharePromotion, pk=sharepromo_id)
     except (KeyError, SharePromotion.DoesNotExist):
         return redirect('BetterTogetherApp:share_promotion_index1')
     else:
-        sr.participants.remove(user)
+        sp.participants.remove(user)
     return redirect('BetterTogetherApp:share_promotion_index1')
 
 @login_required
 def join_share_food(request, sharefood_id):
     user = request.user.id
     try:
-        sr = get_object_or_404(ShareFood, pk=sharefood_id)
+        sf = get_object_or_404(ShareFood, pk=sharefood_id)
     except (KeyError, ShareFood.DoesNotExist):
         return redirect('BetterTogetherApp:share_food_index1')
     else:
-        sr.participants.add(user)
+        sf.participants.add(user)
     return redirect('BetterTogetherApp:share_food_index1')
 
 @login_required
 def leave_share_food(request, sharefood_id):
     user = request.user.id
     try:
-        sr = get_object_or_404(ShareFood, pk=sharefood_id)
+        sf = get_object_or_404(ShareFood, pk=sharefood_id)
     except (KeyError, ShareFood.DoesNotExist):
         return redirect('BetterTogetherApp:share_food_index1')
     else:
-        sr.participants.remove(user)
+        sf.participants.remove(user)
     return redirect('BetterTogetherApp:share_food_index1')
 
 
