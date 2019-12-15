@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 from decouple import config
 import os
+import django_heroku 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,9 +29,9 @@ DEBUG = config('DEBUG', cast=bool)
 ALLOWED_HOSTS = []
 
 SOCIAL_AUTH_URL_NAMESPACE = 'oauth'
-SOCIAL_AUTH_POSTGRES_JSONFIELD = True
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '77406265986-hncbjm73uev7vuhibpga0p7chsj333mc.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'AvFghW6x4pDf4TUKvpX-l4Kw'
+SOCIAL_AUTH_POSTGRES_JSONFIELD = config('SOCIAL_AUTH_POSTGRES_JSONFIELD', default=False, cast=bool)
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', default='secret')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', default='secret')
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/login'
@@ -122,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = config('TIME_ZONE')
+TIME_ZONE = config('TIME_ZONE', default='secret')
 
 USE_I18N = True
 
@@ -139,3 +140,4 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/') 
 STATICFILES_DIR = (BASE_DIR + '/BetterTogetherApp/static/',)
 
+django_heroku.settings(locals())

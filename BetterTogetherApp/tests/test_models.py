@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Info, ShareFood, ShareRide, SharePromotion
+from BetterTogetherApp.models import Info, ShareFood, ShareRide, SharePromotion
 from django.contrib.auth.models import User
 import datetime
 

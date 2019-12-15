@@ -1,7 +1,7 @@
 from django.test import Client, TestCase
 from django.urls import reverse
-from .forms import *
-from .models import *
+from BetterTogetherApp.forms import *
+from BetterTogetherApp.models import *
 
 
 class BetterTogetherTestsForm(TestCase):
