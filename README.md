@@ -1,6 +1,6 @@
 # BetterTogether
-[![Build Status](https://travis-ci.com/bameethanida/BetterTogether.svg?branch=master)](https://travis-ci.com/bameethanida/BetterTogether)  
-[![codecov](https://codecov.io/gh/bameethanida/BetterTogether/branch/master/graph/badge.svg)](https://codecov.io/gh/bameethanida/BetterTogether)
+[![Build Status](https://travis-ci.com/bameethanida/BetterTogether.svg?branch=master)](https://travis-ci.com/bameethanida/BetterTogether)  [![codecov](https://codecov.io/gh/bameethanida/BetterTogether/branch/master/graph/badge.svg)](https://codecov.io/gh/bameethanida/BetterTogether)
+
 <p align="center" >
   <img width="800px" src="BetterTogetherApp/static/image/plain_logo2.jpg">
 </p>  
