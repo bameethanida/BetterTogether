@@ -4,11 +4,9 @@
 <p align="center" >
   <img width="800px" src="BetterTogetherApp/static/image/plain_logo2.jpg">
 </p>  
- 
-**BetterTogether**, our web application that can be implemented and used for optimizing efficiency in money expenditure by finding other people nearby your area, who could share costs on your food, rides or promotions that you found throughout your daily life. It’s a great way to get to know other people and save money at the same time. A great benefits for everybody. The user can create their account on our web application and start using our 3 services (features)
+<font size ="4"> <b>BetterTogether</b> , our web application that can be implemented and used for optimizing efficiency in money expenditure by finding other people nearby your area, who could share costs on your food, rides or promotions that you found throughout your daily life. It’s a great way to get to know other people and save money at the same time. A great benefits for everybody. The user can create their account on our web application and start using our 3 services (features)</font size>
 
 ## Team Members
-
 | Name                      | Roles                    | GitHub                                                |
 |---------------------------|--------------------------|-------------------------------------------------------|
 | Thanida Jongarnon         | Developer                | [bameethanida](https://github.com/bameethanida)       |
@@ -16,7 +14,8 @@
 | Chananya Photan           | Developer                | [forfeen](https://github.com/forfeen), fifincny       |
 | Nattapol Boonyapornpong   | Developer                | [bleachjade](https://github.com/bleachjade)           |
 
-Project documents
+<b>Project documents</b>
+<font size = "3">
 ---
 - ***[Iteration Plans](https://docs.google.com/document/d/12p_Q9lJGcFmxHFXDqpTGRPNsecd8QeMzd4vc9adesV8/edit?usp=sharing)***
 - ***[Iteration script and Review checklist](https://docs.google.com/document/d/1gTIWK_j4zq2iye9BwMY-_iJL65G4-hXLypDWlyjXnyU/edit?usp=sharing)***
@@ -24,7 +23,8 @@ Project documents
 - ***[Project Proposal](https://docs.google.com/document/d/1llsbVdOLaALymVtk0Ri6rGM3YudRvHal9JsArOEHnYU/edit#)***
 - ***[Mockups Design](https://drive.google.com/drive/u/1/folders/1sMbkb3lHPt1bKVLKOyiRq-pkF06_ePIt)***
 
-Prerequisite
+<b>Prerequisite </b>
+<font size = "3">
 ---
 - [Python](https://www.python.org/downloads/) 3.6 or newer 
 - [Django](https://docs.djangoproject.com/en/2.2/topics/install/) 2.1.2 or newer
@@ -34,9 +34,9 @@ Prerequisite
 - Local environment variable (Please ask permission to the project owner for the environment variables.)
 
 
-Get started (run locally)
+<b>Get started (run locally)</b>
 ---
-Clone the repository.
+<font size ="3"> Clone the repository.
 ```
   $ git clone https://github.com/bameethanida/BetterTogether.git 
 ```

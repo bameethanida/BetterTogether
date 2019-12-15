@@ -108,10 +108,6 @@ def edit_profile(request):
     context = {'form': form, 'date_time': DateForm, 'info' : info}
     return render(request, 'BetterTogetherApp/edit_profile.html', context)
 
-def user_profile(request, user_id):
-    info_obj = get_object_or_404(Info, pk=user_id)
-    pass
-
 @login_required
 def join_share_ride(request, shareride_id):
     user = request.user.id
