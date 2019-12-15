@@ -21,7 +21,6 @@
   <section class="forms-section">
     <div class="forms">
       <div class="form-wrapper is-active">
-        <center>
           <button type="button" class="switcher switcher-login">
             Log in
             <span class="underline"></span>
@@ -33,7 +32,7 @@
               {% if message %}
               <p> {{ message }} </p>
               {% endif %}
-              <h2>Get started with BetterTogether? </h2>
+              <center><h2>Get started with BetterTogether? </h2>
               <button class = "btn-signup"><a href="{% url "BetterTogetherApp:signup" %}">SIGN UP </a></button>
               <fieldset>
                 <hr class="line">
@@ -47,7 +46,7 @@
                 <br> {{form2.password}}
               </div>
             </fieldset>
-            <button type="submit" class="btn-login">LOGIN</button>
+            <center><button type="submit" class="btn-login">LOGIN</button>
             <fieldset>
               <hr class="line">
             </fieldset>

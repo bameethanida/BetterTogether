@@ -33,6 +33,7 @@ body {
 }
 
 .form-wrapper.is-active {
+	margin-left: 80px;
 	animation: showLayer .3s ease-in forwards;
 }
 
@@ -82,7 +83,7 @@ body {
 
 .form-wrapper.is-active .switcher-signup {
 	color: #fff;
-	transform: translateX(-90px);
+	margin-left: 330px;	
 }
 
 .underline {
@@ -169,10 +170,12 @@ body {
 }
 
 .form-signup {
+	width: 420px;
 	animation: hideSignup .3s ease-out forwards;
 }
 
 .form-wrapper.is-active .form-signup {
+	margin-left: 300px;
 	animation: showSignup .3s ease-in forwards;
 }
 
@@ -330,7 +333,7 @@ a:-webkit-any-link {
 	
 }
 .form-group {
-	display: flex;
+	display: block;
 
 }
 
