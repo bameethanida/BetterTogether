@@ -134,7 +134,6 @@ class BetterTogetherTests(TestCase):
     def test_share_food_views(self):
         response = self.client.get('/sharefood/')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(redirect('BetterTogetherApp:share_food_index1'))
         response = self.client.get('/sharefood1/')
         self.assertEqual(response.status_code, 404)
 
