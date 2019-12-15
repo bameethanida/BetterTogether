@@ -49,11 +49,8 @@
                             <br> Gender : {{ user.info.get_gender }}
                         </p>
                         <div style="margin: 24px 0;text-align: center;">
-                            {% if user.info.twitter %}
-                            <a href="{{ user.info.twitter }}"><i class="fa fa-twitter fa-2x"></i></a>
-                            {% endif %}
-                            <p class="pt-3">OR</p>
-                            <a href="{{ user.info.phone_num }}" class="fa fa-phone"> {{ user.info.phone_num }}</a>
+                            <p><i class="pt-3 fa fa-twitter fa-1x"> {{ user.info.twitter }}</i></p>
+                            <p class="fa fa-phone"> {{ user.info.phone_num }}</p>
                         </div>
                     </div>
                 </div>

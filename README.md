@@ -26,6 +26,62 @@ Project documents
 
 Prerequisite
 ---
-- 
+- [Python](https://www.python.org/downloads/) 3.6 or newer 
+- [Django](https://docs.djangoproject.com/en/2.2/topics/install/) 2.1.2 or newer
+- Heroku CLI
+- Google OAuth API
+- Python add-on modules as in [requirements.txt](requirements.txt)
+- Local environment variable (Please ask permission to the project owner for the environment variables.)
+
+
 Get started (run locally)
 ---
+Clone the repository.
+```
+  $ git clone https://github.com/bameethanida/BetterTogether.git 
+```
+Change directory to `BetterTogether` directory.
+```
+  $ cd BetterTogether/
+```
+Create virtualenv in the directory and activate virtualenv.    
+```
+  $ virtualenv venv
+```
+#### On MacOS and Linux:
+```
+  $ source venv/bin/activate
+```
+
+#### On Windows:
+```
+  $ venv\Scripts\activate
+```
+
+Install all required packages and then run database migrations.
+#### On MacOS and Linux:
+```
+  (venv) pip3 install -r requirements.txt
+  (venv) python3 manage.py makemigrations
+  (venv) python3 manage.py migrate
+```
+
+#### On Windows:
+```
+  (venv) pip install -r requirements.txt
+  (venv) py manage.py makemigrations
+  (venv) py manage.py migrate
+```
+Running the tests.
+```
+  (venv) cd django-poll/mysite
+```
+#### On MacOS and Linux:
+```
+  (venv) python3 manage.py runserver
+```
+
+#### On Windows:
+```
+  (venv) py manage.py runserver
+```
