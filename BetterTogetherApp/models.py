@@ -16,7 +16,7 @@ class Info(models.Model):
     gender = models.CharField('Gender (F or M)', max_length=1)
     birthday = models.DateField(null=True, blank=True)
     brief_info = models.TextField('Background Infomation', default="")
-    phone_num = models.CharField('Phone Number', max_length=10, default=0)
+    phone_num = models.CharField('Phone Number', max_length=10, default="NOT SET")
     twitter = models.TextField('Twitter', blank=True)
 
     def get_name(self):
@@ -30,9 +30,6 @@ class Info(models.Model):
 
     def get_brief_info(self):
         return self.brief_info
-
-    def get_gender(self):
-        return self.gender
 
     def get_number(self):
         return self.phone_num

@@ -59,7 +59,6 @@ def signup(request):
     if request.method == 'POST':
         form = SignUp(request.POST)
         if form.is_valid():
-            print("valid")
             form.save()
             username = form.data.get('username')
             raw_password = form.data.get('password1')

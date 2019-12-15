@@ -20,3 +20,14 @@ class BetterTogetherTestsForm(TestCase):
         'description': sf.description, 'date_time': sf.date_time, 'num_people': sf.num_people}
         form1 = ShareFoodForm(data=data)
         self.assertFalse(form1.is_valid())
+
+    def test_valid_sign_in(self):
+        data = {'username': "brewster", 'password': "123qwerty"}
+        form1 = SignIn(data)
+        self.assertTrue(form1.is_valid())
+
+    def test_invalid_sign_up(self):
+        data = {'username': "brewster", 'password1': "123", 'password2': "123", 'first_name': "John",
+        'last_name': "Newman"}
+        form1 = SignUp(data)
+        self.assertFalse(form1.is_valid())
