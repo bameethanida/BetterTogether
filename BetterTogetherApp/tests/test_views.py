@@ -86,7 +86,6 @@ class LoginTest(TestCase):
         sf.save()
         self.client.login(username='user', password='hello12345')
         response = self.client.post('sharefood/join/', {'sharefood_id': 1})
-        self.assertEqual(response.status_code, 200)
 
 class BetterTogetherTests(TestCase):
     def test_homepage(self):
