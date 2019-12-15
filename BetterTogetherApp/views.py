@@ -15,9 +15,11 @@ formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
 
 
 def index(request):
+    """Render homepage's page"""
     return render(request, 'BetterTogetherApp/homepage.html')
 
 def all_share(request):
+    """Collection of all shares (share food, ride, promotion)"""
     sr = ShareRide.objects.all()
     sf = ShareFood.objects.all()
     sp = SharePromotion.objects.all()
@@ -26,9 +28,7 @@ def all_share(request):
     return render(request, 'BetterTogetherApp/all_share.html', context)
 
 def login_user(request, backend='django.contrib.auth.backends.ModelBackend'):
-    """
-    If the user is not authenticated, get user's request and execute login.
-    """
+    """If the user is not authenticated, get user's request and execute login."""
     if not request.user.is_authenticated:
         form2 = SignIn(request.POST)
         if request.method == "POST":
@@ -49,6 +49,7 @@ def login_user(request, backend='django.contrib.auth.backends.ModelBackend'):
     return HttpResponseRedirect(reverse('BetterTogetherApp:index'))
 
 def signup(request):
+    """Get user's infomation, create user account and save to database. Also, allowing user to join and create event"""
     if request.method == 'POST':
         form = SignUp(request.POST)
         if form.is_valid():
@@ -70,12 +71,14 @@ def signup(request):
 
 @login_required
 def logout_user(request):
+    """Logout mode"""
     print(request.user)
     logout(request)
     return redirect(reverse('BetterTogetherApp:index'))
 
 @login_required
 def profile(request):
+    """User's profile"""
     user = request.user
     info = request.user.info
     context = {'user':user, 'info':info}
@@ -83,6 +86,7 @@ def profile(request):
 
 @login_required
 def edit_profile(request):
+    """Users can edit their profile"""
     form = EditInfo(request.POST or None)
     info = request.user.info
     if request.method == 'POST':
@@ -110,6 +114,7 @@ def edit_profile(request):
 
 @login_required
 def join_share_ride(request, shareride_id):
+    """User can join share ride event with their account"""
     user = request.user.id
     try:
         sr = get_object_or_404(ShareRide, pk=shareride_id)
@@ -121,6 +126,7 @@ def join_share_ride(request, shareride_id):
 
 @login_required
 def leave_share_ride(request, shareride_id):
+    """User can leave share ride event"""
     user = request.user.id
     try:
         sr = get_object_or_404(ShareRide, pk=shareride_id)
@@ -132,6 +138,7 @@ def leave_share_ride(request, shareride_id):
 
 @login_required
 def join_share_promotion(request, sharepromo_id):
+    """User can join share promotion event with their account"""
     user = request.user.id
     try:
         sp = get_object_or_404(SharePromotion, pk=sharepromo_id)
@@ -143,6 +150,7 @@ def join_share_promotion(request, sharepromo_id):
 
 @login_required
 def leave_share_promo(request, sharepromo_id):
+    """User can leave share promotion event"""
     user = request.user.id
     try:
         sp = get_object_or_404(SharePromotion, pk=sharepromo_id)
@@ -154,6 +162,7 @@ def leave_share_promo(request, sharepromo_id):
 
 @login_required
 def join_share_food(request, sharefood_id):
+    """User can join share food event with their account"""
     user = request.user.id
     try:
         sf = get_object_or_404(ShareFood, pk=sharefood_id)
@@ -165,6 +174,7 @@ def join_share_food(request, sharefood_id):
 
 @login_required
 def leave_share_food(request, sharefood_id):
+    """User can leave share food event"""
     user = request.user.id
     try:
         sf = get_object_or_404(ShareFood, pk=sharefood_id)
@@ -176,22 +186,26 @@ def leave_share_food(request, sharefood_id):
 
 
 def share_ride_index(request):
+    """Render share ride's page"""
     share_ride = ShareRide.objects.all()
     context = {'share_ride' : share_ride, 'datetime' : formatedDate }
     return render(request, 'BetterTogetherApp/share_ride_index.html', context)
 
 def share_promotion_index(request):
+    """Render share promotion's page"""
     share_promotion = SharePromotion.objects.all()
     context = {'share_promotion' : share_promotion, 'datetime' : formatedDate }
     return render(request, 'BetterTogetherApp/share_promotion_index.html', context)
 
 def share_food_index(request):
+    """Render share food's page"""
     share_food = ShareFood.objects.all()
     context = {'share_food' : share_food, 'datetime' : formatedDate}
     return render(request, 'BetterTogetherApp/share_food_index.html', context)
 
 @login_required
 def create_share_food(request):
+    """User creates share food event"""
     form = ShareFoodForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
@@ -211,6 +225,7 @@ def create_share_food(request):
     return render(request, 'BetterTogetherApp/share_food_create.html', context)
 
 def delete_share_food(request, sharefood_id):
+    """User can delete share food event (only creating by their account)"""
     share = ShareFood.objects.get(pk=sharefood_id)
     share.delete()
     return redirect('BetterTogetherApp:share_food_index1')
@@ -237,12 +252,14 @@ def create_share_promotion(request):
     return render(request, 'BetterTogetherApp/share_promotion_create.html', context)
 
 def delete_share_promotion(request, sharepromo_id):
+    """User can delete share promotion event (only creating by their account)"""
     share = SharePromotion.objects.get(pk=sharepromo_id)
     share.delete()
     return redirect('BetterTogetherApp:share_promotion_index1')
 
 @login_required
 def create_share_ride(request):
+    """User creates share ride event"""
     form = ShareRideForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
@@ -264,6 +281,7 @@ def create_share_ride(request):
     return render(request, 'BetterTogetherApp/share_ride_create.html', context)
 
 def delete_share_ride(request, shareride_id):
+    """User can delete share ride event (only creating by their account)"""
     shareride1 = ShareRide.objects.get(pk=shareride_id)
     shareride1.delete()
     return redirect('BetterTogetherApp:share_ride_index1')

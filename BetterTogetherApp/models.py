@@ -12,6 +12,7 @@ myDate = datetime.now()
 formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
 
 class Info(models.Model):
+    """User's model"""
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     gender = models.CharField('Gender (F or M)', max_length=1)
     birthday = models.DateField(null=True, blank=True)
@@ -46,6 +47,7 @@ def save_user_profile(sender, instance, **kwargs):
 
 
 class ShareFood(models.Model):
+    """Collecting share food event"""
     location_name = models.TextField('Location Name', default="",max_length=80)
     location = models.TextField('Location', default="",max_length=80)
     description = models.TextField('Description', default="",max_length=100)
@@ -81,9 +83,9 @@ class ShareFood(models.Model):
     
 
 class ShareRide(models.Model):
+    """Collecting share ride event"""
     myDate = datetime.now()
     formatedDate = myDate.strftime("%Y-%m-%d %H:%M:%S")
-
     location_name = models.TextField('Location Name', default="",max_length=80)
     location = models.TextField('Location', default="", max_length=80)
     destination_name = models.TextField('Destination Name', default="",max_length=80)
@@ -130,6 +132,7 @@ class ShareRide(models.Model):
         return f"Host Gender: {self.host_gender}"
 
 class SharePromotion(models.Model):
+    """Collecting share promotion event"""
     location_name = models.TextField('Location Name', default="",max_length=80)
     location = models.TextField('Location', default="",max_length=80)
     brand = models.TextField('Brand', default="",max_length=80)
