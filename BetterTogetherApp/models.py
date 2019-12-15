@@ -19,6 +19,7 @@ class Info(models.Model):
     phone_num = models.CharField('Phone Number', max_length=10, default="NOT SET")
     twitter = models.TextField('Twitter', default="NOT SET")
 
+
     def get_name(self):
         return f"{self.user.first_name} {self.user.last_name}"
 
@@ -30,9 +31,6 @@ class Info(models.Model):
 
     def get_brief_info(self):
         return self.brief_info
-
-    def get_gender(self):
-        return self.gender
 
     def get_number(self):
         return self.phone_num
