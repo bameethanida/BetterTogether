@@ -29,7 +29,7 @@ class ShareFoodTest(TestCase):
         user1 = User(first_name="John", last_name="Newman")
         user1.save()
         info2 = user1.info
-        sf = ShareFood(location_name="BBQ Pl aza Major Ratchayothin",location="1839 Phahonyothin Rd, Lat Yao, Chatuchak, Bangkok 10900",
+        sf = ShareFood(location_name="BBQ Plaza Major Ratchayothin",location="1839 Phahonyothin Rd, Lat Yao, Chatuchak, Bangkok 10900",
         description="Null", date_time="2019-11-20 08:51:52", num_people=2)
         sf.save()
         sf.participants.add(info2)
