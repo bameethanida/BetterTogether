@@ -17,11 +17,13 @@
 <b>Project documents</b>
 <font size = "3">
 ---
-- ***[Iteration Plans](https://docs.google.com/document/d/12p_Q9lJGcFmxHFXDqpTGRPNsecd8QeMzd4vc9adesV8/edit?usp=sharing)***
-- ***[Iteration script and Review checklist](https://docs.google.com/document/d/1gTIWK_j4zq2iye9BwMY-_iJL65G4-hXLypDWlyjXnyU/edit?usp=sharing)***
-- ***[Trello Board](https://trello.com/b/LlTAdYnN/bettertogether)***
 - ***[Project Proposal](https://docs.google.com/document/d/1llsbVdOLaALymVtk0Ri6rGM3YudRvHal9JsArOEHnYU/edit#)***
 - ***[Mockups Design](https://drive.google.com/drive/u/1/folders/1sMbkb3lHPt1bKVLKOyiRq-pkF06_ePIt)***
+- ***[Trello Board](https://trello.com/b/LlTAdYnN/bettertogether)***
+- ***[Iteration Plans](https://docs.google.com/document/d/12p_Q9lJGcFmxHFXDqpTGRPNsecd8QeMzd4vc9adesV8/edit?usp=sharing)***
+- ***[Iteration script and Review checklist](https://docs.google.com/document/d/1gTIWK_j4zq2iye9BwMY-_iJL65G4-hXLypDWlyjXnyU/edit?usp=sharing)***
+
+
 
 <b>Prerequisite </b>
 <font size = "3">
@@ -34,54 +36,52 @@
 - Local environment variable (Please ask permission to the project owner for the environment variables.)
 
 
-<b>Get started (run locally)</b>
+Get started (run locally)
 ---
-<font size ="3"> Clone the repository.
+1. Clone the repository.
 ```
   $ git clone https://github.com/bameethanida/BetterTogether.git 
 ```
-Change directory to `BetterTogether` directory.
+2. Change directory to `BetterTogether` directory.
 ```
   $ cd BetterTogether/
 ```
-Create virtualenv in the directory and activate virtualenv.    
+3. Create virtualenv in the directory and activate virtualenv.    
 ```
   $ virtualenv venv
 ```
-On MacOS and Linux:
+##### On MacOS and Linux:
 ```
   $ source venv/bin/activate
 ```
 
-#### On Windows:
+##### On Windows:
 ```
   $ venv\Scripts\activate
 ```
 
-Install all required packages and then run database migrations.
-#### On MacOS and Linux:
+4. Install all required packages and then run database migrations.
+##### On MacOS and Linux:
 ```
   (venv) pip3 install -r requirements.txt
   (venv) python3 manage.py makemigrations
   (venv) python3 manage.py migrate
 ```
 
-#### On Windows:
+##### On Windows:
 ```
   (venv) pip install -r requirements.txt
   (venv) py manage.py makemigrations
   (venv) py manage.py migrate
 ```
-Running the tests.
-```
-  (venv) cd django-poll/mysite
-```
-#### On MacOS and Linux:
+5. Running the tests.
+
+##### On MacOS and Linux:
 ```
   (venv) python3 manage.py runserver
 ```
 
-#### On Windows:
+##### On Windows:
 ```
   (venv) py manage.py runserver
 ```
