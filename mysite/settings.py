@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1', 'share-bettertogether.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'share-share-share.herokuapp.com']
 
 SOCIAL_AUTH_URL_NAMESPACE = 'oauth'
 SOCIAL_AUTH_POSTGRES_JSONFIELD = config('SOCIAL_AUTH_POSTGRES_JSONFIELD', default=False, cast=bool)
