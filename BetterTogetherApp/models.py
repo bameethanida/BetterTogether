@@ -15,9 +15,9 @@ class Info(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     gender = models.CharField('Gender (F or M)', max_length=1)
     birthday = models.DateField(null=True, blank=True)
-    brief_info = models.TextField('Background Infomation', default="")
-    phone_num = models.CharField('Phone Number', max_length=10, default=0)
-    twitter = models.TextField('Twitter', blank=True)
+    brief_info = models.TextField('Background Infomation', default="NOT SET")
+    phone_num = models.CharField('Phone Number', max_length=10, default="NOT SET")
+    twitter = models.TextField('Twitter', default="NOT SET")
 
     def get_name(self):
         return f"{self.user.first_name} {self.user.last_name}"
