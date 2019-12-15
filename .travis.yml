@@ -1,5 +1,5 @@
 language: python
-  
+
 python: "3.6"
 
 git:
@@ -10,4 +10,8 @@ install:
   - pip install codecov
 
 script:
-  - python manage.py test BetterTogetherApp/tests
+  - coverage run manage.py test BetterTogetherApp/tests
+  
+
+after_success:
+  - codecov
