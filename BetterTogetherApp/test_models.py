@@ -34,7 +34,7 @@ class ShareFoodTest(TestCase):
         sf.save()
         sf.participants.add(info2)
         self.assertEqual(sf.participants.get(pk=1).get_name(), "John Newman")
-        self.assertEqual(sf.get_location_name(), "Meeting Location: BBQ Plaza Major Ratchayothin")
+        self.assertEqual(sf.get_location_name(), "BBQ Plaza Major Ratchayothin")
 
 class ShareRideTest(TestCase):
 
