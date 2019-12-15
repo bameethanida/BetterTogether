@@ -1,7 +1,6 @@
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
 }
 
 body {
@@ -34,6 +33,7 @@ body {
 }
 
 .form-wrapper.is-active {
+	margin-left: 80px;
 	animation: showLayer .3s ease-in forwards;
 }
 
@@ -62,11 +62,11 @@ body {
 	cursor: pointer;
 	display: block;
 	margin-right: auto;
-	margin-left: auto;
+	margin-left: 80px;
 	padding: 0;
 	text-transform: uppercase;
 	font-family: inherit;
-	font-size: 16px;
+	font-size: 18px;
 	letter-spacing: .5px;
 	color: #999;
 	background-color: transparent;
@@ -83,7 +83,7 @@ body {
 
 .form-wrapper.is-active .switcher-signup {
 	color: #fff;
-	transform: translateX(-90px);
+	margin-left: 330px;	
 }
 
 .underline {
@@ -122,7 +122,7 @@ body {
 
 .form {
 	overflow: hidden;
-	min-width: 260px;
+	width: 360px;
 	margin-top: 50px;
 	padding: 30px 25px;
 	border-radius: 5px;
@@ -149,7 +149,7 @@ body {
 
 	100% {
 		background-color: #fff;
-		transform: translate(35%, -20px);
+
 	}
 }
 
@@ -170,10 +170,12 @@ body {
 }
 
 .form-signup {
+	width: 420px;
 	animation: hideSignup .3s ease-out forwards;
 }
 
 .form-wrapper.is-active .form-signup {
+	margin-left: 300px;
 	animation: showSignup .3s ease-in forwards;
 }
 
@@ -290,7 +292,6 @@ input:active {
 	opacity: 0;
 	display: block;
 	min-width: 120px;
-	margin: 30px auto 10px;
 	font-size: 18px;
 	line-height: 40px;
 	border-radius: 25px;
@@ -314,20 +315,31 @@ input:active {
 }
 
 .btn-signup {
+	width: 100px;
+	height: 45px;
+	border-radius: 25px;
+	border: none;
+	font-size: 18px;
 	color: #fbfdff;
-	background: crimson;
-	box-shadow: #999;
-	transform: translateX(30%);
+	background:#ff7272;
+	padding: 1px 7px 2px;
+
 }
 
+a:-webkit-any-link {
+    color: white;
+    cursor: pointer;
+	text-decoration: none;
+	
+}
 .form-group {
-	display: flex;
+	display: block;
 
 }
 
 .line {
 	display: block;
-	margin-top: 0.5em;
+	margin-top: 1em;
 	margin-bottom: 0.5em;
 	margin-left: auto;
 	margin-right: auto;
