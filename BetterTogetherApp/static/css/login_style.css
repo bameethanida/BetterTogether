@@ -33,7 +33,7 @@ body {
 }
 
 .form-wrapper.is-active {
-	margin-left: 80px;
+	margin-left: 0;
 	animation: showLayer .3s ease-in forwards;
 }
 
