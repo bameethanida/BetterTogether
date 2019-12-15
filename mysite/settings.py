@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1', 'share-share-share.herokuapp.com']
+ALLOWED_HOSTS = ['*', 'share-share-share.herokuapp.com']
 
 SOCIAL_AUTH_URL_NAMESPACE = 'oauth'
 SOCIAL_AUTH_POSTGRES_JSONFIELD = config('SOCIAL_AUTH_POSTGRES_JSONFIELD', default=False, cast=bool)
@@ -95,12 +95,8 @@ AUTHENTICATION_BACKENDS = (
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
 # Password validation
@@ -147,6 +143,8 @@ if os.path.isfile(dotenv_file):
 STATIC_URL = '/static/' 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/') 
 STATICFILES_DIR = (BASE_DIR + '/BetterTogetherApp/static/',)
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # django_heroku.settings(locals())
 
