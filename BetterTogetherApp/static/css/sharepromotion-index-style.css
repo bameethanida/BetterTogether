@@ -208,7 +208,7 @@ ul {
 
 .container:hover .overlay {
   top: 0;
-  height: 75%;
+  height: 83%;
 }
 
 .text {
@@ -233,7 +233,7 @@ ul {
   display: flex;
   justify-content: center;
   height: 100%;
-  padding-top: 15%;
+  padding-top: 5%;
 }
 
 .button_cont {
