@@ -144,8 +144,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/') 
 STATICFILES_DIR = (BASE_DIR + '/BetterTogetherApp/static/',)
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 # django_heroku.settings(locals())
 
 if 'HEROKU' in os.environ:
