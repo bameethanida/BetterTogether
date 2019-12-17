@@ -63,9 +63,10 @@ def signup(request):
         else:
             message = form.errors.as_data()
             for value in message:
-                form = message[value][0]
-                message = str(form).strip('[]')
-                print(message)
+                for value2 in range(len(message)):
+                    form = message[value][value2]
+                    message = str(form).strip('[]')
+                    print(message)
             form = SignUp()
             return render(request, 'BetterTogetherApp/signup.html', {'form': form, 'message': message})
     else:
