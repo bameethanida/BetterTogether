@@ -34,15 +34,14 @@ def login_user(request, backend='django.contrib.auth.backends.ModelBackend'):
         if request.method == "POST":
             username = form2.data.get('username')
             password = form2.data.get('password')
-            try:
-                user = User.objects.get(username=username, password=password)
-            except (KeyError, User.DoesNotExist):
-                message = "Attention: Wrong Username or Password"
-                return render(request, 'BetterTogetherApp/login.html', {'form2': form2, 'message': message})
+            user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                 return HttpResponseRedirect(reverse('BetterTogetherApp:index'))
                 # redirect('/login/next=%s' %request.path)
+            else:
+                message = "Attention: Wrong Username or Password"
+                return render(request, 'BetterTogetherApp/login.html', {'form2': form2, 'message': message})
         else:
             return render(request, 'BetterTogetherApp/login.html', {'form2': form2})
 
@@ -62,8 +61,13 @@ def signup(request):
             login(request, user)
             return HttpResponseRedirect(reverse('BetterTogetherApp:index'))
         else:
-            form = SignUp() 
-            return render(request, 'BetterTogetherApp/signup.html', {'form': form})
+            message = form.errors.as_data()
+            for value in message:
+                form = message[value][0]
+                message = str(form).strip('[]')
+                print(message)
+            form = SignUp()
+            return render(request, 'BetterTogetherApp/signup.html', {'form': form, 'message': message})
     else:
         form = SignUp() 
     return render(request, 'BetterTogetherApp/signup.html', {'form': form})
