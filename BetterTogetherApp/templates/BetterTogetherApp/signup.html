@@ -36,10 +36,8 @@
                                         <h2>Already have a BetterTogether account?</h2>
                                          <button class = "btn-signup"><a href='{% url "BetterTogetherApp:login" %}'>LOG IN</a></button>
                                         {% if message %}
-                                        <p> ERROR </p>
-                                        <p> {{ message }} </p>
+                                        <h4> ERROR {{ message }} </h4>
                                         {% endif %}
-                                        <p> </p>
                                         <fieldset>
                                             <hr class="line">
                                         </fieldset>

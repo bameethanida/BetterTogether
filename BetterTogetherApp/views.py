@@ -62,7 +62,11 @@ def signup(request):
             return HttpResponseRedirect(reverse('BetterTogetherApp:index'))
         else:
             message = form.errors.as_data()
-            form = SignUp() 
+            for value in message:
+                form = message[value][0]
+                message = str(form).strip('[]')
+                print(message)
+            form = SignUp()
             return render(request, 'BetterTogetherApp/signup.html', {'form': form, 'message': message})
     else:
         form = SignUp() 
