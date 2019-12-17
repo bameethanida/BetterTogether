@@ -9,6 +9,10 @@ body {
 	background: #FFBF34;
 }
 
+h4 {
+	color: #dd4b39;
+}
+
 .forms-section {
 	display: flex;
 	flex-direction: column;

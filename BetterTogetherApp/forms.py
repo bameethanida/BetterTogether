@@ -68,8 +68,7 @@ class SignIn(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'password']
-        widgets = {
-        }
+        
 
 class SignUp(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
